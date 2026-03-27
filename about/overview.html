@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="..">
+  <title>회사개요 - PS Aunics VINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/sub.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header sub-page">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-sub">PentaStone Automotive-Electronics</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <div class="nav-item active">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="overview.html" data-i18n="nav.about_overview">회사개요</a>
+            <a href="history.html" data-i18n="nav.about_history">연혁</a>
+            <a href="global.html" data-i18n="nav.about_global">글로벌 네트워크</a>
+            <a href="certifications.html" data-i18n="nav.about_cert">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a>
+          <div class="dropdown">
+            <a href="../products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a>
+            <a href="../products/ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a>
+            <a href="../products/mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a>
+            <a href="../products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a>
+            <a href="../products/lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a>
+            <a href="../products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.production">생산역량</a>
+          <div class="dropdown">
+            <a href="../production/expertise.html" data-i18n="nav.production_expertise">생산 전문성</a>
+            <a href="../production/facilities.html" data-i18n="nav.production_facilities">제조시설</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.support">고객지원</a>
+          <div class="dropdown">
+            <a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a>
+            <a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-right">
+        <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="vi">VI</button>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <div class="page-banner-content">
+      <h1 data-i18n="nav.about_overview">회사개요</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="separator">›</span>
+        <a href="overview.html" data-i18n="nav.about">회사소개</a>
+        <span class="separator">›</span>
+        <span class="current" data-i18n="nav.about_overview">회사개요</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="sub-content">
+    <div class="container">
+      <div class="sub-layout">
+        <!-- Side Nav -->
+        <aside class="sub-nav">
+          <h3 data-i18n="nav.about">회사소개</h3>
+          <ul>
+            <li><a href="overview.html" class="active" data-i18n="nav.about_overview">회사개요</a></li>
+            <li><a href="history.html" data-i18n="nav.about_history">연혁</a></li>
+            <li><a href="global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+            <li><a href="certifications.html" data-i18n="nav.about_cert">인증현황</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sub-main">
+          <!-- Company Introduction -->
+          <section class="overview-intro fade-in">
+            <h2>PS Aunics VINA <small style="font-weight:400;color:var(--text-gray);">Co., Ltd.</small></h2>
+            <p style="font-size:1.1rem;color:var(--text-gray);line-height:1.8;margin:20px 0 30px;">
+              PS Aunics VINA là công ty con của PS Aunics (Tập đoàn Penta Stone, Hàn Quốc), được thành lập tại Khu Công nghiệp Gia Vân, huyện Gia Viễn, tỉnh Ninh Bình.
+              Chuyên sản xuất MEMS Microphone (back-end packaging) cho Samsung Electronics và cung cấp dịch vụ OEM/ODM điện tử tiêu dùng toàn diện.
+              Với hơn 550 nhân viên, 16 dây chuyền SMT và diện tích 41.000㎡, chúng tôi là đối tác sản xuất tin cậy của Samsung, Naver và nhiều tập đoàn toàn cầu.
+            </p>
+          </section>
+
+          <!-- Key Figures -->
+          <section class="overview-stats fade-in" style="margin:40px 0;">
+            <div class="grid-4" style="gap:20px;">
+              <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number"><span class="counter" data-target="550">550</span><span class="counter-suffix">+</span></div>
+                <div class="stat-label">Nhân viên</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">🏭</div>
+                <div class="stat-number"><span>41,000</span><span class="counter-suffix">㎡</span></div>
+                <div class="stat-label">Diện tích nhà máy</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">⚙️</div>
+                <div class="stat-number"><span>16</span></div>
+                <div class="stat-label">Dây chuyền SMT</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-number"><span>1.16M</span></div>
+                <div class="stat-label">CPH Capacity</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Business Areas -->
+          <section class="overview-business fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">Lĩnh vực kinh doanh</h3>
+            <div class="grid-2" style="gap:20px;">
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid var(--accent);">
+                <h4 style="color:var(--primary);margin-bottom:8px;">MEMS Packaging</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">Sản xuất MEMS Microphone (back-end packaging) cho Samsung Electronics. Wafer Laser Dicing, Die Attach, Wire Bonding.</p>
+              </div>
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid var(--secondary);">
+                <h4 style="color:var(--primary);margin-bottom:8px;">OEM/ODM</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">Loa AI Naver (Clova), đồng hồ thông minh, mô-đun LTE/5G và các sản phẩm điện tử tiêu dùng theo đặt hàng.</p>
+              </div>
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid #0d6efd;">
+                <h4 style="color:var(--primary);margin-bottom:8px;">Automotive EMS</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">Sản xuất PCBA, camera hành trình theo tiêu chuẩn IATF 16949 cho các nhà sản xuất ô tô toàn cầu.</p>
+              </div>
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid #198754;">
+                <h4 style="color:var(--primary);margin-bottom:8px;">LTE/5G Module</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">Sản xuất mô-đun truyền thông LTE/5G cho mạng SKT, KT, LG U+ và các ứng dụng IoT công nghiệp.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Group Info -->
+          <section class="overview-group fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">Tập đoàn Penta Stone (Hàn Quốc)</h3>
+            <p style="color:var(--text-gray);line-height:1.8;">
+              PS Aunics VINA là thành viên của Tập đoàn Penta Stone — tập đoàn điện tử Hàn Quốc chuyên về bộ khuếch đại công suất RF.
+              Tận dụng công nghệ và mạng lưới của tập đoàn, PS Aunics VINA đang nắm giữ năng lực cạnh tranh toàn cầu
+              trong lĩnh vực điện tử di động, ô tô và công nghiệp.
+            </p>
+          </section>
+
+          <!-- Customers -->
+          <section class="overview-customers fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">Khách hàng chính</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">Samsung</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">Hyundai · Kia</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">Toyota</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">HARMAN</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">Naver</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">SKT</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">KT</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">LG U+</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">HDC Labs</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">Hosiden</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">UEI</span>
+              <span style="background:var(--light-bg);padding:10px 20px;border-radius:6px;font-size:0.9rem;font-weight:500;color:var(--text-dark);">TCL Tonly</span>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-company">
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <ul class="company-info">
+          <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
+          <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>
+          <li><span class="label" data-i18n="footer.email_label">이메일</span><span data-i18n="footer.email">info@psavn.com</span></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_about">회사소개</h4>
+        <ul>
+          <li><a href="overview.html" data-i18n="nav.about_overview">회사개요</a></li>
+          <li><a href="history.html" data-i18n="nav.about_history">연혁</a></li>
+          <li><a href="global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_products">제품/솔루션</h4>
+        <ul>
+          <li><a href="../products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+          <li><a href="../products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+          <li><a href="../products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_support">고객지원</h4>
+        <ul>
+          <li><a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+          <li><a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/sub.js"></script>
+</body>
+</html>

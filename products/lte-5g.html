@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="..">
+  <title>LTE/5G 솔루션 - SANICO Vietnam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <style>
+    .product-highlight {
+      background: linear-gradient(135deg, #4a148c, #7b1fa2);
+      color: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 36px;
+    }
+    .product-highlight h2 { color: #fff; margin-bottom: 12px; }
+    .product-highlight p { color: rgba(255,255,255,0.9); line-height: 1.8; }
+    .solution-card {
+      background: #fff;
+      border: 1px solid #e8ecf1;
+      border-radius: 10px;
+      padding: 28px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .solution-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .solution-card .icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .solution-card h4 { color: var(--primary); margin-bottom: 8px; }
+    .solution-card p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
+    .case-card {
+      background: var(--light-bg);
+      border-radius: 8px;
+      padding: 24px;
+      border-left: 4px solid var(--accent);
+    }
+    .case-card h4 { color: var(--primary); margin-bottom: 8px; font-size: 0.95rem; }
+    .case-card p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
+    .case-card .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+    .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .spec-table th, .spec-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eee; }
+    .spec-table th { background: var(--light-bg); color: var(--primary); font-weight: 600; white-space: nowrap; }
+    .spec-table tr:hover td { background: #f8faff; }
+    .partner-card {
+      background: #fff;
+      border: 1px solid #e8ecf1;
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .partner-card h4 { color: var(--primary); margin-bottom: 8px; }
+    .partner-card p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
+    .tech-badge {
+      display: inline-block;
+      background: var(--light-bg);
+      color: var(--primary);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 4px;
+    }
+    .customer-badge {
+      display: inline-block;
+      background: var(--light-bg);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header sub-page">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-sub">PentaStone Automotive-Electronics</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a>
+            <a href="../about/history.html" data-i18n="nav.about_history">연혁</a>
+            <a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a>
+            <a href="../about/certifications.html" data-i18n="nav.about_cert">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item active">
+          <a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a>
+          <div class="dropdown">
+            <a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a>
+            <a href="ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a>
+            <a href="mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a>
+            <a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a>
+            <a href="lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a>
+            <a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.production">생산역량</a>
+          <div class="dropdown">
+            <a href="../production/expertise.html" data-i18n="nav.production_expertise">생산 전문성</a>
+            <a href="../production/facilities.html" data-i18n="nav.production_facilities">제조시설</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.support">고객지원</a>
+          <div class="dropdown">
+            <a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a>
+            <a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-right">
+        <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="vi">VI</button>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <div class="page-banner-content">
+      <h1 data-i18n="nav.products_lte5g">LTE/5G 솔루션</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="separator">›</span>
+        <a href="mems-mic.html" data-i18n="nav.products">제품/솔루션</a>
+        <span class="separator">›</span>
+        <span class="current" data-i18n="nav.products_lte5g">LTE/5G 솔루션</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="sub-content">
+    <div class="container">
+      <div class="sub-layout">
+        <!-- Side Nav -->
+        <aside class="sub-nav">
+          <h3 data-i18n="nav.products">제품/솔루션</h3>
+          <ul>
+            <li><a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+            <li><a href="ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a></li>
+            <li><a href="mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a></li>
+            <li><a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+            <li><a href="lte-5g.html" class="active" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a></li>
+            <li><a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sub-main">
+          <!-- Product Highlight -->
+          <section class="product-highlight fade-in">
+            <h2>LTE / 5G Solutions</h2>
+            <p>5G USB 동글, 5G mmWave 모듈, 5G 이더넷 모뎀, Wi-Fi 라우터 등 차세대 무선 통신 솔루션을
+              개발 및 양산하고 있습니다. KT, LG U+, SKT 등 국내 주요 통신사 프로젝트와
+              일본 5G 프라이빗 네트워크 사업에 참여하고 있습니다.</p>
+          </section>
+
+          <!-- Solution Products -->
+          <section class="fade-in" style="margin:40px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">제품 라인업</h3>
+            <div class="grid-2" style="gap:20px;">
+              <div class="solution-card">
+                <div class="icon">📱</div>
+                <h4>5G USB Dongle</h4>
+                <p>USB 타입의 5G 통신 모듈로, 노트북이나 PC에 간편하게 연결하여 5G 네트워크를 사용할 수 있습니다.
+                  Sub-6GHz 및 mmWave 대역을 지원합니다.</p>
+              </div>
+              <div class="solution-card">
+                <div class="icon">📡</div>
+                <h4>5G mmWave Module</h4>
+                <p>28GHz 대역 밀리미터파 5G 모듈. 초고속, 초저지연 통신을 지원하며, 산업용 프라이빗 5G 네트워크에 적용됩니다.</p>
+              </div>
+              <div class="solution-card">
+                <div class="icon">🌐</div>
+                <h4>5G Ethernet Modem</h4>
+                <p>5G 네트워크를 이더넷으로 변환하는 산업용 모뎀. 유선 인프라가 없는 환경에서 안정적인 초고속 연결을 제공합니다.</p>
+              </div>
+              <div class="solution-card">
+                <div class="icon">📶</div>
+                <h4>Wi-Fi Router</h4>
+                <p>LTE/5G 기반 Wi-Fi 라우터. 가정용 및 산업용으로 안정적인 무선 인터넷 서비스를 제공합니다.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Spec Table -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">주요 사양</h3>
+            <div style="overflow-x:auto;">
+              <table class="spec-table">
+                <thead>
+                  <tr>
+                    <th>제품</th>
+                    <th>주파수 대역</th>
+                    <th>통신 규격</th>
+                    <th>인터페이스</th>
+                    <th>주요 적용</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>5G USB Dongle</strong></td>
+                    <td>Sub-6 / mmWave</td>
+                    <td>5G NR SA/NSA</td>
+                    <td>USB 3.0 Type-C</td>
+                    <td>PC/노트북 5G 연결</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5G mmWave Module</strong></td>
+                    <td>28GHz (mmWave)</td>
+                    <td>5G NR SA</td>
+                    <td>M.2 / PCIe</td>
+                    <td>산업용 프라이빗 5G</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5G Ethernet Modem</strong></td>
+                    <td>Sub-6 / mmWave</td>
+                    <td>5G NR SA/NSA</td>
+                    <td>Ethernet (RJ45)</td>
+                    <td>유선 대체, 산업용</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Wi-Fi Router</strong></td>
+                    <td>LTE / Sub-6</td>
+                    <td>LTE Cat.12+ / 5G</td>
+                    <td>Wi-Fi 6, Ethernet</td>
+                    <td>가정/사무실/공공</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Use Cases -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">주요 프로젝트 레퍼런스</h3>
+            <div class="grid-2" style="gap:20px;">
+              <div class="case-card">
+                <h4>KT EV 충전 PLC 5G</h4>
+                <p>KT 전기차 충전 인프라에 5G PLC(전력선 통신) 솔루션을 적용하여 안정적인 충전 통신 환경을 구축합니다.</p>
+                <span class="tag">KT</span>
+              </div>
+              <div class="case-card" style="border-left-color:var(--secondary);">
+                <h4>LG U+ 5G 버스 공공 Wi-Fi</h4>
+                <p>LG U+ 버스 공공 Wi-Fi 서비스를 위한 5G 라우터를 공급하여 시내버스에서 고속 인터넷 서비스를 제공합니다.</p>
+                <span class="tag">LG U+</span>
+              </div>
+              <div class="case-card" style="border-left-color:#27ae60;">
+                <h4>일본 5G 프라이빗 네트워크</h4>
+                <p>일본 기업 대상 5G 프라이빗 네트워크 구축 프로젝트에 5G mmWave 모듈과 이더넷 모뎀을 공급합니다.</p>
+                <span class="tag">Japan</span>
+              </div>
+              <div class="case-card" style="border-left-color:#8e44ad;">
+                <h4>SKT / KT / LG U+ 5G SA 모듈</h4>
+                <p>HUCOM wireless와 협력하여 국내 3사 통신망 대응 5G 28GHz/Sub-6 SA 모듈을 공급합니다.</p>
+                <span class="tag">SKT</span> <span class="tag">KT</span> <span class="tag">LG U+</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Partner -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">파트너</h3>
+            <div class="partner-card">
+              <h4>HUCOM Wireless</h4>
+              <p>5G 28GHz 및 Sub-6 SA 모듈 전문 기업. SKT, KT, LG U+ 통신 3사의 5G 네트워크에 대응하는
+                무선 통신 모듈을 공동 개발 및 공급하고 있습니다.</p>
+              <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">
+                <span class="tech-badge">5G 28GHz mmWave</span>
+                <span class="tech-badge">Sub-6GHz SA</span>
+                <span class="tech-badge">5G NR Module</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Customers -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">주요 고객사</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;">
+              <span class="customer-badge">SKT</span>
+              <span class="customer-badge">KT</span>
+              <span class="customer-badge">LG U+</span>
+              <span class="customer-badge">HUCOM Wireless</span>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-company">
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <ul class="company-info">
+          <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
+          <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>
+          <li><span class="label" data-i18n="footer.email_label">이메일</span><span data-i18n="footer.email">info@psavn.com</span></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_about">회사소개</h4>
+        <ul>
+          <li><a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a></li>
+          <li><a href="../about/history.html" data-i18n="nav.about_history">연혁</a></li>
+          <li><a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_products">제품/솔루션</h4>
+        <ul>
+          <li><a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+          <li><a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+          <li><a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_support">고객지원</h4>
+        <ul>
+          <li><a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+          <li><a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/sub.js"></script>
+</body>
+</html>

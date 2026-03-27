@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>출퇴근 관리 시스템 (T&A System)</title>
+    <link rel="stylesheet" href="css/style.css?v=2026031036">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', -apple-system, sans-serif; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <h1>
+            <span class="header-icon">&#128203;</span>
+            출퇴근 관리 시스템
+        </h1>
+        <span class="header-info">T&A System - 지문인식 기반 근태 관리</span>
+    </header>
+
+    <div class="app-container">
+
+        <!-- File Upload - 2 cards side by side -->
+        <div class="upload-area-grid">
+            <!-- T2 출퇴근 데이터 -->
+            <div class="upload-card">
+                <div class="upload-card-label">&#128203; T2 출퇴근 데이터</div>
+                <div id="drop-zone" class="upload-zone">
+                    <div class="drop-icon">&#128194;</div>
+                    <div class="drop-text">
+                        파일 드래그 또는 클릭하여 선택
+                        <br><small>Chi Tiết Chấm Công / T2.xlsx</small>
+                    </div>
+                </div>
+                <input type="file" id="file-input" accept=".xlsx,.xls" style="display:none">
+                <div id="upload-status" style="text-align:center; margin-top:6px; color:#6b7280; font-size:12px;"></div>
+            </div>
+
+            <!-- 인사 DB -->
+            <div class="upload-card">
+                <div class="upload-card-label">&#128100; 인사 DB</div>
+                <div id="hr-drop-zone" class="upload-zone">
+                    <div class="drop-icon">&#128100;</div>
+                    <div class="drop-text">
+                        파일 드래그 또는 클릭하여 선택
+                        <br><small>인사DB.xlsx</small>
+                    </div>
+                </div>
+                <input type="file" id="hr-file-input" accept=".xlsx,.xls" style="display:none">
+                <div id="hr-upload-status" style="text-align:center; margin-top:6px; color:#6b7280; font-size:12px;"></div>
+            </div>
+        </div>
+
+        <!-- Welcome Section -->
+        <div id="welcome-section">
+            <h2>근태 데이터 파일을 업로드해 주세요</h2>
+            <p>지문인식 출퇴근 기록이 담긴 xlsx 파일을 업로드하면<br>부서별 / 인원별 / 날짜별(가로형) 근태표를 자동으로 생성합니다.</p>
+        </div>
+
+        <!-- Dashboard Section (hidden until file loaded) -->
+        <div id="dashboard-section" style="display:none;">
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">직원수</span>
+                    <span class="stat-value" id="stat-employees">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">기간</span>
+                    <span class="stat-value" id="stat-dates">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">총 레코드</span>
+                    <span class="stat-value" id="stat-records">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">잔업 건수</span>
+                    <span class="stat-value" id="stat-overtime">-</span>
+                </div>
+            </div>
+
+            <!-- 통합 필터 바 -->
+            <div class="filter-bar-unified">
+                <label class="filter-label">부서</label>
+                <select id="filter-dept" class="filter-select"></select>
+                <label class="filter-label">공정</label>
+                <select id="filter-process" class="filter-select">
+                    <option value="">전체</option>
+                </select>
+                <label class="filter-label" id="daily-date-label" style="display:none;">날짜</label>
+                <select id="filter-date" class="filter-select" style="display:none;"></select>
+                <label class="filter-label">검색</label>
+                <input type="text" id="filter-search" class="filter-input" placeholder="사번 또는 이름...">
+                <span class="filter-count" id="filter-count"></span>
+                <div class="filter-actions">
+                    <button class="btn btn-outline" id="btn-daily-edit">일별 수정</button>
+                    <button class="btn btn-outline" id="btn-hr-db">인사DB 관리</button>
+                    <button class="btn btn-export" id="btn-export-chotcong">Excel 내보내기</button>
+                    <button class="btn btn-export btn-export-monthly" id="btn-export-monthly">월 종합 내보내기</button>
+                </div>
+            </div>
+
+            <!-- CHỐT CÔNG Table -->
+            <div id="chotcong-container">
+                <div class="empty-state">부서 탭을 선택하세요.</div>
+            </div>
+
+            <!-- 일별 수정 Table (hidden by default) -->
+            <div id="dailyedit-container" style="display:none;"></div>
+
+            <!-- 인사DB 관리 Table (hidden by default) -->
+            <div id="hr-container" style="display:none;"></div>
+
+        </div><!-- /dashboard-section -->
+
+    </div><!-- /app-container -->
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>데이터 처리 중...</p>
+        </div>
+    </div>
+
+    <!-- Message Bar -->
+    <div id="message-bar" class="message-bar"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="js/parser.js?v=2026031036"></script>
+    <script src="js/calculator.js?v=2026031036"></script>
+    <script src="js/hrParser.js?v=2026031036"></script>
+    <script src="js/renderer.js?v=2026031036"></script>
+    <script src="js/export.js?v=2026031036"></script>
+    <script src="js/app.js?v=2026031036"></script>
+
+</body>
+</html>

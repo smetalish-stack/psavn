@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "psavn-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3000", "-s", "/Users/tony/Homepage/psavn"],
+      "port": 3000
+    }
+  ]
+}

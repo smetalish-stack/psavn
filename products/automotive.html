@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="..">
+  <title>차량용 제품 - SANICO Vietnam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <style>
+    .product-highlight {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 36px;
+    }
+    .product-highlight h2 { color: #fff; margin-bottom: 12px; }
+    .product-highlight p { color: rgba(255,255,255,0.9); line-height: 1.8; }
+    .auto-card {
+      background: #fff;
+      border: 1px solid #e8ecf1;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .auto-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .auto-card-header {
+      padding: 20px 24px;
+      background: var(--light-bg);
+      border-bottom: 1px solid #e8ecf1;
+    }
+    .auto-card-header .icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .auto-card-header h4 { color: var(--primary); margin: 0; }
+    .auto-card-body { padding: 20px 24px; }
+    .auto-card-body p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; margin-bottom: 12px; }
+    .auto-card-body .feature-list { list-style: none; padding: 0; margin: 0; }
+    .auto-card-body .feature-list li {
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      padding: 6px 0;
+      border-bottom: 1px solid #f5f5f5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .auto-card-body .feature-list li:last-child { border-bottom: none; }
+    .auto-card-body .feature-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .spec-table th, .spec-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eee; }
+    .spec-table th { background: var(--light-bg); color: var(--primary); font-weight: 600; white-space: nowrap; }
+    .spec-table tr:hover td { background: #f8faff; }
+    .customer-badge {
+      display: inline-block;
+      background: var(--light-bg);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    .app-badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header sub-page">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-sub">PentaStone Automotive-Electronics</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a>
+            <a href="../about/history.html" data-i18n="nav.about_history">연혁</a>
+            <a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a>
+            <a href="../about/certifications.html" data-i18n="nav.about_cert">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item active">
+          <a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a>
+          <div class="dropdown">
+            <a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a>
+            <a href="ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a>
+            <a href="mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a>
+            <a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a>
+            <a href="lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a>
+            <a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.production">생산역량</a>
+          <div class="dropdown">
+            <a href="../production/expertise.html" data-i18n="nav.production_expertise">생산 전문성</a>
+            <a href="../production/facilities.html" data-i18n="nav.production_facilities">제조시설</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.support">고객지원</a>
+          <div class="dropdown">
+            <a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a>
+            <a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-right">
+        <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="vi">VI</button>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <div class="page-banner-content">
+      <h1 data-i18n="nav.products_automotive">차량용 제품</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="separator">›</span>
+        <a href="mems-mic.html" data-i18n="nav.products">제품/솔루션</a>
+        <span class="separator">›</span>
+        <span class="current" data-i18n="nav.products_automotive">차량용 제품</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="sub-content">
+    <div class="container">
+      <div class="sub-layout">
+        <!-- Side Nav -->
+        <aside class="sub-nav">
+          <h3 data-i18n="nav.products">제품/솔루션</h3>
+          <ul>
+            <li><a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+            <li><a href="ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a></li>
+            <li><a href="mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a></li>
+            <li><a href="automotive.html" class="active" data-i18n="nav.products_automotive">차량용 제품</a></li>
+            <li><a href="lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a></li>
+            <li><a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sub-main">
+          <!-- Product Highlight -->
+          <section class="product-highlight fade-in">
+            <h2>Automotive Products</h2>
+            <p>차량용 전장 분야에서 블랙박스(Dashcam), 운전자 모니터링 시스템(DMS), 실내 모니터링 시스템(IMS),
+              HD 차량용 카메라 등 다양한 솔루션을 제공합니다. 현대기아차, Toyota, GM, Motrex 등
+              글로벌 완성차 및 전장 기업에 납품하고 있습니다.</p>
+          </section>
+
+          <!-- Product Cards -->
+          <section class="fade-in" style="margin:40px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">제품 라인업</h3>
+            <div class="grid-2" style="gap:20px;">
+              <div class="auto-card">
+                <div class="auto-card-header">
+                  <div class="icon">📹</div>
+                  <h4>Dashcam (블랙박스)</h4>
+                </div>
+                <div class="auto-card-body">
+                  <p>FHD+HD 2채널 블랙박스로 전/후방 동시 녹화를 지원합니다.</p>
+                  <ul class="feature-list">
+                    <li>FHD + HD 2CH 동시 녹화</li>
+                    <li>3인치 LCD 디스플레이</li>
+                    <li>Wi-Fi 연결 (스마트폰 앱)</li>
+                    <li>GPS 내장</li>
+                    <li>SuperCap 탑재 (고온 안정성)</li>
+                    <li>주차 감시 모드</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="auto-card">
+                <div class="auto-card-header">
+                  <div class="icon">👁️</div>
+                  <h4>DMS (Driver Monitoring System)</h4>
+                </div>
+                <div class="auto-card-body">
+                  <p>AI 기반 운전자 상태 모니터링 시스템으로 졸음 및 부주의 운전을 감지합니다.</p>
+                  <ul class="feature-list">
+                    <li>IR 카메라 기반 운전자 감지</li>
+                    <li>졸음 운전 경고</li>
+                    <li>부주의 운전 감지</li>
+                    <li>AI Deep Learning 알고리즘</li>
+                    <li>차량 OEM 연동 인터페이스</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="auto-card">
+                <div class="auto-card-header">
+                  <div class="icon">🚗</div>
+                  <h4>IMS (In-Cabin Monitoring System)</h4>
+                </div>
+                <div class="auto-card-body">
+                  <p>차량 실내 전체를 모니터링하여 탑승자 안전과 편의를 제공하는 시스템입니다.</p>
+                  <ul class="feature-list">
+                    <li>실내 전체 탑승자 감지</li>
+                    <li>유아/반려동물 차내 방치 경고</li>
+                    <li>탑승자 자세 인식</li>
+                    <li>에어백 최적화 연동</li>
+                    <li>Euro NCAP 대응</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="auto-card">
+                <div class="auto-card-header">
+                  <div class="icon">📷</div>
+                  <h4>HD Automotive Camera</h4>
+                </div>
+                <div class="auto-card-body">
+                  <p>차량용 HD 카메라 모듈로 다양한 영상 전송 규격을 지원합니다.</p>
+                  <ul class="feature-list">
+                    <li>TVI (Transport Video Interface)</li>
+                    <li>AHD (Analog High Definition)</li>
+                    <li>LVDS (Low-Voltage Differential Signaling)</li>
+                    <li>HD / FHD 해상도 지원</li>
+                    <li>차량 후방/측방/서라운드뷰 적용</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Spec Table -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">제품 사양 비교</h3>
+            <div style="overflow-x:auto;">
+              <table class="spec-table">
+                <thead>
+                  <tr>
+                    <th>제품</th>
+                    <th>해상도</th>
+                    <th>인터페이스</th>
+                    <th>특징</th>
+                    <th>주요 적용</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Dashcam</strong></td>
+                    <td>FHD + HD (2CH)</td>
+                    <td>Wi-Fi, GPS</td>
+                    <td>3" LCD, SuperCap</td>
+                    <td>승용차 전/후방</td>
+                  </tr>
+                  <tr>
+                    <td><strong>DMS</strong></td>
+                    <td>VGA / HD</td>
+                    <td>LVDS / MIPI</td>
+                    <td>IR Camera, AI</td>
+                    <td>운전석 모니터링</td>
+                  </tr>
+                  <tr>
+                    <td><strong>IMS</strong></td>
+                    <td>HD / FHD</td>
+                    <td>LVDS / MIPI</td>
+                    <td>Wide Angle, IR</td>
+                    <td>실내 전체 모니터링</td>
+                  </tr>
+                  <tr>
+                    <td><strong>HD Camera</strong></td>
+                    <td>HD / FHD</td>
+                    <td>TVI / AHD / LVDS</td>
+                    <td>IP67, Wide Temp</td>
+                    <td>후방/측방/서라운드뷰</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Application Areas -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">적용 분야</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span class="app-badge" style="background:#e3f2fd;color:#1565c0;">승용차</span>
+              <span class="app-badge" style="background:#e8f5e9;color:#2e7d32;">상용차</span>
+              <span class="app-badge" style="background:#fce4ec;color:#c62828;">전기차 (EV)</span>
+              <span class="app-badge" style="background:#f3e5f5;color:#6a1b9a;">수소전기차 (FCEV)</span>
+              <span class="app-badge" style="background:#fff3e0;color:#e65100;">건설 기계</span>
+              <span class="app-badge" style="background:#e0f2f1;color:#00695c;">특수 차량</span>
+            </div>
+          </section>
+
+          <!-- Customers -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">주요 고객사</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;">
+              <span class="customer-badge">HKMC (현대기아차)</span>
+              <span class="customer-badge">Toyota</span>
+              <span class="customer-badge">GM</span>
+              <span class="customer-badge">Motrex</span>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-company">
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <ul class="company-info">
+          <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
+          <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>
+          <li><span class="label" data-i18n="footer.email_label">이메일</span><span data-i18n="footer.email">info@psavn.com</span></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_about">회사소개</h4>
+        <ul>
+          <li><a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a></li>
+          <li><a href="../about/history.html" data-i18n="nav.about_history">연혁</a></li>
+          <li><a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_products">제품/솔루션</h4>
+        <ul>
+          <li><a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+          <li><a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+          <li><a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_support">고객지원</h4>
+        <ul>
+          <li><a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+          <li><a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/sub.js"></script>
+</body>
+</html>

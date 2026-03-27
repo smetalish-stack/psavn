@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="..">
+  <title>공지사항 - SANICO Vietnam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/sub.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header sub-page">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-sub">PentaStone Automotive-Electronics</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a>
+            <a href="../about/history.html" data-i18n="nav.about_history">연혁</a>
+            <a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a>
+            <a href="../about/certifications.html" data-i18n="nav.about_cert">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a>
+          <div class="dropdown">
+            <a href="../products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a>
+            <a href="../products/ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a>
+            <a href="../products/mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a>
+            <a href="../products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a>
+            <a href="../products/lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a>
+            <a href="../products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.production">생산역량</a>
+          <div class="dropdown">
+            <a href="../production/expertise.html" data-i18n="nav.production_expertise">생산 전문성</a>
+            <a href="../production/facilities.html" data-i18n="nav.production_facilities">제조시설</a>
+          </div>
+        </div>
+        <div class="nav-item active">
+          <a href="#" class="nav-link" data-i18n="nav.support">고객지원</a>
+          <div class="dropdown">
+            <a href="contact.html" data-i18n="nav.support_contact">문의하기</a>
+            <a href="notice.html" data-i18n="nav.support_notice">공지사항</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-right">
+        <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="vi">VI</button>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <div class="page-banner-content">
+      <h1 data-i18n="nav.support_notice">공지사항</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="contact.html" data-i18n="nav.support">고객지원</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current" data-i18n="nav.support_notice">공지사항</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="sub-content">
+    <div class="container">
+      <div class="sub-layout">
+        <!-- Side Nav -->
+        <aside class="sub-nav">
+          <h3 data-i18n="nav.support">고객지원</h3>
+          <ul>
+            <li><a href="contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+            <li><a href="notice.html" class="active" data-i18n="nav.support_notice">공지사항</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sub-main">
+          <section class="fade-in">
+            <h2>공지사항</h2>
+            <p style="font-size:1.1rem;color:var(--text-gray);line-height:1.8;margin:20px 0 40px;">
+              PS Aunics의 주요 소식과 공지사항을 안내 드립니다.
+            </p>
+
+            <!-- Notice Table -->
+            <div style="overflow-x:auto;">
+              <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+                <thead>
+                  <tr style="background:var(--primary);color:white;">
+                    <th style="padding:14px 16px;text-align:center;width:60px;font-weight:500;">번호</th>
+                    <th style="padding:14px 16px;text-align:left;font-weight:500;">제목</th>
+                    <th style="padding:14px 16px;text-align:center;width:120px;font-weight:500;">날짜</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid #eee;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='var(--light-bg)'" onmouseout="this.style.background='white'">
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);">5</td>
+                    <td style="padding:16px;color:var(--text-dark);font-weight:500;">
+                      <span style="display:inline-block;background:var(--accent);color:white;font-size:0.75rem;padding:2px 8px;border-radius:4px;margin-right:8px;vertical-align:middle;">NEW</span>
+                      (주) 피에스오닉스 사명변경 안내
+                    </td>
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);font-size:0.9rem;">2025.04</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #eee;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='var(--light-bg)'" onmouseout="this.style.background='white'">
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);">4</td>
+                    <td style="padding:16px;color:var(--text-dark);font-weight:500;">모트렉스 블랙박스 양산 공급 개시</td>
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);font-size:0.9rem;">2024.07</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #eee;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='var(--light-bg)'" onmouseout="this.style.background='white'">
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);">3</td>
+                    <td style="padding:16px;color:var(--text-dark);font-weight:500;">베트남 공장 IATF16949 인증 취득</td>
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);font-size:0.9rem;">2023.09</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #eee;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='var(--light-bg)'" onmouseout="this.style.background='white'">
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);">2</td>
+                    <td style="padding:16px;color:var(--text-dark);font-weight:500;">홈페이지 리뉴얼 안내</td>
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);font-size:0.9rem;">2023.06</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #eee;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='var(--light-bg)'" onmouseout="this.style.background='white'">
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);">1</td>
+                    <td style="padding:16px;color:var(--text-dark);font-weight:500;">삼성 VD사업부 MEMS Mic. 공급 개시</td>
+                    <td style="padding:16px;text-align:center;color:var(--text-gray);font-size:0.9rem;">2022.05</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-company">
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <ul class="company-info">
+          <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
+          <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>
+          <li><span class="label" data-i18n="footer.email_label">이메일</span><span data-i18n="footer.email">info@psavn.com</span></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_about">회사소개</h4>
+        <ul>
+          <li><a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a></li>
+          <li><a href="../about/history.html" data-i18n="nav.about_history">연혁</a></li>
+          <li><a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_products">제품/솔루션</h4>
+        <ul>
+          <li><a href="../products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+          <li><a href="../products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+          <li><a href="../products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_support">고객지원</h4>
+        <ul>
+          <li><a href="contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+          <li><a href="notice.html" data-i18n="nav.support_notice">공지사항</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">&copy; 2025 PS Aunics. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/sub.js"></script>
+</body>
+</html>

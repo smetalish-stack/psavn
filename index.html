@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="">
+  <title>SANICO Vietnam - MEMS Packaging &amp; EMS Manufacturing</title>
+  <meta name="description" content="SANICO Vietnam - Nhà máy MEMS Microphone và EMS hàng đầu tại Việt Nam. Đối tác tin cậy của Samsung, Naver và các tập đoàn toàn cầu tại KCN Gia Vân, Ninh Bình.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Libraries -->
+  <link rel="stylesheet" href="lib/fullpage.min.css">
+  <link rel="stylesheet" href="lib/swiper-bundle.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-sub">PentaStone Automotive-Electronics</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="about/overview.html" data-i18n="nav.about_overview">회사개요</a>
+            <a href="about/history.html" data-i18n="nav.about_history">연혁</a>
+            <a href="about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a>
+            <a href="about/certifications.html" data-i18n="nav.about_cert">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a>
+          <div class="dropdown">
+            <a href="products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a>
+            <a href="products/ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a>
+            <a href="products/mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a>
+            <a href="products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a>
+            <a href="products/lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a>
+            <a href="products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.production">생산역량</a>
+          <div class="dropdown">
+            <a href="production/expertise.html" data-i18n="nav.production_expertise">생산 전문성</a>
+            <a href="production/facilities.html" data-i18n="nav.production_facilities">제조시설</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.support">고객지원</a>
+          <div class="dropdown">
+            <a href="support/contact.html" data-i18n="nav.support_contact">문의하기</a>
+            <a href="support/notice.html" data-i18n="nav.support_notice">공지사항</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-right">
+        <a href="hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
+        <div class="lang-selector">
+          <button class="lang-btn" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="vi">VI</button>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Fullpage Container -->
+  <div id="fullpage">
+
+    <!-- Section 1: Hero -->
+    <div class="section hero-section">
+      <div class="hero-slider swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/hero/hero-1.jpg'); background-color: #0a1628;"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-content">
+              <span class="hero-sub" data-i18n="hero.slide1_sub">MEMS Technology Leader</span>
+              <h1 data-i18n="hero.slide1_title">혁신 기술로<br>더 나은 세상을 만듭니다</h1>
+              <p data-i18n="hero.slide1_desc">20년 이상의 마이크로폰 전문 기술력으로<br>글로벌 고객에게 최고의 솔루션을 제공합니다</p>
+              <div class="hero-buttons">
+                <a href="about/overview.html" class="btn btn-primary" data-i18n="hero.btn_more">자세히 보기</a>
+                <a href="products/mems-mic.html" class="btn btn-outline" data-i18n="hero.btn_products">제품 소개</a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/hero/hero-2.jpg'); background-color: #0d1f3c;"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-content">
+              <span class="hero-sub" data-i18n="hero.slide2_sub">Global EMS Partner</span>
+              <h1 data-i18n="hero.slide2_title">글로벌 4개 거점<br>통합 제조 서비스</h1>
+              <p data-i18n="hero.slide2_desc">한국, 베트남, 중국에 걸친 제조 네트워크로<br>최적의 품질과 가격 경쟁력을 실현합니다</p>
+              <div class="hero-buttons">
+                <a href="about/global.html" class="btn btn-primary" data-i18n="hero.btn_more">자세히 보기</a>
+                <a href="support/contact.html" class="btn btn-outline" data-i18n="hero.btn_contact">문의하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/hero/hero-3.jpg'); background-color: #111a2e;"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-content">
+              <span class="hero-sub" data-i18n="hero.slide3_sub">Automotive Solutions</span>
+              <h1 data-i18n="hero.slide3_title">차세대 모빌리티를 위한<br>스마트 솔루션</h1>
+              <p data-i18n="hero.slide3_desc">블랙박스, 카메라, DMS부터 5G 통신 모듈까지<br>차량용 전자 솔루션의 새로운 기준을 제시합니다</p>
+              <div class="hero-buttons">
+                <a href="products/automotive.html" class="btn btn-primary" data-i18n="hero.btn_more">자세히 보기</a>
+                <a href="products/lte-5g.html" class="btn btn-outline" data-i18n="hero.btn_products">제품 소개</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Section 2: About -->
+    <div class="section about-section">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <span class="sub-title" data-i18n="about.sub_title">About PS Aunics</span>
+            <h2 data-i18n="about.title">세계적인 기술력으로<br>고객가치를 실현합니다</h2>
+            <p data-i18n="about.desc">PS Aunics(구 SANICO)는 Penta Stone Group의 일원으로, MEMS 마이크로폰 및 센서 전문 기업입니다. 20년 이상의 기술력과 글로벌 제조 네트워크를 바탕으로 모바일, 차량용, 산업용 솔루션을 제공하고 있습니다.</p>
+            <a href="about/overview.html" class="btn btn-outline-dark" data-i18n="hero.btn_more">자세히 보기</a>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">👥</div>
+              <div class="stat-number">
+                <span class="counter" data-target="550">0</span>
+                <span class="counter-suffix">+</span>
+              </div>
+              <div class="stat-label" data-i18n="about.stat_employees">Nhân viên</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🏭</div>
+              <div class="stat-number">
+                <span>41,000</span>
+                <span class="counter-suffix">㎡</span>
+              </div>
+              <div class="stat-label" data-i18n="about.stat_factories">Nhà máy</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⚙️</div>
+              <div class="stat-number">
+                <span class="counter" data-target="16">0</span>
+              </div>
+              <div class="stat-label" data-i18n="about.stat_rd">Dây chuyền SMT</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📊</div>
+              <div class="stat-number">
+                <span>1.16M</span>
+              </div>
+              <div class="stat-label" data-i18n="about.stat_smt">CPH năng lực</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Business Areas -->
+    <div class="section business-section">
+      <div class="container">
+        <div class="section-title white">
+          <span class="sub-title" data-i18n="business.sub_title">Business Areas</span>
+          <h2 data-i18n="business.title">사업 영역</h2>
+          <p data-i18n="business.desc">다양한 분야에서 특화된 솔루션을 제공합니다</p>
+        </div>
+        <div class="business-grid">
+          <div class="business-card">
+            <div class="card-icon">🎙️</div>
+            <h3 data-i18n="business.mems_title">MEMS/MIC</h3>
+            <p data-i18n="business.mems_desc">아날로그/디지털 MEMS 마이크로폰 및 ECM 마이크로폰 설계, 제조</p>
+            <a href="products/mems-mic.html" class="card-link" data-i18n="business.more">더 알아보기 →</a>
+          </div>
+          <div class="business-card">
+            <div class="card-icon">🚗</div>
+            <h3 data-i18n="business.auto_title">Automotive</h3>
+            <p data-i18n="business.auto_desc">블랙박스, 차량용 카메라, DMS, MEMS 센서 등 차량 전장 솔루션</p>
+            <a href="products/automotive.html" class="card-link" data-i18n="business.more">더 알아보기 →</a>
+          </div>
+          <div class="business-card">
+            <div class="card-icon">🔧</div>
+            <h3 data-i18n="business.oem_title">ODM/OEM</h3>
+            <p data-i18n="business.oem_desc">AI 스피커, 웨어러블, Wall-Pad 등 다양한 전자제품 EMS 서비스</p>
+            <a href="products/oem-odm.html" class="card-link" data-i18n="business.more">더 알아보기 →</a>
+          </div>
+          <div class="business-card">
+            <div class="card-icon">📡</div>
+            <h3 data-i18n="business.lte_title">LTE/5G</h3>
+            <p data-i18n="business.lte_desc">5G mmWave, Sub-6 통신 모듈 및 특화망 솔루션</p>
+            <a href="products/lte-5g.html" class="card-link" data-i18n="business.more">더 알아보기 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Products -->
+    <div class="section products-section">
+      <div class="container">
+        <div class="section-title">
+          <span class="sub-title" data-i18n="products_section.sub_title">Products & Solutions</span>
+          <h2 data-i18n="products_section.title">제품 및 솔루션</h2>
+          <p data-i18n="products_section.desc">최첨단 기술력으로 다양한 산업에 혁신을 제공합니다</p>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="card-image" style="background: linear-gradient(135deg, #0B2458, #1351C1);">🎙️</div>
+            <div class="card-body">
+              <h3 data-i18n="products_section.mems_title">MEMS Microphone</h3>
+              <p data-i18n="products_section.mems_desc">MEMS Mic analog/digital hiệu suất cao cung cấp độc quyền cho Samsung Electronics</p>
+              <a href="products/mems-mic.html" class="more-link" data-i18n="products_section.more">Xem thêm →</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="card-image" style="background: linear-gradient(135deg, #1a3a72, #0096D6);">⌚</div>
+            <div class="card-body">
+              <h3 data-i18n="products_section.sensor_title">Wearable Watch</h3>
+              <p data-i18n="products_section.sensor_desc">Lắp ráp đồng hồ thông minh và thiết bị đeo cao cấp cho các thương hiệu toàn cầu</p>
+              <a href="products/oem-odm.html" class="more-link" data-i18n="products_section.more">Xem thêm →</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="card-image" style="background: linear-gradient(135deg, #0f2b5e, #0096D6);">🔊</div>
+            <div class="card-body">
+              <h3 data-i18n="products_section.dashcam_title">Naver AI Speaker</h3>
+              <p data-i18n="products_section.dashcam_desc">Sản xuất loa AI thông minh tích hợp trợ lý ảo Clova của Naver</p>
+              <a href="products/oem-odm.html" class="more-link" data-i18n="products_section.more">Xem thêm →</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="card-image" style="background: linear-gradient(135deg, #071530, #1351C1);">📡</div>
+            <div class="card-body">
+              <h3 data-i18n="products_section.lte_title">LTE/5G Module</h3>
+              <p data-i18n="products_section.lte_desc">Mô-đun LTE/5G cho mạng SKT, KT, LG U+ và các giải pháp IoT công nghiệp</p>
+              <a href="products/lte-5g.html" class="more-link" data-i18n="products_section.more">Xem thêm →</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="card-image" style="background: linear-gradient(135deg, #0a1f44, #0096D6);">🎤</div>
+            <div class="card-body">
+              <h3 data-i18n="products_section.ecm_title">ECM Microphone</h3>
+              <p data-i18n="products_section.ecm_desc">Sản xuất micro ECM với hơn 20 năm kinh nghiệm, cung cấp cho Automotive và Consumer</p>
+              <a href="products/ecm-mic.html" class="more-link" data-i18n="products_section.more">Xem thêm →</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="card-image" style="background: linear-gradient(135deg, #0B2458, #007ab8);">🔧</div>
+            <div class="card-body">
+              <h3 data-i18n="products_section.ems_title">EMS/OEM</h3>
+              <p data-i18n="products_section.ems_desc">Dịch vụ gia công điện tử toàn diện từ linh kiện đến thành phẩm cho đối tác cấp 1 toàn cầu</p>
+              <a href="products/oem-odm.html" class="more-link" data-i18n="products_section.more">Xem thêm →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Global Network -->
+    <div class="section global-section">
+      <div class="container">
+        <div class="global-content">
+          <div class="section-title">
+            <span class="sub-title" data-i18n="global.sub_title">Global Network</span>
+            <h2 data-i18n="global.title">글로벌 네트워크</h2>
+            <p data-i18n="global.desc">세계 4개 거점의 통합 제조 네트워크</p>
+          </div>
+
+          <!-- Simple Map Representation -->
+          <div class="global-map-wrapper">
+            <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+              <rect width="800" height="400" fill="#f0f4f8" rx="12"/>
+              <!-- Asia region highlight -->
+              <ellipse cx="550" cy="185" rx="185" ry="125" fill="rgba(11,36,88,0.04)" stroke="rgba(11,36,88,0.08)" stroke-dasharray="4"/>
+
+              <!-- Connection lines from Vietnam (main) -->
+              <line x1="510" y1="210" x2="560" y2="155" stroke="#0096D6" stroke-width="1.5" stroke-dasharray="5" opacity="0.7"/>
+              <line x1="510" y1="210" x2="565" y2="168" stroke="#0096D6" stroke-width="1.5" stroke-dasharray="5" opacity="0.7"/>
+              <line x1="510" y1="210" x2="530" y2="178" stroke="#0096D6" stroke-width="1.5" stroke-dasharray="5" opacity="0.7"/>
+
+              <!-- Korea (HQ) -->
+              <circle cx="560" cy="155" r="9" fill="#0096D6" opacity="0.18"/>
+              <circle cx="560" cy="155" r="5" fill="#0096D6"/>
+              <text x="560" y="136" text-anchor="middle" font-size="11" font-weight="600" fill="#0B2458">Korea (HQ)</text>
+
+              <!-- Vietnam (Main Factory) — highlighted -->
+              <circle cx="510" cy="210" r="18" fill="#0096D6" opacity="0.15"/>
+              <circle cx="510" cy="210" r="11" fill="#0096D6" opacity="0.3"/>
+              <circle cx="510" cy="210" r="7" fill="#0096D6"/>
+              <text x="510" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#0B2458">Vietnam ★</text>
+              <text x="510" y="253" text-anchor="middle" font-size="10" font-weight="500" fill="#1351C1">Ninh Binh</text>
+
+              <!-- China Qingdao -->
+              <circle cx="565" cy="168" r="7" fill="#1351C1" opacity="0.18"/>
+              <circle cx="565" cy="168" r="4" fill="#1351C1"/>
+              <text x="595" y="163" text-anchor="start" font-size="10" font-weight="500" fill="#0B2458">Qingdao</text>
+
+              <!-- China Zhengzhou -->
+              <circle cx="530" cy="178" r="7" fill="#1351C1" opacity="0.18"/>
+              <circle cx="530" cy="178" r="4" fill="#1351C1"/>
+              <text x="495" y="190" text-anchor="middle" font-size="10" font-weight="500" fill="#0B2458">Zhengzhou</text>
+
+              <!-- Legend -->
+              <circle cx="50" cy="360" r="5" fill="#0096D6"/>
+              <text x="62" y="364" font-size="10" fill="#666">Headquarters / Branch</text>
+              <circle cx="220" cy="360" r="7" fill="#0096D6"/>
+              <text x="234" y="364" font-size="10" fill="#0B2458" font-weight="600">Main Factory (Vietnam)</text>
+            </svg>
+          </div>
+
+          <!-- Global Stats -->
+          <div class="global-stats">
+            <div class="global-stat-item">
+              <div class="number">3</div>
+              <div class="label" data-i18n="global.stat_countries">개국</div>
+            </div>
+            <div class="global-stat-item">
+              <div class="number">4</div>
+              <div class="label" data-i18n="global.stat_factories">제조거점</div>
+            </div>
+            <div class="global-stat-item">
+              <div class="number">26</div>
+              <div class="label" data-i18n="global.stat_smt_lines">SMT 라인</div>
+            </div>
+            <div class="global-stat-item">
+              <div class="number">1.6M+</div>
+              <div class="label" data-i18n="global.stat_capacity">월 CPH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6: Footer -->
+    <div class="section fp-auto-height">
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-company">
+            <div class="footer-logo">
+              <span class="footer-logo-text">PS Aunics <span>VINA</span></span>
+            </div>
+            <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+            <ul class="company-info">
+              <li>
+                <span class="label" data-i18n="footer.addr_label">Địa chỉ</span>
+                <span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span>
+              </li>
+              <li>
+                <span class="label" data-i18n="footer.tel_label">Điện thoại</span>
+                <span data-i18n="footer.tel">+84-229-xxx-xxxx</span>
+              </li>
+              <li>
+                <span class="label" data-i18n="footer.email_label">Email</span>
+                <span data-i18n="footer.email">info@psavn.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 data-i18n="footer.links_about">회사소개</h4>
+            <ul>
+              <li><a href="about/overview.html" data-i18n="nav.about_overview">회사개요</a></li>
+              <li><a href="about/history.html" data-i18n="nav.about_history">연혁</a></li>
+              <li><a href="about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+              <li><a href="about/certifications.html" data-i18n="nav.about_cert">인증현황</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 data-i18n="footer.links_products">제품/솔루션</h4>
+            <ul>
+              <li><a href="products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+              <li><a href="products/mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a></li>
+              <li><a href="products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+              <li><a href="products/lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a></li>
+              <li><a href="products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 data-i18n="footer.links_support">고객지원</h4>
+            <ul>
+              <li><a href="support/contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+              <li><a href="support/notice.html" data-i18n="nav.support_notice">공지사항</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p data-i18n="footer.copyright">© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="lib/fullpage.min.js"></script>
+  <script src="lib/swiper-bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

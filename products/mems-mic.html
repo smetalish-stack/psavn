@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="..">
+  <title>MEMS 마이크로폰 - SANICO Vietnam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <style>
+    .product-highlight {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 36px;
+    }
+    .product-highlight h2 { color: #fff; margin-bottom: 12px; }
+    .product-highlight p { color: rgba(255,255,255,0.9); line-height: 1.8; }
+    .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .spec-table th, .spec-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eee; }
+    .spec-table th { background: var(--light-bg); color: var(--primary); font-weight: 600; white-space: nowrap; }
+    .spec-table tr:hover td { background: #f8faff; }
+    .type-card {
+      background: #fff;
+      border: 1px solid #e8ecf1;
+      border-radius: 10px;
+      padding: 28px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .type-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .type-card .icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .type-card h4 { color: var(--primary); margin-bottom: 8px; }
+    .type-card p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
+    .tech-badge {
+      display: inline-block;
+      background: var(--light-bg);
+      color: var(--primary);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 4px;
+    }
+    .customer-badge {
+      display: inline-block;
+      background: var(--light-bg);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header sub-page">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-sub">PentaStone Automotive-Electronics</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a>
+            <a href="../about/history.html" data-i18n="nav.about_history">연혁</a>
+            <a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a>
+            <a href="../about/certifications.html" data-i18n="nav.about_cert">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item active">
+          <a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a>
+          <div class="dropdown">
+            <a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a>
+            <a href="ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a>
+            <a href="mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a>
+            <a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a>
+            <a href="lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a>
+            <a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.production">생산역량</a>
+          <div class="dropdown">
+            <a href="../production/expertise.html" data-i18n="nav.production_expertise">생산 전문성</a>
+            <a href="../production/facilities.html" data-i18n="nav.production_facilities">제조시설</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.support">고객지원</a>
+          <div class="dropdown">
+            <a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a>
+            <a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-right">
+        <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="vi">VI</button>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <div class="page-banner-content">
+      <h1 data-i18n="nav.products_mems_mic">MEMS 마이크로폰</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="separator">›</span>
+        <a href="mems-mic.html" data-i18n="nav.products">제품/솔루션</a>
+        <span class="separator">›</span>
+        <span class="current" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="sub-content">
+    <div class="container">
+      <div class="sub-layout">
+        <!-- Side Nav -->
+        <aside class="sub-nav">
+          <h3 data-i18n="nav.products">제품/솔루션</h3>
+          <ul>
+            <li><a href="mems-mic.html" class="active" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+            <li><a href="ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a></li>
+            <li><a href="mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a></li>
+            <li><a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+            <li><a href="lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a></li>
+            <li><a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sub-main">
+          <!-- Product Highlight -->
+          <section class="product-highlight fade-in">
+            <h2>MEMS Microphone</h2>
+            <p>20년 이상의 마이크로폰 전문 기술력을 바탕으로 Analog 및 Digital MEMS 마이크로폰을 설계, 제조하고 있습니다.
+              반도체 ROIC 설계, PKG 설계, 음향 기술을 내재화하여 삼성전자 등 글로벌 고객사에 최적의 솔루션을 공급합니다.</p>
+          </section>
+
+          <!-- Product Types -->
+          <section class="fade-in" style="margin:40px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">제품 라인업</h3>
+            <div class="grid-3" style="gap:20px;">
+              <div class="type-card">
+                <div class="icon">🔊</div>
+                <h4>Analog MEMS<br><small style="font-weight:400;color:var(--text-gray);">Top Port</small></h4>
+                <p>상면 음향 입력 타입. 스마트폰, 태블릿, 노트북 등 슬림한 디바이스에 최적화된 설계를 제공합니다.</p>
+              </div>
+              <div class="type-card">
+                <div class="icon">🎙️</div>
+                <h4>Analog MEMS<br><small style="font-weight:400;color:var(--text-gray);">Bottom Port</small></h4>
+                <p>하면 음향 입력 타입. PCB 직접 실장이 용이하며, 다양한 가전 및 IoT 디바이스에 적용됩니다.</p>
+              </div>
+              <div class="type-card">
+                <div class="icon">💻</div>
+                <h4>Digital MEMS</h4>
+                <p>디지털 출력 방식으로 노이즈에 강하고 긴 배선에서도 신호 품질을 유지합니다. PDM / I2S 인터페이스를 지원합니다.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Spec Table -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">주요 사양</h3>
+            <div style="overflow-x:auto;">
+              <table class="spec-table">
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>Sensitivity</th>
+                    <th>SNR</th>
+                    <th>AOP</th>
+                    <th>Package Size</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Analog Top Port</strong></td>
+                    <td>-38 ~ -42 dBV</td>
+                    <td>58 ~ 66 dB(A)</td>
+                    <td>120 ~ 140 dBSPL</td>
+                    <td>3.35 x 2.50 x 0.98 mm</td>
+                    <td>Top Port</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Analog Bottom Port</strong></td>
+                    <td>-38 ~ -44 dBV</td>
+                    <td>56 ~ 64 dB(A)</td>
+                    <td>118 ~ 135 dBSPL</td>
+                    <td>3.76 x 2.24 x 1.10 mm</td>
+                    <td>Bottom Port</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Digital MEMS</strong></td>
+                    <td>-26 dBFS</td>
+                    <td>64 ~ 68 dB(A)</td>
+                    <td>122 ~ 140 dBSPL</td>
+                    <td>3.35 x 2.50 x 0.98 mm</td>
+                    <td>PDM / I2S</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Core Technology -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">핵심 기술</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;">
+              <span class="tech-badge">ROIC 설계 기술</span>
+              <span class="tech-badge">PKG 설계 기술</span>
+              <span class="tech-badge">음향 시뮬레이션</span>
+              <span class="tech-badge">MEMS Die 설계</span>
+              <span class="tech-badge">신뢰성 시험</span>
+              <span class="tech-badge">소음 분석 기술</span>
+            </div>
+            <div class="grid-2" style="gap:20px;">
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid var(--accent);">
+                <h4 style="color:var(--primary);margin-bottom:8px;">반도체 ROIC 설계</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">자체 ASIC 설계 역량을 통해 고객 맞춤형 ROIC를 개발하고, 최적의 SNR과 전력 효율을 달성합니다.</p>
+              </div>
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid var(--secondary);">
+                <h4 style="color:var(--primary);margin-bottom:8px;">패키지(PKG) 설계</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">초소형 패키지 설계를 통해 다양한 폼팩터를 지원하며, 음향 성능과 방수/방진 특성을 극대화합니다.</p>
+              </div>
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid #27ae60;">
+                <h4 style="color:var(--primary);margin-bottom:8px;">음향 기술</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">FEA 기반 음향 시뮬레이션과 무향실 측정 시스템을 통한 정밀한 음향 특성 분석 및 최적화가 가능합니다.</p>
+              </div>
+              <div style="background:var(--light-bg);border-radius:8px;padding:24px;border-left:4px solid #8e44ad;">
+                <h4 style="color:var(--primary);margin-bottom:8px;">20년+ 양산 경험</h4>
+                <p style="font-size:0.9rem;color:var(--text-gray);line-height:1.6;">2002년 설립 이래 축적된 양산 노하우로 높은 수율과 안정적 품질을 보장합니다.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Application & Customers -->
+          <section class="fade-in" style="margin:50px 0;">
+            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">적용 분야 및 주요 고객</h3>
+            <div style="margin-bottom:20px;">
+              <h4 style="color:var(--text-dark);margin-bottom:12px;font-size:0.95rem;">적용 분야</h4>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span class="tech-badge" style="background:#e8f5e9;color:#2e7d32;">스마트폰</span>
+                <span class="tech-badge" style="background:#e3f2fd;color:#1565c0;">노트북 / 태블릿</span>
+                <span class="tech-badge" style="background:#fce4ec;color:#c62828;">TV / 사운드바</span>
+                <span class="tech-badge" style="background:#f3e5f5;color:#6a1b9a;">AI 스피커</span>
+                <span class="tech-badge" style="background:#fff3e0;color:#e65100;">IoT 디바이스</span>
+                <span class="tech-badge" style="background:#e0f2f1;color:#00695c;">웨어러블</span>
+              </div>
+            </div>
+            <div>
+              <h4 style="color:var(--text-dark);margin-bottom:12px;font-size:0.95rem;">주요 고객사</h4>
+              <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                <span class="customer-badge">Samsung Mobile</span>
+                <span class="customer-badge">Samsung VD</span>
+                <span class="customer-badge">HARMAN</span>
+                <span class="customer-badge">Naver</span>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-company">
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <ul class="company-info">
+          <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
+          <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>
+          <li><span class="label" data-i18n="footer.email_label">이메일</span><span data-i18n="footer.email">info@psavn.com</span></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_about">회사소개</h4>
+        <ul>
+          <li><a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a></li>
+          <li><a href="../about/history.html" data-i18n="nav.about_history">연혁</a></li>
+          <li><a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_products">제품/솔루션</h4>
+        <ul>
+          <li><a href="mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+          <li><a href="automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+          <li><a href="oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_support">고객지원</h4>
+        <ul>
+          <li><a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+          <li><a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/sub.js"></script>
+</body>
+</html>

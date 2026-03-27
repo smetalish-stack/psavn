@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="..">
+  <title>인증현황 - SANICO Vietnam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <style>
+    .cert-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .cert-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .cert-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 16px;
+      background: var(--light-bg);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+    }
+    .cert-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 8px; }
+    .cert-card p { color: var(--text-gray); font-size: 0.875rem; line-height: 1.6; }
+    .cert-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+    .cert-table th { background: var(--primary); color: var(--white); padding: 12px 16px; font-size: 0.875rem; text-align: left; }
+    .cert-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.875rem; color: var(--text-dark); }
+    .cert-table tr:hover td { background: var(--light-bg); }
+    .cert-table .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-korea { background: #e3f2fd; color: #1565c0; }
+    .badge-vietnam { background: #e8f5e9; color: #2e7d32; }
+    .badge-china { background: #fff3e0; color: #ef6c00; }
+  </style>
+</head>
+<body>
+
+  <header class="header sub-page">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-sub">PentaStone Automotive-Electronics</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <div class="nav-item active">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="overview.html">회사개요</a><a href="history.html">연혁</a>
+            <a href="global.html">글로벌 네트워크</a><a href="certifications.html">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a><div class="dropdown"><a href="../products/mems-mic.html">MEMS</a><a href="../products/automotive.html">Automotive</a></div></div>
+        <div class="nav-item"><a href="#" class="nav-link" data-i18n="nav.production">생산역량</a><div class="dropdown"><a href="../production/expertise.html">전문성</a><a href="../production/facilities.html">시설</a></div></div>
+        <div class="nav-item"><a href="#" class="nav-link" data-i18n="nav.support">고객지원</a><div class="dropdown"><a href="../support/contact.html">문의</a></div></div>
+      </nav>
+      <div class="header-right">
+        <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
+        <div class="lang-selector"><button class="lang-btn active" data-lang="ko">KO</button><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="vi">VI</button></div>
+        <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div class="page-banner">
+    <div class="page-banner-content">
+      <h1 data-i18n="nav.about_cert">인증현황</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="separator">›</span>
+        <a href="overview.html" data-i18n="nav.about">회사소개</a><span class="separator">›</span>
+        <span class="current" data-i18n="nav.about_cert">인증현황</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-content">
+    <div class="container">
+      <div class="sub-layout">
+        <aside class="sub-nav">
+          <h3 data-i18n="nav.about">회사소개</h3>
+          <ul>
+            <li><a href="overview.html">회사개요</a></li>
+            <li><a href="history.html">연혁</a></li>
+            <li><a href="global.html">글로벌 네트워크</a></li>
+            <li><a href="certifications.html" class="active">인증현황</a></li>
+          </ul>
+        </aside>
+
+        <main class="sub-main">
+          <h2 style="color:var(--primary);margin-bottom:8px;">인증 현황</h2>
+          <p style="color:var(--text-gray);margin-bottom:40px;">글로벌 품질 기준을 충족하는 인증 체계를 갖추고 있습니다</p>
+
+          <!-- Certification Cards -->
+          <div class="grid-4" style="gap:20px;">
+            <div class="cert-card fade-in">
+              <div class="cert-icon">🏆</div>
+              <h3>ISO 9001</h3>
+              <p>품질경영시스템<br>Quality Management</p>
+            </div>
+            <div class="cert-card fade-in">
+              <div class="cert-icon">🌿</div>
+              <h3>ISO 14001</h3>
+              <p>환경경영시스템<br>Environmental Management</p>
+            </div>
+            <div class="cert-card fade-in">
+              <div class="cert-icon">🚗</div>
+              <h3>IATF 16949</h3>
+              <p>자동차 품질경영<br>Automotive Quality</p>
+            </div>
+            <div class="cert-card fade-in">
+              <div class="cert-icon">🛡️</div>
+              <h3>ISO 45001</h3>
+              <p>안전보건경영시스템<br>Occupational Safety</p>
+            </div>
+          </div>
+
+          <!-- Certification Table by Location -->
+          <table class="cert-table fade-in">
+            <thead>
+              <tr>
+                <th>법인</th>
+                <th>ISO 9001</th>
+                <th>ISO 14001</th>
+                <th>IATF 16949</th>
+                <th>ISO 45001</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-korea">Korea</span> PS Aunics</td>
+                <td>✅</td><td>✅</td><td>✅</td><td>-</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-vietnam">Vietnam</span> SANICO Vietnam</td>
+                <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-china">China</span> SANICO Qingdao</td>
+                <td>✅</td><td>✅</td><td>✅</td><td>-</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-china">China</span> SANICO Zhengzhou</td>
+                <td>✅</td><td>✅</td><td>✅</td><td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-company">
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <ul class="company-info"><li><span class="label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li></ul>
+      </div>
+      <div class="footer-links"><h4>회사소개</h4><ul><li><a href="overview.html">회사개요</a></li><li><a href="history.html">연혁</a></li></ul></div>
+      <div class="footer-links"><h4>제품/솔루션</h4><ul><li><a href="../products/mems-mic.html">MEMS</a></li></ul></div>
+      <div class="footer-links"><h4>고객지원</h4><ul><li><a href="../support/contact.html">문의하기</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/sub.js"></script>
+</body>
+</html>
