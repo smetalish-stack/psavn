@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calibration Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <span class="header-icon">&#128295;</span>
+            <div>
+                <h1 data-i18n="title">Calibration Management System</h1>
+                <span class="header-sub" data-i18n="subtitle">Calibration Equipment Management System</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span id="header-date" class="header-date"></span>
+            <span id="header-user" class="header-date" style="opacity:.8"></span>
+
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button data-lang-btn="vi" onclick="I18n.setLang('vi')">VI</button>
+                <button data-lang-btn="ko" onclick="I18n.setLang('ko')">한국어</button>
+                <button data-lang-btn="en" onclick="I18n.setLang('en')">EN</button>
+            </div>
+
+            <a href="../" class="btn-back" data-i18n="back_to_psavn">← psavn.com</a>
+            <button class="btn-back" onclick="App.logout()" style="border-color:rgba(255,255,255,.4);cursor:pointer;background:none">&#128274; <span data-i18n="logout">Đăng xuất</span></button>
+        </div>
+    </header>
+
+    <div class="app-container">
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="dashboard">&#128202; <span data-i18n="tabs.dashboard">Bảng điều khiển</span></button>
+            <button class="tab-btn" data-tab="list">&#128221; <span data-i18n="tabs.list">Danh sách thiết bị</span></button>
+            <button class="tab-btn" data-tab="upload">&#128196; <span data-i18n="tabs.upload">Tải dữ liệu</span></button>
+            <button class="tab-btn" data-tab="alerts">&#128276; <span data-i18n="tabs.alerts">Cài đặt thông báo</span></button>
+        </nav>
+
+        <!-- ===== DASHBOARD TAB ===== -->
+        <div id="tab-dashboard" class="tab-content active">
+            <div class="section-bar">
+                <div class="bar-left">
+                    <label data-i18n="dashboard.year_label">Chọn năm:</label>
+                    <select id="dash-year" class="select-sm"></select>
+                </div>
+                <button class="btn-refresh" onclick="App.loadDashboard()">&#8635; <span data-i18n="dashboard.refresh">Làm mới</span></button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background:#e0f2fe;color:#0284c7">&#128295;</div>
+                    <div class="stat-body">
+                        <div class="stat-label" data-i18n="dashboard.stat_total">Tổng thiết bị</div>
+                        <div class="stat-value" id="stat-total">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background:#dcfce7;color:#16a34a">&#10003;</div>
+                    <div class="stat-body">
+                        <div class="stat-label" data-i18n="dashboard.stat_ok">Bình thường (≥60 ngày)</div>
+                        <div class="stat-value" id="stat-ok">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background:#fef3c7;color:#d97706">&#9888;</div>
+                    <div class="stat-body">
+                        <div class="stat-label" data-i18n="dashboard.stat_critical">Đến hạn trong 30 ngày</div>
+                        <div class="stat-value" id="stat-critical">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background:#fee2e2;color:#dc2626">&#9888;</div>
+                    <div class="stat-body">
+                        <div class="stat-label" data-i18n="dashboard.stat_overdue">Quá hạn</div>
+                        <div class="stat-value" id="stat-overdue">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title" data-i18n="dashboard.by_dept">Tình trạng theo bộ phận</h3>
+                <div id="location-table-wrap">
+                    <p class="empty-msg" data-i18n="dashboard.loading">Đang tải dữ liệu...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== LIST TAB ===== -->
+        <div id="tab-list" class="tab-content">
+            <div class="filter-bar">
+                <select id="filter-year" class="select-sm">
+                    <option value="" data-i18n="list.all_years">Tất cả năm</option>
+                </select>
+                <select id="filter-location" class="select-sm">
+                    <option value="" data-i18n="list.all_depts">Tất cả bộ phận</option>
+                </select>
+                <select id="filter-status" class="select-sm">
+                    <option value="" data-i18n="list.all_status">Tất cả trạng thái</option>
+                    <option value="overdue" data-i18n="list.status_overdue">Quá hạn</option>
+                    <option value="critical" data-i18n="list.status_critical">Trong 7 ngày</option>
+                    <option value="urgent" data-i18n="list.status_urgent">Trong 30 ngày</option>
+                    <option value="warning" data-i18n="list.status_warning">Trong 60 ngày</option>
+                    <option value="ok" data-i18n="list.status_ok">Bình thường</option>
+                </select>
+                <input type="text" id="filter-search" class="input-search"
+                       data-i18n-placeholder="list.search_placeholder"
+                       placeholder="Tìm theo tên thiết bị, mã số...">
+                <button class="btn-primary" onclick="App.loadList()">&#128269; <span data-i18n="list.search">Tìm kiếm</span></button>
+                <button class="btn-secondary" onclick="App.exportToExcel()">&#128229; <span data-i18n="list.export">Xuất Excel</span></button>
+                <button class="btn-add" onclick="App.openAddEquipmentModal()">&#43; <span data-i18n="list.add_btn">Thêm thiết bị</span></button>
+            </div>
+
+            <div id="list-table-wrap">
+                <p class="empty-msg" data-i18n="list.filter_hint">Chọn bộ lọc và nhấn tìm kiếm.</p>
+            </div>
+        </div>
+
+        <!-- ===== UPLOAD TAB ===== -->
+        <div id="tab-upload" class="tab-content">
+            <div class="card upload-section">
+                <h3 class="card-title">&#128196; <span data-i18n="upload.title">Tải file Excel</span></h3>
+                <p class="card-desc" data-i18n="upload.desc">Tải lên file Excel danh sách quản lý hiệu chuẩn, hệ thống sẽ tự động phân tích và lưu trữ.</p>
+
+                <div id="drop-zone" class="upload-zone">
+                    <div class="drop-icon">&#128194;</div>
+                    <div class="drop-text">
+                        <span data-i18n="upload.drag_text">Kéo thả file hoặc click để chọn</span>
+                        <br><small data-i18n="upload.drag_sub">SNCV Calibration List .xlsx / .xls</small>
+                    </div>
+                </div>
+                <input type="file" id="file-input" accept=".xlsx,.xls" style="display:none">
+
+                <div class="upload-options">
+                    <label data-i18n="upload.mode_label">Phương thức tải:</label>
+                    <label><input type="radio" name="upload-mode" value="replace" checked> <span data-i18n="upload.mode_replace">Thay thế toàn bộ năm đó</span></label>
+                    <label><input type="radio" name="upload-mode" value="merge"> <span data-i18n="upload.mode_merge">Thêm vào dữ liệu hiện có</span></label>
+                </div>
+
+                <div id="upload-status" class="upload-status"></div>
+                <div id="preview-wrap"></div>
+            </div>
+        </div>
+
+        <!-- ===== ALERTS TAB ===== -->
+        <div id="tab-alerts" class="tab-content">
+            <div class="card">
+                <h3 class="card-title">&#128276; <span data-i18n="alerts.title">Cài đặt thông báo email</span></h3>
+                <p class="card-desc" data-i18n="alerts.desc">Hệ thống tự động gửi thông báo hết hạn hiệu chuẩn lúc 8 giờ sáng mỗi ngày (giờ Việt Nam).</p>
+
+                <div id="alert-config-wrap">
+                    <p class="empty-msg" data-i18n="alerts.loading">Đang tải cài đặt thông báo...</p>
+                </div>
+
+                <div class="alert-actions">
+                    <button class="btn-primary" onclick="App.saveAlertConfig()">&#128190; <span data-i18n="alerts.save">Lưu cài đặt</span></button>
+                    <button class="btn-secondary" onclick="App.sendTestEmail()">&#9993; <span data-i18n="alerts.send_test">Gửi email thử</span></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">&#128203; <span data-i18n="alerts.history_title">Lịch sử gửi</span></h3>
+                <div id="alert-log-wrap">
+                    <p class="empty-msg" data-i18n="alerts.history_loading">Đang tải lịch sử gửi...</p>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- .app-container -->
+
+    <!-- Loading overlay -->
+    <div id="loading" class="loading-overlay" style="display:none">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Auth guard -->
+    <script>
+        (function() {
+            if (!sessionStorage.getItem('cal_token')) {
+                window.location.replace('login.html');
+            }
+        })();
+    </script>
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/parser.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
