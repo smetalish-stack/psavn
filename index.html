@@ -307,9 +307,49 @@
           <!-- Simple Map Representation -->
           <div class="global-map-wrapper">
             <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-              <rect width="800" height="400" fill="#f0f4f8" rx="12"/>
-              <!-- Asia region highlight -->
-              <ellipse cx="550" cy="185" rx="185" ry="125" fill="rgba(11,36,88,0.04)" stroke="rgba(11,36,88,0.08)" stroke-dasharray="4"/>
+              <!-- Ocean background -->
+              <rect width="800" height="400" fill="#c9dff0" rx="12"/>
+
+              <!-- Russia / Siberia (top band) -->
+              <path d="M0,0 L800,0 L800,100 L690,88 L623,109 L573,90 L471,106 L438,102 L366,118 L300,110 L200,100 L100,95 L0,100 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.7"/>
+
+              <!-- Central Asia / Left edge landmass -->
+              <path d="M0,100 L100,95 L200,100 L300,110 L366,118 L366,152 L340,195 L300,218 L250,240 L200,268 L150,292 L80,320 L0,340 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.5"/>
+
+              <!-- India subcontinent (partially visible) -->
+              <path d="M340,195 L366,152 L396,170 L408,188 L400,218 L385,246 L368,268 L356,292 L344,282 L338,255 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.7"/>
+
+              <!-- China + Mongolia mainland -->
+              <path d="M471,197 L468,185 L396,170 L366,152 L380,133 L408,113 L438,102 L471,106 L573,90 L623,109 L619,124 L607,132 L590,132 L582,140 L582,147 L568,140 L573,151 L565,154 L568,166 L571,174 L568,182 L561,193 L539,207 L522,214 L514,210 L505,208 L493,207 L471,197 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+
+              <!-- Korean Peninsula -->
+              <path d="M582,140 L590,132 L607,132 L605,140 L603,152 L601,158 L597,162 L590,164 L590,155 L586,147 L582,147 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+
+              <!-- Japan - Honshu -->
+              <path d="M611,163 L619,158 L628,159 L637,157 L641,157 L649,154 L656,140 L653,135 L648,136 L638,144 L625,156 L617,162 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+              <!-- Japan - Kyushu -->
+              <path d="M607,166 L613,165 L614,172 L609,174 L605,171 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+              <!-- Japan - Hokkaido -->
+              <path d="M649,131 L651,126 L658,121 L668,124 L670,129 L666,134 L655,133 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+
+              <!-- Indochina (Vietnam / Thailand / Cambodia + Malay Peninsula) -->
+              <path d="M505,208 L514,210 L516,228 L508,257 L497,283 L497,288 L490,270 L480,263 L476,230 L468,212 L471,197 L493,207 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+
+              <!-- Taiwan -->
+              <path d="M571,197 L574,202 L568,209 L564,204 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+
+              <!-- Philippines - Luzon -->
+              <path d="M562,222 L573,218 L575,230 L568,243 L560,233 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+              <!-- Philippines - Mindanao -->
+              <path d="M573,252 L590,252 L592,266 L574,266 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+
+              <!-- Borneo -->
+              <path d="M518,288 L538,265 L554,263 L561,270 L548,285 L534,292 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+              <!-- Sumatra -->
+              <path d="M458,272 L476,268 L497,288 L502,302 L474,296 Z" fill="#dce8d4" stroke="#b5c9b0" stroke-width="0.8"/>
+
+              <!-- Asia focus highlight ring -->
+              <ellipse cx="550" cy="185" rx="190" ry="128" fill="none" stroke="rgba(11,36,88,0.07)" stroke-dasharray="4" stroke-width="1.2"/>
 
               <!-- Connection lines from Vietnam (main) -->
               <!-- 실제 경도 기준: Vietnam(105.8°E)→Zhengzhou(113.6°E)→Qingdao(120.4°E)→Korea(127.1°E) -->
