@@ -4,7 +4,7 @@
     {
       "name": "psavn-dev",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3000", "-s", "/Users/tony/Homepage/psavn"],
+      "runtimeArgs": ["serve", "-l", "3000", "/Users/tony/Homepage/psavn"],
       "port": 3000
     }
   ]
