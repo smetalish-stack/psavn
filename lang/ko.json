@@ -33,6 +33,21 @@
     "btn_products": "제품 소개",
     "btn_contact": "문의하기"
   },
+  "overview": {
+    "intro_desc": "PS Aunics VINA는 PS Aunics(펜타스톤그룹, 한국)의 베트남 법인으로, 닌빈성 자번 산업단지에 위치합니다. MEMS 마이크로폰 후공정 패키징(삼성전자 공급)과 OEM/ODM 전자제품 위탁생산을 전문으로 합니다. 임직원 550여 명, SMT 16라인, 41,000㎡ 규모로 삼성전자, 네이버 등 글로벌 기업의 신뢰받는 제조 파트너입니다.",
+    "stat_employees": "임직원",
+    "stat_area": "공장 면적",
+    "stat_smt": "SMT 라인",
+    "stat_capacity": "CPH 생산역량",
+    "business_title": "사업 영역",
+    "mems_p": "삼성전자를 위한 MEMS 마이크로폰 후공정(패키징·조립) 전문 생산. Wafer Laser Dicing, Die Attach, Wire Bonding.",
+    "oem_p": "네이버 AI 스피커(Clova), 스마트워치, LTE/5G 모듈 등 소비자 전자제품 주문 위탁생산.",
+    "auto_p": "IATF 16949 기준의 PCBA, 블랙박스, 차량용 전자부품 위탁생산.",
+    "lte_p": "SKT, KT, LG U+ 등 주요 통신사와 글로벌 고객을 위한 LTE/5G 통신 모듈 생산.",
+    "group_title": "펜타스톤그룹 (한국)",
+    "group_desc": "PS Aunics VINA는 RF 전력 증폭기 전문 한국 전자그룹인 펜타스톤그룹의 계열사입니다. 그룹의 기술력과 글로벌 네트워크를 활용하여 모바일·자동차·산업 전자 분야에서 세계적 경쟁력을 보유하고 있습니다.",
+    "customers_title": "주요 고객사"
+  },
   "about": {
     "sub_title": "About PS Aunics VINA",
     "title": "베트남에서 실현하는\n세계 수준의 제조 전문성",

@@ -33,6 +33,21 @@
     "btn_products": "Our Products",
     "btn_contact": "Contact Us"
   },
+  "overview": {
+    "intro_desc": "PS Aunics VINA is a subsidiary of PS Aunics (Penta Stone Group, Korea), located at Gia Van Industrial Complex, Ninh Binh Province, Vietnam. Specializing in MEMS Microphone back-end packaging for Samsung Electronics and comprehensive OEM/ODM electronics manufacturing. With 550+ employees, 16 SMT lines and a 41,000㎡ facility, we are the trusted manufacturing partner of Samsung, Naver and leading global brands.",
+    "stat_employees": "Employees",
+    "stat_area": "Factory Area",
+    "stat_smt": "SMT Lines",
+    "stat_capacity": "CPH Capacity",
+    "business_title": "Business Areas",
+    "mems_p": "MEMS Microphone back-end production (Wafer Laser Dicing, Die Attach, Wire Bonding) for Samsung Electronics.",
+    "oem_p": "Contract manufacturing for Naver AI Speakers (Clova), smart watches, LTE/5G modules and consumer electronics.",
+    "auto_p": "PCBA, dashcam and automotive electronics manufacturing to IATF 16949 standards.",
+    "lte_p": "LTE/5G communication module production for SKT, KT, LG U+ and global customers.",
+    "group_title": "Penta Stone Group (Korea)",
+    "group_desc": "PS Aunics VINA is a member of Penta Stone Group — a Korean electronics group specializing in RF power amplifiers. Leveraging group technology and global networks, PS Aunics VINA maintains world-class competitiveness in mobile, automotive and industrial electronics.",
+    "customers_title": "Key Customers"
+  },
   "about": {
     "sub_title": "About PS Aunics VINA",
     "title": "World-Class Manufacturing\nExpertise in Vietnam",

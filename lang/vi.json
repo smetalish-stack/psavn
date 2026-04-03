@@ -33,6 +33,21 @@
     "btn_products": "Sản phẩm",
     "btn_contact": "Liên hệ ngay"
   },
+  "overview": {
+    "intro_desc": "PS Aunics VINA là công ty con của PS Aunics (Tập đoàn Penta Stone, Hàn Quốc), đặt tại Khu Công nghiệp Gia Vân, huyện Gia Viễn, tỉnh Ninh Bình. Chuyên sản xuất MEMS Microphone (back-end packaging) cho Samsung Electronics và cung cấp dịch vụ OEM/ODM điện tử tiêu dùng toàn diện. Với hơn 550 nhân viên, 16 dây chuyền SMT và diện tích 41.000㎡, chúng tôi là đối tác sản xuất tin cậy của Samsung, Naver và nhiều tập đoàn toàn cầu.",
+    "stat_employees": "Nhân viên",
+    "stat_area": "Diện tích nhà máy",
+    "stat_smt": "Dây chuyền SMT",
+    "stat_capacity": "CPH năng lực",
+    "business_title": "Lĩnh vực kinh doanh",
+    "mems_p": "Sản xuất MEMS Microphone (back-end packaging) cho Samsung Electronics. Wafer Laser Dicing, Die Attach, Wire Bonding.",
+    "oem_p": "Loa AI Naver (Clova), đồng hồ thông minh, mô-đun LTE/5G và các sản phẩm điện tử tiêu dùng theo đặt hàng.",
+    "auto_p": "Sản xuất PCBA, camera hành trình theo tiêu chuẩn IATF 16949 cho các nhà sản xuất ô tô toàn cầu.",
+    "lte_p": "Sản xuất mô-đun truyền thông LTE/5G cho mạng SKT, KT, LG U+ và các ứng dụng IoT công nghiệp.",
+    "group_title": "Tập đoàn Penta Stone (Hàn Quốc)",
+    "group_desc": "PS Aunics VINA là thành viên của Tập đoàn Penta Stone — tập đoàn điện tử Hàn Quốc chuyên về bộ khuếch đại công suất RF. Tận dụng công nghệ và mạng lưới của tập đoàn, PS Aunics VINA nắm giữ năng lực cạnh tranh toàn cầu trong lĩnh vực điện tử di động, ô tô và công nghiệp.",
+    "customers_title": "Khách hàng chính"
+  },
   "about": {
     "sub_title": "About PS Aunics VINA",
     "title": "Chuyên môn sản xuất\nĐẳng cấp thế giới tại Việt Nam",
