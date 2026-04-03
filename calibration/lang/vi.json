@@ -97,7 +97,8 @@
     "col_due_30": "Trong 30 ngày",
     "col_overdue": "Quá hạn",
     "no_data": "Không có thiết bị nào phù hợp.",
-    "cert_upload": "Tải lên"
+    "cert_upload": "Tải lên",
+    "col_action": "Thao tác"
   },
   "status": {
     "overdue_days": "Quá {n} ngày",

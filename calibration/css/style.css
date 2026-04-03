@@ -502,6 +502,13 @@ body {
     justify-content: flex-end;
 }
 
+/* ---- Action Cell ---- */
+.action-cell {
+    text-align: center;
+    white-space: nowrap;
+    width: 90px;
+}
+
 /* ---- Disposal ---- */
 .badge-disposed {
     background: var(--gray-200);

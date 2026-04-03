@@ -75,10 +75,12 @@ const Renderer = (() => {
                     </a>`).join('<br>')
                 : '';
 
-            const actionCell = isDisposed
+            const certUploadBtn = isDisposed ? '' :
+                `<button class="btn-cert-upload" onclick="App.openCertUpload(${e.id},'${(e.control_number||'').replace(/'/g,"\\'")}')">&#8679; ${I18n.t('table.cert_upload')}</button>`;
+
+            const disposeBtn = isDisposed
                 ? `<button class="btn-restore" onclick="App.restoreEquipment(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#8635; ${I18n.t('dispose.restore_btn')}</button>`
-                : `<button class="btn-cert-upload" onclick="App.openCertUpload(${e.id},'${(e.control_number||'').replace(/'/g,"\\'")}')">&#8679; ${I18n.t('table.cert_upload')}</button>
-                   <button class="btn-dispose" onclick="App.openDisposeModal(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#128465; ${I18n.t('dispose.dispose_btn')}</button>`;
+                : `<button class="btn-dispose" onclick="App.openDisposeModal(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#128465; ${I18n.t('dispose.dispose_btn')}</button>`;
 
             const disposedInfo = isDisposed
                 ? `<td>${e.disposed_at || '-'}</td><td>${e.disposal_reason || '-'}</td>`
@@ -95,7 +97,8 @@ const Renderer = (() => {
                 ${disposedInfo}
                 <td><span class="status-badge ${s.cls}">${s.label}</span></td>
                 <td>${isDisposed ? '' : (e.calibration_result || '-')}</td>
-                <td class="cert-cell">${isDisposed ? '' : certCell}${actionCell}</td>
+                <td class="cert-cell">${isDisposed ? '' : certCell}${certUploadBtn}</td>
+                <td class="action-cell">${disposeBtn}</td>
             </tr>`;
         }).join('');
 
@@ -118,6 +121,7 @@ const Renderer = (() => {
                     <th>${I18n.t('table.col_remain')}</th>
                     <th>${I18n.t('table.col_result')}</th>
                     <th>${I18n.t('table.col_cert')}</th>
+                    <th>${I18n.t('table.col_action')}</th>
                 </tr></thead>
                 <tbody>${rows}</tbody>
             </table>

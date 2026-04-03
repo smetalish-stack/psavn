@@ -97,7 +97,8 @@
     "col_due_30": "30일 이내",
     "col_overdue": "기한초과",
     "no_data": "해당 조건의 장비가 없습니다.",
-    "cert_upload": "업로드"
+    "cert_upload": "업로드",
+    "col_action": "처리"
   },
   "status": {
     "overdue_days": "초과 {n}일",

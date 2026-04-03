@@ -97,7 +97,8 @@
     "col_due_30": "Due in 30d",
     "col_overdue": "Overdue",
     "no_data": "No equipment found.",
-    "cert_upload": "Upload"
+    "cert_upload": "Upload",
+    "col_action": "Action"
   },
   "status": {
     "overdue_days": "{n}d overdue",
