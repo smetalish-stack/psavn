@@ -151,7 +151,7 @@ const Renderer = (() => {
         }
         const rows = logs.map(l => `
             <tr>
-                <td>${l.sent_at ? l.sent_at.substring(0,16).replace('T',' ') : '-'}</td>
+                <td>${l.sent_at ? new Date(l.sent_at.replace(' ','T')+'Z').toLocaleString('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).substring(0,16) : '-'}</td>
                 <td>${I18n.t('alerts.threshold_label', { n: l.threshold_days })}</td>
                 <td>${l.equipment_name || '-'}</td>
                 <td>${l.control_number || '-'}</td>
