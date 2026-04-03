@@ -31,6 +31,7 @@
     "status_urgent": "Within 30 days",
     "status_warning": "Within 60 days",
     "status_ok": "Normal",
+    "status_disposed": "🗑 Disposed Equipment",
     "search_placeholder": "Search by name or control number...",
     "search": "Search",
     "export": "Export Excel",
@@ -122,6 +123,21 @@
     "saving": "Saving...",
     "success": "✓ Equipment added successfully.",
     "error_required": "Year and equipment name are required."
+  },
+  "dispose": {
+    "dispose_btn": "Dispose",
+    "restore_btn": "Restore",
+    "status_label": "Disposed",
+    "modal_title": "Dispose Equipment",
+    "reason_label": "Disposal Reason",
+    "reason_placeholder": "Aged out, lost, broken...",
+    "confirm_btn": "Confirm Disposal",
+    "processing": "Processing...",
+    "done": "Equipment disposed",
+    "restore_confirm": "Restore equipment {name}?",
+    "col_disposed_at": "Disposed At",
+    "col_reason": "Disposal Reason",
+    "status_disposed": "🗑 Disposed Equipment"
   },
   "cert_modal": {
     "title": "Upload Calibration Certificate",

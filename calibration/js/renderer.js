@@ -57,8 +57,15 @@ const Renderer = (() => {
             wrap.innerHTML = `<p class="empty-msg">${I18n.t('table.no_data')}</p>`;
             return;
         }
+
+        const isDisposedView = items.length > 0 && items[0].eq_status === 'disposed';
+
         const rows = items.map(e => {
-            const s = getStatusInfo(e.remain_days);
+            const isDisposed = e.eq_status === 'disposed';
+            const s = isDisposed
+                ? { cls: 'badge-disposed', label: I18n.t('dispose.status_label') }
+                : getStatusInfo(e.remain_days);
+
             const certs = certMap[e.id] || [];
             const certCell = certs.length > 0
                 ? certs.map(c => `
@@ -67,22 +74,34 @@ const Renderer = (() => {
                        &#128196; ${c.cert_number || c.original_filename || 'cert'}
                     </a>`).join('<br>')
                 : '';
-            const uploadBtn = `<button class="btn-cert-upload" onclick="App.openCertUpload(${e.id},'${(e.control_number||'').replace(/'/g,"\\'")}')">&#8679; ${I18n.t('table.cert_upload')}</button>`;
 
-            return `<tr>
+            const actionCell = isDisposed
+                ? `<button class="btn-restore" onclick="App.restoreEquipment(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#8635; ${I18n.t('dispose.restore_btn')}</button>`
+                : `<button class="btn-cert-upload" onclick="App.openCertUpload(${e.id},'${(e.control_number||'').replace(/'/g,"\\'")}')">&#8679; ${I18n.t('table.cert_upload')}</button>
+                   <button class="btn-dispose" onclick="App.openDisposeModal(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#128465; ${I18n.t('dispose.dispose_btn')}</button>`;
+
+            const disposedInfo = isDisposed
+                ? `<td>${e.disposed_at || '-'}</td><td>${e.disposal_reason || '-'}</td>`
+                : `<td>${e.calibration_date ? e.calibration_date.substring(0,10) : '-'}</td>
+                   <td>${e.due_date ? e.due_date.substring(0,10) : '-'}</td>`;
+
+            return `<tr class="${isDisposed ? 'row-disposed' : ''}">
                 <td>${e.item_no ?? '-'}</td>
                 <td><small>${e.control_number || '-'}</small></td>
                 <td><strong>${e.equipment_name || '-'}</strong></td>
                 <td>${e.manufacturer || '-'}</td>
                 <td><small>${e.model_number || '-'}</small></td>
                 <td>${e.location || '-'}</td>
-                <td>${e.calibration_date ? e.calibration_date.substring(0,10) : '-'}</td>
-                <td>${e.due_date ? e.due_date.substring(0,10) : '-'}</td>
+                ${disposedInfo}
                 <td><span class="status-badge ${s.cls}">${s.label}</span></td>
-                <td>${e.calibration_result || '-'}</td>
-                <td class="cert-cell">${certCell}${uploadBtn}</td>
+                <td>${isDisposed ? '' : (e.calibration_result || '-')}</td>
+                <td class="cert-cell">${isDisposed ? '' : certCell}${actionCell}</td>
             </tr>`;
         }).join('');
+
+        const disposedHeader = isDisposedView
+            ? `<th>${I18n.t('dispose.col_disposed_at')}</th><th>${I18n.t('dispose.col_reason')}</th>`
+            : `<th>${I18n.t('table.col_cal_date')}</th><th>${I18n.t('table.col_due_date')}</th>`;
 
         wrap.innerHTML = `
             <div class="table-wrap">
@@ -95,8 +114,7 @@ const Renderer = (() => {
                     <th>${I18n.t('table.col_maker')}</th>
                     <th>${I18n.t('table.col_model')}</th>
                     <th>${I18n.t('table.col_location')}</th>
-                    <th>${I18n.t('table.col_cal_date')}</th>
-                    <th>${I18n.t('table.col_due_date')}</th>
+                    ${disposedHeader}
                     <th>${I18n.t('table.col_remain')}</th>
                     <th>${I18n.t('table.col_result')}</th>
                     <th>${I18n.t('table.col_cert')}</th>

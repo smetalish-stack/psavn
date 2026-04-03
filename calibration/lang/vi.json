@@ -31,6 +31,7 @@
     "status_urgent": "Trong 30 ngày",
     "status_warning": "Trong 60 ngày",
     "status_ok": "Bình thường",
+    "status_disposed": "🗑 Thiết bị đã thanh lý",
     "search_placeholder": "Tìm theo tên thiết bị, mã số...",
     "search": "Tìm kiếm",
     "export": "Xuất Excel",
@@ -122,6 +123,21 @@
     "saving": "Đang lưu...",
     "success": "✓ Đã thêm thiết bị thành công.",
     "error_required": "Vui lòng nhập năm và tên thiết bị."
+  },
+  "dispose": {
+    "dispose_btn": "Thanh lý",
+    "restore_btn": "Khôi phục",
+    "status_label": "Đã thanh lý",
+    "modal_title": "Thanh lý thiết bị",
+    "reason_label": "Lý do thanh lý",
+    "reason_placeholder": "Hỏng hóc, lỗi thời, mất mát...",
+    "confirm_btn": "Xác nhận thanh lý",
+    "processing": "Đang xử lý...",
+    "done": "Đã thanh lý thiết bị",
+    "restore_confirm": "Khôi phục thiết bị {name}?",
+    "col_disposed_at": "Ngày thanh lý",
+    "col_reason": "Lý do thanh lý",
+    "status_disposed": "🗑 Thiết bị đã thanh lý"
   },
   "cert_modal": {
     "title": "Tải lên chứng nhận hiệu chuẩn",

@@ -106,12 +106,21 @@ const App = (() => {
 
     // ── Equipment List ──
     async function loadList() {
+        const statusVal = document.getElementById('filter-status').value;
+        const isDisposedView = statusVal === 'disposed';
+
         const params = {
             year: document.getElementById('filter-year').value,
             location: document.getElementById('filter-location').value,
-            status: document.getElementById('filter-status').value,
             search: document.getElementById('filter-search').value
         };
+
+        if (isDisposedView) {
+            params.eq_status = 'disposed';
+        } else if (statusVal) {
+            params.status = statusVal;
+        }
+
         Object.keys(params).forEach(k => { if (!params[k]) delete params[k]; });
 
         showLoading(true);
@@ -387,6 +396,70 @@ const App = (() => {
         }
     }
 
+    // ── Dispose / Restore ──
+    function openDisposeModal(id, name) {
+        document.getElementById('dispose-modal')?.remove();
+
+        const modal = document.createElement('div');
+        modal.id = 'dispose-modal';
+        modal.innerHTML = `
+            <div class="modal-backdrop" onclick="document.getElementById('dispose-modal').remove()"></div>
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>&#128465; ${I18n.t('dispose.modal_title')}</h3>
+                    <button class="modal-close" onclick="document.getElementById('dispose-modal').remove()">&#10005;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-equip">${name}</p>
+                    <div class="modal-field">
+                        <label>${I18n.t('dispose.reason_label')}</label>
+                        <input type="text" id="dispose-reason-input" class="input-sm"
+                               placeholder="${I18n.t('dispose.reason_placeholder')}">
+                    </div>
+                    <div id="dispose-msg" style="font-size:13px;margin-top:8px"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-dispose-confirm" onclick="App.confirmDispose(${id})">${I18n.t('dispose.confirm_btn')}</button>
+                    <button class="btn-secondary" onclick="document.getElementById('dispose-modal').remove()">${I18n.t('add_modal.cancel')}</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    async function confirmDispose(id) {
+        const reason = document.getElementById('dispose-reason-input').value.trim();
+        const msgEl = document.getElementById('dispose-msg');
+        msgEl.style.color = 'var(--accent)';
+        msgEl.textContent = I18n.t('dispose.processing');
+
+        try {
+            await API.disposeEquipment(id, reason);
+            msgEl.style.color = 'var(--status-ok)';
+            msgEl.textContent = '✓ ' + I18n.t('dispose.done');
+            setTimeout(() => {
+                document.getElementById('dispose-modal')?.remove();
+                loadList();
+            }, 700);
+        } catch (err) {
+            msgEl.style.color = 'var(--status-critical)';
+            msgEl.textContent = I18n.t('upload.error_prefix') + err.message;
+        }
+    }
+
+    async function restoreEquipment(id, name) {
+        if (!confirm(I18n.t('dispose.restore_confirm', { name }))) return;
+        showLoading(true);
+        try {
+            await API.restoreEquipment(id);
+            loadList();
+        } catch (err) {
+            alert(I18n.t('upload.error_prefix') + err.message);
+        } finally {
+            showLoading(false);
+        }
+    }
+
     // ── Certificate Upload Modal ──
     function openCertUpload(equipId, controlNumber) {
         document.getElementById('cert-modal')?.remove();
@@ -475,5 +548,5 @@ const App = (() => {
     // ── Public ──
     document.addEventListener('DOMContentLoaded', init);
 
-    return { loadDashboard, loadList, exportToExcel, saveAlertConfig, sendTestEmail, openCertUpload, submitCertUpload, openAddEquipmentModal, submitAddEquipment, logout };
+    return { loadDashboard, loadList, exportToExcel, saveAlertConfig, sendTestEmail, openCertUpload, submitCertUpload, openAddEquipmentModal, submitAddEquipment, openDisposeModal, confirmDispose, restoreEquipment, logout };
 })();

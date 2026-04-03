@@ -502,6 +502,69 @@ body {
     justify-content: flex-end;
 }
 
+/* ---- Disposal ---- */
+.badge-disposed {
+    background: var(--gray-200);
+    color: var(--gray-600);
+}
+
+tr.row-disposed td {
+    color: var(--gray-500);
+    background: var(--gray-50);
+    text-decoration: none;
+}
+
+tr.row-disposed td strong,
+tr.row-disposed td small {
+    color: var(--gray-500);
+}
+
+.btn-dispose {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid #fca5a5;
+    background: #fee2e2;
+    color: #dc2626;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s;
+}
+.btn-dispose:hover { background: #fca5a5; }
+
+.btn-restore {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid #86efac;
+    background: #dcfce7;
+    color: #16a34a;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s;
+}
+.btn-restore:hover { background: #86efac; }
+
+.btn-dispose-confirm {
+    padding: 9px 20px;
+    border-radius: var(--radius);
+    border: none;
+    background: #dc2626;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s;
+}
+.btn-dispose-confirm:hover { background: #b91c1c; }
+
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
     .stats-grid { grid-template-columns: repeat(2, 1fr); }

@@ -43,6 +43,8 @@ const API = (() => {
         createEquipment: (data) => request('POST', '/api/equipment', data),
         updateEquipment: (id, data) => request('PUT', `/api/equipment/${id}`, data),
         deleteEquipment: (id) => request('DELETE', `/api/equipment/${id}`),
+        disposeEquipment: (id, reason) => request('PUT', `/api/equipment/${id}/dispose`, { disposal_reason: reason }),
+        restoreEquipment: (id) => request('PUT', `/api/equipment/${id}/restore`, {}),
         // Certificates
         getCertificates: (equipId) => request('GET', `/api/certificates/${equipId}`),
         uploadCertificate: (equipId, formData) => request('POST', `/api/certificates/${equipId}`, formData, true),

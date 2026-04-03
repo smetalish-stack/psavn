@@ -31,6 +31,7 @@
     "status_urgent": "30일 이내",
     "status_warning": "60일 이내",
     "status_ok": "정상",
+    "status_disposed": "🗑 폐기 장비",
     "search_placeholder": "장비명, 관리번호 검색...",
     "search": "검색",
     "export": "엑셀 내보내기",
@@ -122,6 +123,21 @@
     "saving": "저장 중...",
     "success": "✓ 장비가 추가되었습니다.",
     "error_required": "연도와 장비명은 필수 입력 항목입니다."
+  },
+  "dispose": {
+    "dispose_btn": "폐기",
+    "restore_btn": "복원",
+    "status_label": "폐기",
+    "modal_title": "장비 폐기 처리",
+    "reason_label": "폐기 사유",
+    "reason_placeholder": "노후화, 분실, 고장 등",
+    "confirm_btn": "폐기 확정",
+    "processing": "처리 중...",
+    "done": "폐기 처리 완료",
+    "restore_confirm": "{name} 장비를 복원하시겠습니까?",
+    "col_disposed_at": "폐기일",
+    "col_reason": "폐기 사유",
+    "status_disposed": "🗑 폐기 장비"
   },
   "cert_modal": {
     "title": "검교정 인증서 업로드",
