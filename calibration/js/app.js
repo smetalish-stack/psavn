@@ -242,7 +242,7 @@ const App = (() => {
 
         showLoading(true);
         try {
-            await API.sendTestEmail(input);
+            await API.sendTestEmail(input, I18n.getLang() || 'vi');
             alert(I18n.t('alerts.send_test') + ' ✓');
         } catch (e) {
             alert(I18n.t('upload.error_prefix') + e.message);

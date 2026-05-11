@@ -39,7 +39,7 @@ const API = (() => {
         getAlertConfig: () => request('GET', '/api/alerts/config'),
         saveAlertConfig: (configs) => request('PUT', '/api/alerts/config', { configs }),
         getAlertLog: () => request('GET', '/api/alerts/log'),
-        sendTestEmail: (recipients) => request('POST', '/api/alerts/test', { recipients }),
+        sendTestEmail: (recipients, lang) => request('POST', '/api/alerts/test', { recipients, lang }),
         createEquipment: (data) => request('POST', '/api/equipment', data),
         updateEquipment: (id, data) => request('PUT', `/api/equipment/${id}`, data),
         deleteEquipment: (id) => request('DELETE', `/api/equipment/${id}`),
