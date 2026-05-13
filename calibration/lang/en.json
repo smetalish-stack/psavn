@@ -63,6 +63,8 @@
     "history_title": "Send History",
     "history_loading": "Loading send history...",
     "history_empty": "No send history.",
+    "recipients_auto": "Auto-managed from user list",
+    "recipients_count": " recipients",
     "recipients_placeholder": "Recipient emails (comma-separated)",
     "test_placeholder": "Test recipient email",
     "level_90": "Early Notice",

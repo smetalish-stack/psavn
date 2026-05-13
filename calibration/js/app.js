@@ -13,6 +13,15 @@ const App = (() => {
             new Date().toLocaleDateString(I18n.getLang() === 'ko' ? 'ko-KR' : 'en-US',
                 { year: 'numeric', month: 'long', day: 'numeric' });
 
+        // 로그인 사용자 이름 표시
+        try {
+            const info = await API.verify();
+            if (info.valid) {
+                const nameEl = document.getElementById('header-user');
+                if (nameEl) nameEl.textContent = info.username || '';
+            }
+        } catch (_) {}
+
         setupTabs();
         setupUpload();
 
@@ -530,12 +539,7 @@ const App = (() => {
 
     // ── Logout ──
     async function logout() {
-        try {
-            await fetch('http://localhost:4000/api/logout', {
-                method: 'POST',
-                headers: { 'X-Auth-Token': sessionStorage.getItem('cal_token') || '' }
-            });
-        } catch (_) {}
+        await API.logout();
         sessionStorage.removeItem('cal_token');
         window.location.replace('login.html');
     }

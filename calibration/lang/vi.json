@@ -63,6 +63,8 @@
     "history_title": "Lịch sử gửi",
     "history_loading": "Đang tải lịch sử gửi...",
     "history_empty": "Chưa có lịch sử gửi.",
+    "recipients_auto": "Tự động từ danh sách người dùng",
+    "recipients_count": " người nhận",
     "recipients_placeholder": "Email người nhận (cách nhau bằng dấu phẩy)",
     "test_placeholder": "Email người nhận thử nghiệm",
     "level_90": "Thông báo sớm",

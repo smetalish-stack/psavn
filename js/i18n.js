@@ -70,9 +70,11 @@ const I18n = {
       const key = el.getAttribute('data-i18n');
       const text = this.t(key);
       if (text !== key) {
-        // Handle newlines in translations
+        // Handle HTML content or newlines in translations
         if (text.includes('\n')) {
           el.innerHTML = text.replace(/\n/g, '<br>');
+        } else if (/<[a-z][\s\S]*>/i.test(text)) {
+          el.innerHTML = text;
         } else {
           el.textContent = text;
         }

@@ -22,6 +22,14 @@ const API = (() => {
             opts.body = body;
         }
         const res = await fetch(BASE + path, opts);
+
+        // 토큰 만료 또는 미인증 → 자동 로그아웃
+        if (res.status === 401) {
+            sessionStorage.removeItem('cal_token');
+            window.location.replace('login.html');
+            throw new Error('Session expired');
+        }
+
         const json = await res.json();
         if (!res.ok) throw new Error(json.error || 'Request failed');
         return json;
@@ -49,6 +57,14 @@ const API = (() => {
         getCertificates: (equipId) => request('GET', `/api/certificates/${equipId}`),
         uploadCertificate: (equipId, formData) => request('POST', `/api/certificates/${equipId}`, formData, true),
         deleteCertificate: (certId) => request('DELETE', `/api/certificates/item/${certId}`),
-        getCertFileUrl: (filename) => `${BASE}/api/certificates/file/${filename}`
+        getCertFileUrl: (filename) => `${BASE}/api/certificates/file/${filename}`,
+        // Auth
+        verify: () => fetch(BASE + '/api/verify', {
+            headers: { 'X-Auth-Token': getToken() }
+        }).then(r => r.json()),
+        logout: () => fetch(BASE + '/api/logout', {
+            method: 'POST',
+            headers: { 'X-Auth-Token': getToken() }
+        }).catch(() => {})
     };
 })();

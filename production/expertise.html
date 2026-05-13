@@ -20,12 +20,11 @@
   <header class="header sub-page">
     <div class="header-inner">
       <a href="../index.html" class="logo">
-        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
-          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        <svg class="logo-icon" width="46" height="44" viewBox="0 0 245 233" xmlns="http://www.w3.org/2000/svg">
+          <path d="M180.66 42.39 159.27 57.38 159.27 57.39 41.92 137.94 29.04 98.3 122.32 30.54 148.07 49.24 169.07 33.97 122.32 0 0 88.86 28.93 177.91 39.09 170.48 39.09 170.48 49.92 162.56 49.88 162.44 180.48 72.79 180.48 72.79 215.59 98.3 179.97 207.96 64.67 207.96 54.31 176.08 33.26 191.22 46.72 232.66 197.92 232.66 244.63 88.86 180.66 42.39Z" fill="#805276"/>
         </svg>
         <div class="logo-text-group">
-          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-text">PS Aunics <span>VN</span></span>
           <span class="logo-sub">PentaStone Automotive-Electronics</span>
         </div>
       </a>
@@ -68,6 +67,7 @@
       <div class="header-right">
         <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
         <a href="../calibration/login.html" class="hris-btn" target="_blank"><span class="hris-icon">🔧</span> Calibration</a>
+        <a href="https://4m-change-management-production.up.railway.app" class="hris-btn" target="_blank"><span class="hris-icon">📋</span> 4M</a>
         <div class="lang-selector">
           <button class="lang-btn active" data-lang="ko">KO</button>
           <button class="lang-btn" data-lang="en">EN</button>
@@ -112,8 +112,8 @@
         <main class="sub-main">
           <!-- Intro -->
           <section class="fade-in">
-            <h2>생산 전문성</h2>
-            <p style="font-size:1.1rem;color:var(--text-gray);line-height:1.8;margin:20px 0 40px;">
+            <h2 data-i18n="expertise.title">생산 전문성</h2>
+            <p data-i18n="expertise.desc" style="font-size:1.1rem;color:var(--text-gray);line-height:1.8;margin:20px 0 40px;">
               PS Aunics는 구매, 공정, SMT, 품질 전 영역에 걸쳐 축적된 전문성을 바탕으로 고객에게 최적의 제조 솔루션을 제공합니다.
             </p>
           </section>
@@ -126,16 +126,16 @@
                 <div style="font-size:2rem;margin-bottom:12px;">&#128722;</div>
                 <h4 style="color:var(--primary);margin-bottom:16px;font-size:1.15rem;">Purchase Expertise</h4>
                 <ul style="list-style:none;padding:0;margin:0;">
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.purchase_item1" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">RLC/기구/포장재 현지화</strong> - 원가 경쟁력 극대화
                   </li>
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.purchase_item2" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">복수 업체 승인</strong> - 안정적 공급망 확보
                   </li>
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.purchase_item3" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">분기/반기 단가협의</strong> - 원가 절감 체계
                   </li>
-                  <li style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.purchase_item4" style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">3개국 동시 비딩</strong> - 글로벌 소싱 최적화
                   </li>
                 </ul>
@@ -146,13 +146,13 @@
                 <div style="font-size:2rem;margin-bottom:12px;">&#9881;</div>
                 <h4 style="color:var(--primary);margin-bottom:16px;font-size:1.15rem;">Process Expertise</h4>
                 <ul style="list-style:none;padding:0;margin:0;">
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.process_item1" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">Global EMS Process</strong> - 글로벌 표준 공정 운영
                   </li>
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.process_item2" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">완성차 기반 Process 확대</strong> - 차량용 품질 공정
                   </li>
-                  <li style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.process_item3" style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">MES System</strong> - 제조실행시스템 통합 관리
                   </li>
                 </ul>
@@ -163,16 +163,16 @@
                 <div style="font-size:2rem;margin-bottom:12px;">&#128268;</div>
                 <h4 style="color:var(--primary);margin-bottom:16px;font-size:1.15rem;">SMT Expertise</h4>
                 <ul style="list-style:none;padding:0;margin:0;">
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.smt_item1" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">다양한 SMT 제조 경험</strong> - 다품종 소량~대량 생산
                   </li>
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.smt_item2" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">PQR 활동</strong> - 공정 품질 개선 활동
                   </li>
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.smt_item3" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">Mask/JIG 설계</strong> - 자체 설계 및 제작 역량
                   </li>
-                  <li style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.smt_item4" style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">FPCB SMT Know-How</strong> - 연성기판 실장 전문기술
                   </li>
                 </ul>
@@ -183,16 +183,16 @@
                 <div style="font-size:2rem;margin-bottom:12px;">&#9989;</div>
                 <h4 style="color:var(--primary);margin-bottom:16px;font-size:1.15rem;">Quality Expertise</h4>
                 <ul style="list-style:none;padding:0;margin:0;">
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.quality_item1" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">IQC/PQC/OQC 검사</strong> - 전수 품질검사 체계
                   </li>
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.quality_item2" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">ISO 9001 / ISO 14001</strong> - 품질 및 환경 경영
                   </li>
-                  <li style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.quality_item3" style="padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">IATF 16949 / ISO 45001</strong> - 자동차 품질 및 안전보건
                   </li>
-                  <li style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
+                  <li data-i18n="expertise.quality_item4" style="padding:8px 0;font-size:0.92rem;color:var(--text-gray);line-height:1.6;">
                     <strong style="color:var(--text-dark);">검교정 / Gage R&R</strong> - 측정 시스템 분석
                   </li>
                 </ul>
@@ -208,8 +208,8 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-company">
-        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
-        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VN</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VN</p>
         <ul class="company-info">
           <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
           <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>

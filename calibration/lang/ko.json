@@ -63,6 +63,8 @@
     "history_title": "발송 이력",
     "history_loading": "발송 이력을 불러오는 중...",
     "history_empty": "발송 이력이 없습니다.",
+    "recipients_auto": "사용자 목록 자동 연동",
+    "recipients_count": "명 수신",
     "recipients_placeholder": "수신자 이메일 (쉼표로 구분)",
     "test_placeholder": "테스트 수신자 이메일",
     "level_90": "사전 안내",

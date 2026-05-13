@@ -95,12 +95,11 @@
   <header class="header sub-page">
     <div class="header-inner">
       <a href="../index.html" class="logo">
-        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="17,2 31,12 26,29 8,29 3,12" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
-          <polygon points="19,8 28,16 24,27 11,27 7,16" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round"/>
+        <svg class="logo-icon" width="46" height="44" viewBox="0 0 245 233" xmlns="http://www.w3.org/2000/svg">
+          <path d="M180.66 42.39 159.27 57.38 159.27 57.39 41.92 137.94 29.04 98.3 122.32 30.54 148.07 49.24 169.07 33.97 122.32 0 0 88.86 28.93 177.91 39.09 170.48 39.09 170.48 49.92 162.56 49.88 162.44 180.48 72.79 180.48 72.79 215.59 98.3 179.97 207.96 64.67 207.96 54.31 176.08 33.26 191.22 46.72 232.66 197.92 232.66 244.63 88.86 180.66 42.39Z" fill="#805276"/>
         </svg>
         <div class="logo-text-group">
-          <span class="logo-text">PS Aunics <span>VINA</span></span>
+          <span class="logo-text">PS Aunics <span>VN</span></span>
           <span class="logo-sub">PentaStone Automotive-Electronics</span>
         </div>
       </a>
@@ -143,6 +142,7 @@
       <div class="header-right">
         <a href="../hris/" class="hris-btn" target="_blank"><span class="hris-icon">🏢</span> HRIS</a>
         <a href="../calibration/login.html" class="hris-btn" target="_blank"><span class="hris-icon">🔧</span> Calibration</a>
+        <a href="https://4m-change-management-production.up.railway.app" class="hris-btn" target="_blank"><span class="hris-icon">📋</span> 4M</a>
         <div class="lang-selector">
           <button class="lang-btn active" data-lang="ko">KO</button>
           <button class="lang-btn" data-lang="en">EN</button>
@@ -192,41 +192,41 @@
           <!-- Product Highlight -->
           <section class="product-highlight fade-in">
             <h2>MEMS Sensor</h2>
-            <p>내재화된 MEMS 공정 기술을 기반으로 수소 가스 센서, CO2 가스 센서, IR 온도 센서, 멀티 센서 모듈 등
+            <p data-i18n="mems_sensor.intro">내재화된 MEMS 공정 기술을 기반으로 수소 가스 센서, CO2 가스 센서, IR 온도 센서, 멀티 센서 모듈 등
               다양한 MEMS 센서 제품을 개발 및 양산하고 있습니다. 특히 수소전기차용 수소 가스 센서는
               현대기아차에 공급하고 있습니다.</p>
           </section>
 
           <!-- Sensor Products -->
           <section class="fade-in" style="margin:40px 0;">
-            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">센서 제품 라인업</h3>
+            <h3 data-i18n="mems_sensor.lineup_title" style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);">센서 제품 라인업</h3>
             <div class="grid-2" style="gap:20px;">
               <div class="sensor-card">
                 <div class="icon">💧</div>
-                <h4>수소 가스 센서 (H2 Sensor)</h4>
-                <p>수소전기차(FCEV)의 수소 누출 감지용 센서. MEMS 열전도도 방식으로 고정밀, 빠른 응답 속도를 달성합니다.
+                <h4 data-i18n="mems_sensor.h2_title">수소 가스 센서 (H2 Sensor)</h4>
+                <p data-i18n="mems_sensor.h2_desc">수소전기차(FCEV)의 수소 누출 감지용 센서. MEMS 열전도도 방식으로 고정밀, 빠른 응답 속도를 달성합니다.
                   현대기아차 수소전기차에 양산 납품 중입니다.</p>
-                <span class="status status-mass">양산 중</span>
+                <span data-i18n="mems_sensor.status_mass" class="status status-mass">양산 중</span>
               </div>
               <div class="sensor-card">
                 <div class="icon">🌿</div>
-                <h4>CO2 가스 센서</h4>
-                <p>NDIR(비분산 적외선) 방식의 CO2 농도 측정 센서. 실내 공기질 모니터링, 환기 시스템, 스마트 홈 등에 적용됩니다.</p>
-                <span class="status status-mass">양산 중</span>
+                <h4 data-i18n="mems_sensor.co2_title">CO2 가스 센서</h4>
+                <p data-i18n="mems_sensor.co2_desc">NDIR(비분산 적외선) 방식의 CO2 농도 측정 센서. 실내 공기질 모니터링, 환기 시스템, 스마트 홈 등에 적용됩니다.</p>
+                <span data-i18n="mems_sensor.status_mass" class="status status-mass">양산 중</span>
               </div>
               <div class="sensor-card">
                 <div class="icon">🌡️</div>
-                <h4>IR 온도 센서</h4>
-                <p>비접촉식 적외선 온도 측정 센서. MEMS 써모파일 기반으로 정밀한 온도 측정이 가능하며,
+                <h4 data-i18n="mems_sensor.ir_title">IR 온도 센서</h4>
+                <p data-i18n="mems_sensor.ir_desc">비접촉식 적외선 온도 측정 센서. MEMS 써모파일 기반으로 정밀한 온도 측정이 가능하며,
                   가전, 의료, 산업 분야에 적용됩니다.</p>
-                <span class="status status-mass">양산 중</span>
+                <span data-i18n="mems_sensor.status_mass" class="status status-mass">양산 중</span>
               </div>
               <div class="sensor-card">
                 <div class="icon">📡</div>
-                <h4>멀티 센서 모듈</h4>
-                <p>VOC, CO2, 미세먼지 등 복합 환경 센서를 하나의 모듈로 통합한 제품.
+                <h4 data-i18n="mems_sensor.multi_title">멀티 센서 모듈</h4>
+                <p data-i18n="mems_sensor.multi_desc">VOC, CO2, 미세먼지 등 복합 환경 센서를 하나의 모듈로 통합한 제품.
                   스마트 공기질 관리 시스템에 최적화되어 있습니다.</p>
-                <span class="status status-dev">개발/양산 준비</span>
+                <span data-i18n="mems_sensor.status_dev" class="status status-dev">개발/양산 준비</span>
               </div>
             </div>
           </section>
@@ -327,8 +327,8 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-company">
-        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VINA</span></span></div>
-        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VINA</p>
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VN</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VN</p>
         <ul class="company-info">
           <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
           <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>
@@ -359,7 +359,7 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved.</p></div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VN Co., Ltd. All Rights Reserved.</p></div>
   </footer>
 
   <script src="../js/i18n.js"></script>

@@ -148,7 +148,11 @@ const Renderer = (() => {
                         <span class="toggle-slider"></span>
                     </label>
                 </td>
-                <td><input type="text" class="input-recipients cfg-recipients" value="${c.email_recipients || ''}" placeholder="${I18n.t('alerts.recipients_placeholder')}"></td>
+                <td>
+                    <span style="font-size:12px;color:#6b7280">${I18n.t('alerts.recipients_auto')}</span>
+                    <div style="font-size:11px;color:#9ca3af;margin-top:2px">${(c.email_recipients || '').split(',').filter(Boolean).length}${I18n.t('alerts.recipients_count')}</div>
+                    <input type="hidden" class="cfg-recipients" value="${c.email_recipients || ''}">
+                </td>
             </tr>
         `).join('');
 
