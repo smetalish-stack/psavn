@@ -144,35 +144,6 @@
             </div>
           </section>
 
-          <!-- Company Videos -->
-          <section class="overview-videos fade-in" style="margin:50px 0;">
-            <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);" data-i18n="overview.video_title">회사 소개 동영상</h3>
-            <div class="video-grid">
-              <div class="yt-facade" data-video-id="6UbhqDwlBDc">
-                <img src="https://img.youtube.com/vi/6UbhqDwlBDc/maxresdefault.jpg"
-                     onerror="this.src='https://img.youtube.com/vi/6UbhqDwlBDc/hqdefault.jpg'"
-                     alt="PS Aunics VN - Company Introduction 1">
-                <button class="yt-play-btn" aria-label="재생">
-                  <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
-                    <path d="M45 24 27 14v20" fill="#fff"/>
-                  </svg>
-                </button>
-              </div>
-              <div class="yt-facade" data-video-id="WwNuIwKVYCA">
-                <img src="https://img.youtube.com/vi/WwNuIwKVYCA/maxresdefault.jpg"
-                     onerror="this.src='https://img.youtube.com/vi/WwNuIwKVYCA/hqdefault.jpg'"
-                     alt="PS Aunics VN - Company Introduction 2">
-                <button class="yt-play-btn" aria-label="재생">
-                  <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
-                    <path d="M45 24 27 14v20" fill="#fff"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </section>
-
           <!-- Business Areas -->
           <section class="overview-business fade-in" style="margin:50px 0;">
             <h3 style="color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--light-bg);" data-i18n="overview.business_title"></h3>
@@ -267,19 +238,5 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/common.js"></script>
   <script src="../js/sub.js"></script>
-  <script>
-    document.querySelectorAll('.yt-facade').forEach(function(facade) {
-      facade.addEventListener('click', function() {
-        var id = facade.dataset.videoId;
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
-        iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:10px;';
-        facade.innerHTML = '';
-        facade.appendChild(iframe);
-      });
-    });
-  </script>
 </body>
 </html>
