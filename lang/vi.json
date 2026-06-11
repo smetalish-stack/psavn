@@ -90,6 +90,10 @@
     "ems_desc": "Dịch vụ gia công điện tử toàn diện từ linh kiện đến thành phẩm cho đối tác cấp 1 toàn cầu",
     "more": "Xem thêm →"
   },
+  "clients": {
+    "sub_title": "Our Clients",
+    "title": "Khách hàng chính"
+  },
   "global": {
     "sub_title": "Global Network",
     "title": "Mạng lưới toàn cầu",
