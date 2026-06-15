@@ -324,5 +324,30 @@
     "links_production": "생산역량",
     "links_support": "고객지원",
     "copyright": "© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved."
+  },
+  "portal": {
+    "title": "내부 시스템 포털",
+    "desc": "PS Aunics VN 임직원 전용 내부 시스템입니다. 권한이 있는 계정으로 로그인하여 이용하세요.",
+    "cat_hr": "인사 · 경영",
+    "cat_quality": "품질 · 설비",
+    "cat_facility": "설비 · 모니터링",
+    "launch": "열기",
+    "badge_internal": "내부망",
+    "hris_title": "인사 · 근태 · 급여",
+    "hris_desc": "임직원 인사정보, 출퇴근 기록, 급여명세 및 정산을 통합 관리합니다.",
+    "dispatch_title": "차량 배차 관리",
+    "dispatch_desc": "임직원 셔틀 및 업무 차량 배차, 기사 배정, Zalo 알림 발송을 통합 관리합니다.",
+    "calib_title": "검교정 관리",
+    "calib_desc": "측정장비 교정 이력, 주기 알림, 성적서 발급 등 교정 업무를 체계적으로 관리합니다.",
+    "4m_title": "4M 변경관리",
+    "4m_desc": "IATF 16949 기준의 Man, Machine, Material, Method 변경 이력을 관리합니다.",
+    "thermo_title": "온습도 현황판",
+    "thermo_desc": "공장 내 온도·습도 현황을 실시간으로 모니터링합니다.",
+    "layout_title": "온습도 레이아웃",
+    "layout_desc": "공장 구역별 온습도 센서 배치 및 측정값을 레이아웃으로 확인합니다.",
+    "alarm_title": "온습도 알람시스템",
+    "alarm_desc": "온습도 임계값 초과 시 알람을 발생시켜 이상 환경을 즉시 감지합니다.",
+    "coil_title": "무선충전 코일 라인 모니터링",
+    "coil_desc": "무선충전 코일 생산 라인의 설비 상태를 실시간으로 모니터링합니다."
   }
 }

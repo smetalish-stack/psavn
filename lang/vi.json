@@ -324,5 +324,30 @@
     "links_production": "Sản xuất",
     "links_support": "Hỗ trợ",
     "copyright": "© 2025 PS Aunics VINA Co., Ltd. Bảo lưu mọi quyền."
+  },
+  "portal": {
+    "title": "Cổng hệ thống nội bộ",
+    "desc": "Hệ thống nội bộ dành riêng cho nhân viên PS Aunics VN. Vui lòng đăng nhập bằng tài khoản được ủy quyền.",
+    "cat_hr": "Nhân sự · Quản lý",
+    "cat_quality": "Chất lượng · Thiết bị",
+    "cat_facility": "Thiết bị · Giám sát",
+    "launch": "Mở",
+    "badge_internal": "Nội bộ",
+    "hris_title": "Nhân sự · Chấm công · Lương",
+    "hris_desc": "Quản lý tổng hợp thông tin nhân sự, chấm công và bảng lương nhân viên.",
+    "dispatch_title": "Quản lý điều phối xe",
+    "dispatch_desc": "Quản lý tổng hợp điều phối xe đưa đón và xe công vụ, phân công lái xe, gửi thông báo Zalo.",
+    "calib_title": "Quản lý hiệu chuẩn",
+    "calib_desc": "Quản lý có hệ thống lịch sử hiệu chuẩn thiết bị đo, thông báo định kỳ và cấp giấy chứng nhận.",
+    "4m_title": "Quản lý thay đổi 4M",
+    "4m_desc": "Quản lý lịch sử thay đổi Man, Machine, Material, Method theo tiêu chuẩn IATF 16949.",
+    "thermo_title": "Bảng giám sát nhiệt độ & độ ẩm",
+    "thermo_desc": "Giám sát thời gian thực nhiệt độ và độ ẩm trong nhà máy.",
+    "layout_title": "Sơ đồ nhiệt độ & độ ẩm",
+    "layout_desc": "Xem vị trí cảm biến và số đo nhiệt độ, độ ẩm theo từng khu vực nhà máy.",
+    "alarm_title": "Hệ thống cảnh báo nhiệt độ & độ ẩm",
+    "alarm_desc": "Tạo cảnh báo khi nhiệt độ hoặc độ ẩm vượt ngưỡng để phát hiện môi trường bất thường ngay lập tức.",
+    "coil_title": "Giám sát dây chuyền cuộn sạc không dây",
+    "coil_desc": "Giám sát thời gian thực trạng thái thiết bị trên dây chuyền sản xuất cuộn sạc không dây."
   }
 }

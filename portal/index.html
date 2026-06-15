@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="..">
+  <title>Portal - PS Aunics VN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <style>
+    /* ── Portal Page ─────────────────────────────────────── */
+    .portal-page {
+      padding: 60px 0 100px;
+      min-height: calc(100vh - var(--header-height) - 280px);
+    }
+
+    .portal-header-text {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .portal-header-text h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #042433;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .portal-header-text p {
+      font-size: 1rem;
+      color: #6b7a8a;
+      line-height: 1.6;
+    }
+
+    /* Category heading */
+    .portal-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #805276;
+      border-bottom: 2px solid #805276;
+      padding-bottom: 8px;
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+
+    .portal-section {
+      margin-bottom: 60px;
+    }
+
+    /* Grid */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* Card */
+    .portal-card {
+      background: #fff;
+      border: 1px solid #e4e9ef;
+      border-radius: 10px;
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--card-accent, #042433);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .portal-card:hover {
+      box-shadow: 0 8px 32px rgba(4,36,51,0.12);
+      transform: translateY(-3px);
+      border-color: #cfd8e3;
+    }
+
+    .portal-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      background: var(--card-icon-bg, #f0f4f8);
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #042433;
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+
+    .card-subtitle {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #805276;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: #6b7a8a;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .card-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #042433;
+      border: 1.5px solid #042433;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+      align-self: flex-start;
+      letter-spacing: 0.3px;
+    }
+
+    .card-launch:hover {
+      background: #042433;
+      color: #fff;
+    }
+
+    .card-launch svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .card-launch:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    /* Card accent variants */
+    .card-hris      { --card-accent: #805276; --card-icon-bg: #f5eef4; }
+    .card-calib     { --card-accent: #0d6efd; --card-icon-bg: #eef3fd; }
+    .card-4m        { --card-accent: #198754; --card-icon-bg: #eaf4ee; }
+    .card-dispatch  { --card-accent: #f0961e; --card-icon-bg: #fef4e6; }
+    .card-thermo    { --card-accent: #0891b2; --card-icon-bg: #e0f7fa; }
+    .card-alarm     { --card-accent: #dc2626; --card-icon-bg: #fee2e2; }
+    .card-coil      { --card-accent: #7c3aed; --card-icon-bg: #ede9fe; }
+
+    .card-badge.internal {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    /* Coming soon state */
+    .portal-card.coming-soon {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      background: #e8ecf0;
+      color: #6b7a8a;
+      text-transform: uppercase;
+    }
+
+    .card-badge.new {
+      background: #042433;
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .portal-page { padding: 40px 0 70px; }
+      .portal-header-text h2 { font-size: 1.4rem; }
+      .portal-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header sub-page">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" width="46" height="44" viewBox="0 0 245 233" xmlns="http://www.w3.org/2000/svg">
+          <path d="M180.66 42.39 159.27 57.38 159.27 57.39 41.92 137.94 29.04 98.3
+            122.32 30.54 148.07 49.24 169.07 33.97 122.32 0 0 88.86 28.93 177.91
+            39.09 170.48 39.09 170.48 49.92 162.56 49.88 162.44 180.48 72.79
+            180.48 72.79 215.59 98.3 179.97 207.96 64.67 207.96 54.31 176.08
+            33.26 191.22 46.72 232.66 197.92 232.66 244.63 88.86 180.66 42.39Z"
+            fill="#805276"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-text">PS Aunics <span>VN</span></span>
+          <span class="logo-sub">PentaStone Aunics Ninh Binh Vietnam</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a>
+            <a href="../about/history.html" data-i18n="nav.about_history">연혁</a>
+            <a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a>
+            <a href="../about/certifications.html" data-i18n="nav.about_cert">인증현황</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.products">제품/솔루션</a>
+          <div class="dropdown">
+            <a href="../products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a>
+            <a href="../products/ecm-mic.html" data-i18n="nav.products_ecm_mic">ECM 마이크로폰</a>
+            <a href="../products/mems-sensor.html" data-i18n="nav.products_mems_sensor">MEMS 센서</a>
+            <a href="../products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a>
+            <a href="../products/lte-5g.html" data-i18n="nav.products_lte5g">LTE/5G 솔루션</a>
+            <a href="../products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.production">생산역량</a>
+          <div class="dropdown">
+            <a href="../production/expertise.html" data-i18n="nav.production_expertise">생산 전문성</a>
+            <a href="../production/facilities.html" data-i18n="nav.production_facilities">제조시설</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link" data-i18n="nav.support">고객지원</a>
+          <div class="dropdown">
+            <a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a>
+            <a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-right">
+        <a href="index.html" class="portal-btn" style="background:#805276;border-color:#805276;"><span class="portal-icon">⊞</span> Portal</a>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="vi">VI</button>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <div class="page-banner-content">
+      <h1>⊞ Portal</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="separator">›</span>
+        <span class="current">Portal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portal Content -->
+  <div class="portal-page">
+    <div class="container">
+
+      <div class="portal-header-text">
+        <h2 data-i18n="portal.title">내부 시스템 포털</h2>
+        <p data-i18n="portal.desc">PS Aunics VN 임직원 전용 내부 시스템입니다. 권한이 있는 계정으로 로그인하여 이용하세요.</p>
+      </div>
+
+      <!-- HR / Management -->
+      <div class="portal-section">
+        <div class="portal-category" data-i18n="portal.cat_hr">인사 · 경영</div>
+        <div class="portal-grid">
+
+          <!-- HRIS -->
+          <a href="../hris/" class="portal-card card-hris" target="_blank">
+            <div class="card-icon">🏢</div>
+            <div class="card-subtitle">HRIS</div>
+            <div class="card-title" data-i18n="portal.hris_title">인사 · 근태 · 급여</div>
+            <div class="card-desc" data-i18n="portal.hris_desc">임직원 인사정보, 출퇴근 기록, 급여명세 및 정산을 통합 관리합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Vehicle Dispatch -->
+          <a href="https://vehicle-dispatch-app-production.up.railway.app" class="portal-card card-dispatch" target="_blank">
+            <div class="card-badge new">New</div>
+            <div class="card-icon">🚐</div>
+            <div class="card-subtitle">Vehicle Dispatch</div>
+            <div class="card-title" data-i18n="portal.dispatch_title">차량 배차 관리</div>
+            <div class="card-desc" data-i18n="portal.dispatch_desc">임직원 셔틀 및 업무 차량 배차, 기사 배정, Zalo 알림 발송을 통합 관리합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Quality / Facility -->
+      <div class="portal-section">
+        <div class="portal-category" data-i18n="portal.cat_quality">품질 · 설비</div>
+        <div class="portal-grid">
+
+          <!-- Calibration -->
+          <a href="../calibration/login.html" class="portal-card card-calib" target="_blank">
+            <div class="card-icon">🔧</div>
+            <div class="card-subtitle">Calibration</div>
+            <div class="card-title" data-i18n="portal.calib_title">검교정 관리</div>
+            <div class="card-desc" data-i18n="portal.calib_desc">측정장비 교정 이력, 주기 알림, 성적서 발급 등 교정 업무를 체계적으로 관리합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- 4M Change Management -->
+          <a href="https://4m-change-management-production.up.railway.app" class="portal-card card-4m" target="_blank">
+            <div class="card-badge new">New</div>
+            <div class="card-icon">📋</div>
+            <div class="card-subtitle">4M Change Management</div>
+            <div class="card-title" data-i18n="portal.4m_title">4M 변경관리</div>
+            <div class="card-desc" data-i18n="portal.4m_desc">IATF 16949 기준의 Man, Machine, Material, Method 변경 이력을 관리합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Facility / Monitoring -->
+      <div class="portal-section">
+        <div class="portal-category" data-i18n="portal.cat_facility">설비 · 모니터링</div>
+        <div class="portal-grid">
+
+          <!-- T&H Monitor -->
+          <a href="http://172.30.1.150/thweb/index.aspx" class="portal-card card-thermo" target="_blank">
+            <div class="card-badge internal" data-i18n="portal.badge_internal">내부망</div>
+            <div class="card-icon">🌡️</div>
+            <div class="card-subtitle">T&amp;H Monitor</div>
+            <div class="card-title" data-i18n="portal.thermo_title">온습도 현황판</div>
+            <div class="card-desc" data-i18n="portal.thermo_desc">공장 내 온도·습도 현황을 실시간으로 모니터링합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- T&H Layout -->
+          <a href="http://172.30.1.150/thweb/layoutdisplay.aspx" class="portal-card card-thermo" target="_blank">
+            <div class="card-badge internal" data-i18n="portal.badge_internal">내부망</div>
+            <div class="card-icon">📐</div>
+            <div class="card-subtitle">T&amp;H Layout</div>
+            <div class="card-title" data-i18n="portal.layout_title">온습도 레이아웃</div>
+            <div class="card-desc" data-i18n="portal.layout_desc">공장 구역별 온습도 센서 배치 및 측정값을 레이아웃으로 확인합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- T&H Alarm -->
+          <a href="http://172.30.1.150/thweb/singlemonitor.aspx" class="portal-card card-alarm" target="_blank">
+            <div class="card-badge internal" data-i18n="portal.badge_internal">내부망</div>
+            <div class="card-icon">🔔</div>
+            <div class="card-subtitle">T&amp;H Alarm</div>
+            <div class="card-title" data-i18n="portal.alarm_title">온습도 알람시스템</div>
+            <div class="card-desc" data-i18n="portal.alarm_desc">온습도 임계값 초과 시 알람을 발생시켜 이상 환경을 즉시 감지합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- EMS Monitor -->
+          <a href="http://172.30.1.150/webemsmtr/" class="portal-card card-coil" target="_blank">
+            <div class="card-badge internal" data-i18n="portal.badge_internal">내부망</div>
+            <div class="card-icon">⚡</div>
+            <div class="card-subtitle">EMS Monitor</div>
+            <div class="card-title" data-i18n="portal.coil_title">무선충전 코일 라인 모니터링</div>
+            <div class="card-desc" data-i18n="portal.coil_desc">무선충전 코일 생산 라인의 설비 상태를 실시간으로 모니터링합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-company">
+        <div class="footer-logo"><span class="footer-logo-text">PS Aunics <span>VN</span></span></div>
+        <p data-i18n="footer.company_name">Công ty TNHH PS Aunics VN</p>
+        <ul class="company-info">
+          <li><span class="label" data-i18n="footer.addr_label">주소</span><span data-i18n="footer.addr">Lô CN4, KCN Gia Vân, H. Gia Viễn, Ninh Bình, Việt Nam</span></li>
+          <li><span class="label" data-i18n="footer.tel_label">전화</span><span data-i18n="footer.tel">+84-229-xxx-xxxx</span></li>
+          <li><span class="label" data-i18n="footer.email_label">이메일</span><span data-i18n="footer.email">info@psavn.com</span></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_about">회사소개</h4>
+        <ul>
+          <li><a href="../about/overview.html" data-i18n="nav.about_overview">회사개요</a></li>
+          <li><a href="../about/history.html" data-i18n="nav.about_history">연혁</a></li>
+          <li><a href="../about/global.html" data-i18n="nav.about_global">글로벌 네트워크</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_products">제품/솔루션</h4>
+        <ul>
+          <li><a href="../products/mems-mic.html" data-i18n="nav.products_mems_mic">MEMS 마이크로폰</a></li>
+          <li><a href="../products/automotive.html" data-i18n="nav.products_automotive">차량용 제품</a></li>
+          <li><a href="../products/oem-odm.html" data-i18n="nav.products_oem">OEM/ODM</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.links_support">고객지원</h4>
+        <ul>
+          <li><a href="../support/contact.html" data-i18n="nav.support_contact">문의하기</a></li>
+          <li><a href="../support/notice.html" data-i18n="nav.support_notice">공지사항</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copyright">© 2025 PS Aunics VN Co., Ltd. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/sub.js"></script>
+</body>
+</html>

@@ -324,5 +324,30 @@
     "links_production": "Production",
     "links_support": "Support",
     "copyright": "© 2025 PS Aunics VINA Co., Ltd. All Rights Reserved."
+  },
+  "portal": {
+    "title": "Internal System Portal",
+    "desc": "This system is for PS Aunics VN employees only. Please log in with an authorized account.",
+    "cat_hr": "HR & Management",
+    "cat_quality": "Quality & Facility",
+    "cat_facility": "Facility & Monitoring",
+    "launch": "Open",
+    "badge_internal": "Internal",
+    "hris_title": "HR · Attendance · Payroll",
+    "hris_desc": "Integrated management of employee information, attendance records, and payroll.",
+    "dispatch_title": "Vehicle Dispatch",
+    "dispatch_desc": "Integrated management of employee shuttle and business vehicle dispatch, driver assignment, and Zalo notifications.",
+    "calib_title": "Calibration Management",
+    "calib_desc": "Systematic management of measuring equipment calibration history, periodic notifications, and certificate issuance.",
+    "4m_title": "4M Change Management",
+    "4m_desc": "Manage change history for Man, Machine, Material, and Method in accordance with IATF 16949.",
+    "thermo_title": "T&H Dashboard",
+    "thermo_desc": "Real-time monitoring of temperature and humidity conditions in the factory.",
+    "layout_title": "T&H Layout",
+    "layout_desc": "View temperature and humidity sensor placement and measurements by factory zone.",
+    "alarm_title": "T&H Alarm System",
+    "alarm_desc": "Generates alarms when temperature or humidity exceeds thresholds for immediate abnormal environment detection.",
+    "coil_title": "Wireless Charging Coil Line Monitor",
+    "coil_desc": "Real-time monitoring of equipment status on the wireless charging coil production line."
   }
 }
