@@ -163,7 +163,36 @@
   z-index: 1001;
 }
 
-/* HRIS Button */
+/* Portal Button */
+.portal-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #042433;
+  border: 1px solid #042433;
+  border-radius: 4px;
+  transition: var(--transition);
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.portal-btn:hover {
+  background: #805276;
+  border-color: #805276;
+  color: #FFFFFF;
+}
+
+.portal-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Legacy — keep for sub-pages that still reference hris-btn */
 .hris-btn {
   display: flex;
   align-items: center;
@@ -262,7 +291,8 @@
     display: flex;
   }
 
-  .hris-btn {
+  .hris-btn,
+  .portal-btn {
     display: none;
   }
 
