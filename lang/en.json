@@ -19,7 +19,8 @@
     "support": "Support",
     "support_contact": "Contact Us",
     "support_notice": "Notice",
-    "about_ethics": "Ethical Management"
+    "about_ethics": "Ethical Management",
+    "production_ems": "EMS Service"
   },
   "hero": {
     "slide1_sub": "MEMS Packaging Excellence",
@@ -555,5 +556,33 @@
     "wireless_desc": "A MagSafe-type coil module supporting 25W fast wireless charging for vehicles.",
     "charger_title": "EV Charger Manufacturing Service",
     "charger_desc": "We provide high-capacity power circuit and charger manufacturing services for EV charging infrastructure."
+  },
+  "ems": {
+    "title": "EMS Service",
+    "intro_title": "One-Stop EMS from SMT to Finished Products",
+    "intro_desc": "Building on EMS expertise accumulated since its start with earphone PCB assembly, PS Aunics provides one-stop manufacturing services from SMT to finished-product assembly for customers in the mobile, wearable, smart home and automotive sectors.",
+    "hl1_title": "Fine SMT Technology",
+    "hl1_desc": "SMT technology that began with earphone PCB assembly has advanced into fine F-PCB mounting technology for TWS.",
+    "hl2_title": "Ultra-miniature Component Mounting",
+    "hl2_desc": "We realize ultra-compact devices through 0.2×0.4mm ultra-miniature component mounting and nano-spray under-fill processes.",
+    "hl3_title": "Advanced Equipment & Maintenance",
+    "hl3_desc": "We are equipped with SMT facilities based on Panasonic high-speed mounters and hold in-house maintenance capabilities.",
+    "hl4_title": "Automation",
+    "hl4_desc": "We drive automation across the entire manufacturing process for robust processes, higher productivity and stable quality.",
+    "hl5_title": "From SMT to Finished-Product Assembly",
+    "hl5_desc": "We provide one-stop EMS from SMT through finished-product assembly, functional testing and packaging.",
+    "hl6_title": "Resource Management & Traceability",
+    "hl6_desc": "Through ERP resource management and MES monitoring, we ensure complete traceability across all production stages.",
+    "quality_title": "Quality Management",
+    "quality_desc": "We manage quality through stage-by-stage verification and measurement, and our production system has obtained international standard certifications.",
+    "process_title": "EMS Process",
+    "process_sub": "From inquiry to delivery, we proceed through a systematic 7-step process.",
+    "step1": "Customer Inquiry",
+    "step2": "Product Consultation",
+    "step3": "Contract",
+    "step4": "Development & Sample Confirmation",
+    "step5": "Material Procurement",
+    "step6": "Production",
+    "step7": "Delivery"
   }
 }
