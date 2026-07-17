@@ -547,5 +547,13 @@
     "report_phone_label": "전화",
     "report_protect_title": "신고자 보호",
     "report_protect_desc": "신고자의 신원은 철저히 비밀로 보호되며, 신고를 이유로 어떠한 불이익도 받지 않습니다."
+  },
+  "ev": {
+    "title": "EV·무선충전 솔루션",
+    "desc": "전기차 시대에 대응하는 차량용 무선충전 코일 모듈과 EV 충전기 제조 서비스를 제공합니다.",
+    "wireless_title": "무선충전 코일 모듈",
+    "wireless_desc": "차량용 25W 고속 무선충전을 지원하는 MagSafe 방식 코일 모듈입니다.",
+    "charger_title": "EV 충전기 제조 서비스",
+    "charger_desc": "전기차 충전 인프라를 위한 고용량 전력 회로 및 충전기 제조 서비스를 제공합니다."
   }
 }
