@@ -503,7 +503,9 @@
     "faccap_smtline": "SMT 실장 라인",
     "faccap_inline": "인라인 SMT 공정",
     "faccap_production": "생산 라인",
-    "faccap_cleanroom": "클린룸 검사"
+    "faccap_cleanroom": "클린룸 검사",
+    "faccap_mems": "MEMS 생산 라인",
+    "faccap_ems": "EMS 생산 라인"
   },
   "ethics": {
     "title": "윤리경영",
