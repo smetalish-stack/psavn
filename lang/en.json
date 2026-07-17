@@ -1,10 +1,11 @@
-{
+﻿{
   "nav": {
     "about": "About Us",
     "about_overview": "Company Overview",
     "about_history": "History",
     "about_global": "Global Network",
     "about_cert": "Certifications",
+    "about_quality": "Quality Policy",
     "products": "Products",
     "products_mems_mic": "MEMS Microphone",
     "products_ecm_mic": "ECM Microphone",
@@ -350,4 +351,4 @@
     "coil_title": "Wireless Charging Coil Line Monitor",
     "coil_desc": "Real-time monitoring of equipment status on the wireless charging coil production line."
   }
-}
+,"quality":{"title":"Quality Policy","subtitle":"Introducing the Quality Policy of PS Aunics","policy_label":"Quality Policy","policy_text":"Our quality policy is to establish a quality system that meets international standards, proactively prevent non-conformances, pursue continuous quality improvement, and provide excellent and reliable products and services that delight our customers.","kw_label1":"Core Value 1","kw1":"Quality Stabilization","kw_label2":"Core Value 2","kw2":"Zero Customer Complaints","flow_supplier":"Supplier","flow_supplier_sub":"Raw Materials and Components","flow_quality":"Quality Stabilization","flow_quality_sub":"IATF 16949 Based","flow_customer":"Customer","flow_customer_sub":"Zero Complaints and Satisfaction","commit_title":"Policy Commitments","commit_intro":"To achieve this policy, all executives and employees of PS Aunics Vietnam Co., Ltd. commit to the following.","commit1":"Comply with all requirements of IATF 16949:2016, the quality management system standard.","commit2":"Establish, implement, maintain, and manage the quality management system and continuously improve its effectiveness.","commit3":"Each year, each department must establish quality objectives and strive with full effort to achieve them.","commit4":"Review the continued suitability of this policy.","commit5":"This policy must be understood and communicated to all employees, and the responsibilities and authorities defined in the quality management manual must be faithfully implemented.","signed_by":"General Director","signed_name":"PARK DONG YOUNG"}}
