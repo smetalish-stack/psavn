@@ -19,7 +19,8 @@
     "support": "Hỗ trợ",
     "support_contact": "Liên hệ",
     "support_notice": "Thông báo",
-    "about_ethics": "Quản trị Đạo đức"
+    "about_ethics": "Quản trị Đạo đức",
+    "production_ems": "Dịch vụ EMS"
   },
   "hero": {
     "slide1_sub": "MEMS Packaging Excellence",
@@ -555,5 +556,33 @@
     "wireless_desc": "Mô-đun cuộn kiểu MagSafe hỗ trợ sạc không dây nhanh 25W cho xe.",
     "charger_title": "Dịch vụ sản xuất bộ sạc EV",
     "charger_desc": "Chúng tôi cung cấp dịch vụ sản xuất mạch điện công suất cao và bộ sạc cho hạ tầng sạc xe điện."
+  },
+  "ems": {
+    "title": "Dịch vụ EMS",
+    "intro_title": "EMS trọn gói từ SMT đến sản phẩm hoàn chỉnh",
+    "intro_desc": "Dựa trên năng lực EMS tích lũy từ khi bắt đầu với lắp ráp PCB tai nghe, PS Aunics cung cấp dịch vụ sản xuất trọn gói từ SMT đến lắp ráp sản phẩm hoàn chỉnh cho khách hàng trong lĩnh vực di động, thiết bị đeo, nhà thông minh và ô tô.",
+    "hl1_title": "Công nghệ SMT tinh vi",
+    "hl1_desc": "Công nghệ SMT khởi đầu từ lắp ráp PCB tai nghe đã phát triển thành công nghệ gắn F-PCB tinh vi cho TWS.",
+    "hl2_title": "Gắn linh kiện siêu nhỏ",
+    "hl2_desc": "Chúng tôi hiện thực hóa các thiết bị siêu nhỏ thông qua việc gắn linh kiện siêu nhỏ 0,2×0,4mm và quy trình under-fill phun nano.",
+    "hl3_title": "Thiết bị & Bảo trì tiên tiến",
+    "hl3_desc": "Chúng tôi được trang bị thiết bị SMT dựa trên máy gắn tốc độ cao Panasonic và sở hữu năng lực bảo trì nội bộ.",
+    "hl4_title": "Tự động hóa",
+    "hl4_desc": "Chúng tôi thúc đẩy tự động hóa toàn bộ quy trình sản xuất để có quy trình vững chắc, năng suất cao và chất lượng ổn định.",
+    "hl5_title": "Từ SMT đến lắp ráp thành phẩm",
+    "hl5_desc": "Chúng tôi cung cấp EMS trọn gói từ SMT đến lắp ráp thành phẩm, kiểm tra chức năng và đóng gói.",
+    "hl6_title": "Quản lý nguồn lực & Truy xuất nguồn gốc",
+    "hl6_desc": "Thông qua quản lý nguồn lực ERP và giám sát MES, chúng tôi đảm bảo truy xuất nguồn gốc hoàn chỉnh ở mọi công đoạn sản xuất.",
+    "quality_title": "Quản lý chất lượng",
+    "quality_desc": "Chúng tôi quản lý chất lượng thông qua kiểm định và đo lường theo từng công đoạn, và hệ thống sản xuất đã đạt các chứng nhận tiêu chuẩn quốc tế.",
+    "process_title": "Quy trình EMS",
+    "process_sub": "Từ yêu cầu đến giao hàng, chúng tôi thực hiện theo quy trình 7 bước có hệ thống.",
+    "step1": "Yêu cầu khách hàng",
+    "step2": "Tư vấn sản phẩm",
+    "step3": "Hợp đồng",
+    "step4": "Phát triển & Xác nhận mẫu",
+    "step5": "Nhập nguyên vật liệu",
+    "step6": "Sản xuất",
+    "step7": "Giao hàng"
   }
 }
