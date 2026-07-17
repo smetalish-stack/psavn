@@ -547,5 +547,13 @@
     "report_phone_label": "Phone",
     "report_protect_title": "Whistleblower Protection",
     "report_protect_desc": "The identity of the whistleblower is strictly protected, and no disadvantage will result from reporting."
+  },
+  "ev": {
+    "title": "EV & Wireless Charging Solutions",
+    "desc": "We provide automotive wireless charging coil modules and EV charger manufacturing services for the electric vehicle era.",
+    "wireless_title": "Wireless Charger Coil Module",
+    "wireless_desc": "A MagSafe-type coil module supporting 25W fast wireless charging for vehicles.",
+    "charger_title": "EV Charger Manufacturing Service",
+    "charger_desc": "We provide high-capacity power circuit and charger manufacturing services for EV charging infrastructure."
   }
 }
