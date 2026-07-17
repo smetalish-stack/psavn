@@ -499,7 +499,11 @@
     "notice_n1": "Start of Mortrex dashcam mass production supply",
     "notice_n2": "Vietnam factory obtains IATF 16949 certification",
     "notice_n3": "Website renewal announcement",
-    "notice_n4": "Start of MEMS Mic. supply to Samsung VD Division"
+    "notice_n4": "Start of MEMS Mic. supply to Samsung VD Division",
+    "faccap_smtline": "SMT Mounting Line",
+    "faccap_inline": "In-line SMT Process",
+    "faccap_production": "Production Line",
+    "faccap_cleanroom": "Cleanroom Inspection"
   },
   "ethics": {
     "title": "Ethical Management",
