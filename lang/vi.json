@@ -1,10 +1,11 @@
-{
+﻿{
   "nav": {
     "about": "Giới thiệu",
     "about_overview": "Tổng quan công ty",
     "about_history": "Lịch sử phát triển",
     "about_global": "Mạng lưới toàn cầu",
     "about_cert": "Chứng nhận chất lượng",
+    "about_quality": "Phương Châm Chất Lượng",
     "products": "Sản phẩm",
     "products_mems_mic": "Micro MEMS",
     "products_ecm_mic": "Micro ECM",
@@ -350,4 +351,4 @@
     "coil_title": "Giám sát dây chuyền cuộn sạc không dây",
     "coil_desc": "Giám sát thời gian thực trạng thái thiết bị trên dây chuyền sản xuất cuộn sạc không dây."
   }
-}
+,"quality":{"title":"Phương Châm Chất Lượng","subtitle":"Giới thiệu phương châm chất lượng của PS Aunics","policy_label":"Phương Châm Chất Lượng","policy_text":"Phương châm của chúng tôi là liên tục cải tiến mẫu mã, dịch vụ tốt nhất để tạo ra những sản phẩm có quy chuẩn quốc tế để làm hài lòng quý khách hàng.","kw_label1":"Giá Trị Cốt Lõi 1","kw1":"Ổn Định Chất Lượng","kw_label2":"Giá Trị Cốt Lõi 2","kw2":"Không Có Khiếu Nại Khách Hàng","flow_supplier":"Nhà Cung Cấp (Supplier)","flow_supplier_sub":"Nguyên liệu và Linh kiện","flow_quality":"Ổn Định Chất Lượng","flow_quality_sub":"Dựa trên IATF 16949","flow_customer":"Khách Hàng (Customer)","flow_customer_sub":"Không Khiếu Nại và Hài Lòng","commit_title":"Cam Kết Thực Hiện","commit_intro":"Để đạt được chính sách này, tập thể lãnh đạo và nhân viên Công ty TNHH PS Aunics Ninh Bình Việt Nam cam kết thực hiện các điều sau.","commit1":"Tuân thủ mọi yêu cầu của IATF 16949:2016, tiêu chuẩn về hệ thống quản lý chất lượng.","commit2":"Thiết lập, thực hiện, duy trì và quản lý hệ thống quản lý chất lượng và liên tục cải tiến hiệu lực của hệ thống đó.","commit3":"Mỗi năm, mỗi bộ phận phải thiết lập các mục tiêu chất lượng và cố gắng hết sức để đạt được chúng.","commit4":"Xem xét tính phù hợp liên tục của chính sách này.","commit5":"Chính sách này phải được hiểu và truyền đạt tới tất cả nhân viên, đồng thời phải thực hiện một cách trung thực các trách nhiệm và quyền hạn quy định trong sổ tay quản lý chất lượng.","signed_by":"Tổng Giám Đốc","signed_name":"PARK DONG YOUNG"}}
