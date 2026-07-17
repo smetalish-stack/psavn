@@ -503,7 +503,9 @@
     "faccap_smtline": "SMT Mounting Line",
     "faccap_inline": "In-line SMT Process",
     "faccap_production": "Production Line",
-    "faccap_cleanroom": "Cleanroom Inspection"
+    "faccap_cleanroom": "Cleanroom Inspection",
+    "faccap_mems": "MEMS Production Line",
+    "faccap_ems": "EMS Assembly Line"
   },
   "ethics": {
     "title": "Ethical Management",
