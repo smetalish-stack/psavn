@@ -19,7 +19,8 @@
     "support": "고객지원",
     "support_contact": "문의하기",
     "support_notice": "공지사항",
-    "about_ethics": "윤리경영"
+    "about_ethics": "윤리경영",
+    "production_ems": "EMS 서비스"
   },
   "hero": {
     "slide1_sub": "MEMS Packaging Excellence",
@@ -555,5 +556,33 @@
     "wireless_desc": "차량용 25W 고속 무선충전을 지원하는 MagSafe 방식 코일 모듈입니다.",
     "charger_title": "EV 충전기 제조 서비스",
     "charger_desc": "전기차 충전 인프라를 위한 고용량 전력 회로 및 충전기 제조 서비스를 제공합니다."
+  },
+  "ems": {
+    "title": "EMS 서비스",
+    "intro_title": "SMT부터 완제품까지, 원스톱 EMS",
+    "intro_desc": "PS Aunics는 이어폰용 PCB 조립을 시작으로 축적한 EMS 역량을 바탕으로, 모바일·웨어러블·스마트홈·자동차 분야 고객에게 SMT부터 완제품 조립까지 원스톱 제조 서비스를 제공합니다.",
+    "hl1_title": "미세 SMT 기술",
+    "hl1_desc": "이어폰용 PCB 조립에서 출발한 SMT 기술은 TWS용 F-PCB 미세 실장 기술로 발전했습니다.",
+    "hl2_title": "초소형 부품 실장",
+    "hl2_desc": "0.2×0.4mm 초소형 부품 실장과 나노 스프레이 언더필 공정으로 초소형 디바이스를 구현합니다.",
+    "hl3_title": "우수한 설비와 유지보수",
+    "hl3_desc": "파나소닉 고속 마운터 기반의 SMT 설비를 갖추고, 자체 유지보수 기술을 보유하고 있습니다.",
+    "hl4_title": "자동화",
+    "hl4_desc": "견고한 공정과 생산성 향상, 품질 안정화를 위해 제조 전 과정의 자동화를 추진합니다.",
+    "hl5_title": "SMT부터 완제품 조립까지",
+    "hl5_desc": "SMT부터 완제품 조립, 기능 검사, 포장까지 원스톱 EMS를 제공합니다.",
+    "hl6_title": "자원관리와 추적성",
+    "hl6_desc": "ERP 자원관리와 MES 모니터링으로 생산 전 단계의 완벽한 추적성(Traceability)을 확보합니다.",
+    "quality_title": "품질관리",
+    "quality_desc": "공정 단계별 검증과 계측을 통해 품질을 관리하며, 생산 시스템은 국제 표준 인증을 획득했습니다.",
+    "process_title": "EMS 진행 프로세스",
+    "process_sub": "문의부터 납품까지 체계적인 7단계 프로세스로 진행됩니다.",
+    "step1": "고객 문의",
+    "step2": "제품 상담",
+    "step3": "계약",
+    "step4": "제품 개발 및 견본 확정",
+    "step5": "원·부자재 입고",
+    "step6": "생산",
+    "step7": "납품"
   }
 }
