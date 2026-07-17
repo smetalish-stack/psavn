@@ -547,5 +547,13 @@
     "report_phone_label": "Điện thoại",
     "report_protect_title": "Bảo vệ Người báo cáo",
     "report_protect_desc": "Danh tính người báo cáo được bảo vệ nghiêm ngặt và sẽ không chịu bất kỳ bất lợi nào vì việc báo cáo."
+  },
+  "ev": {
+    "title": "Giải pháp EV & Sạc không dây",
+    "desc": "Chúng tôi cung cấp mô-đun cuộn sạc không dây trên xe và dịch vụ sản xuất bộ sạc EV cho kỷ nguyên xe điện.",
+    "wireless_title": "Mô-đun cuộn sạc không dây",
+    "wireless_desc": "Mô-đun cuộn kiểu MagSafe hỗ trợ sạc không dây nhanh 25W cho xe.",
+    "charger_title": "Dịch vụ sản xuất bộ sạc EV",
+    "charger_desc": "Chúng tôi cung cấp dịch vụ sản xuất mạch điện công suất cao và bộ sạc cho hạ tầng sạc xe điện."
   }
 }
