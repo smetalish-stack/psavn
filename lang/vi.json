@@ -503,7 +503,9 @@
     "faccap_smtline": "Dây chuyền gắn SMT",
     "faccap_inline": "Quy trình SMT nội tuyến",
     "faccap_production": "Dây chuyền sản xuất",
-    "faccap_cleanroom": "Kiểm tra phòng sạch"
+    "faccap_cleanroom": "Kiểm tra phòng sạch",
+    "faccap_mems": "Dây chuyền sản xuất MEMS",
+    "faccap_ems": "Dây chuyền lắp ráp EMS"
   },
   "ethics": {
     "title": "Quản trị Đạo đức",
