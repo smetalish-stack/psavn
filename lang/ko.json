@@ -1,10 +1,11 @@
-{
+﻿{
   "nav": {
     "about": "회사소개",
     "about_overview": "회사개요",
     "about_history": "연혁",
     "about_global": "글로벌 네트워크",
     "about_cert": "인증현황",
+    "about_quality": "품질 방침",
     "products": "제품/솔루션",
     "products_mems_mic": "MEMS 마이크로폰",
     "products_ecm_mic": "ECM 마이크로폰",
@@ -350,4 +351,4 @@
     "coil_title": "무선충전 코일 라인 모니터링",
     "coil_desc": "무선충전 코일 생산 라인의 설비 상태를 실시간으로 모니터링합니다."
   }
-}
+,"quality":{"title":"품질 방침","subtitle":"PS Aunics의 품질 방침을 소개합니다","policy_label":"품질 방침","policy_text":"국제규격에 맞는 품질시스템을 갖추어 부적합을 사전에 예방하고 지속적인 품질개선을 추구하여 우수하고 신뢰성 있는 제품과 서비스를 제공함으로써 고객을 감동시키는 것이 우리의 품질방침이다.","kw_label1":"핵심 가치 1","kw1":"품질 안정화","kw_label2":"핵심 가치 2","kw2":"고객 불만 제로화","flow_supplier":"공급자 (Supplier)","flow_supplier_sub":"원자재 및 부품","flow_quality":"품질 안정화","flow_quality_sub":"IATF 16949 기반","flow_customer":"고객 (Customer)","flow_customer_sub":"불만 제로, 고객 감동","commit_title":"방침 이행 서약","commit_intro":"이 방침을 달성하기 위해 PS Aunics 베트남의 전 임직원은 다음을 성실히 이행합니다.","commit1":"품질경영 시스템 규격인 IATF 16949:2016의 모든 요구사항을 준수한다.","commit2":"품질경영 시스템을 수립하고 실행, 유지, 관리하며 그 효과를 지속적으로 개선한다.","commit3":"매년 각 부서는 품질목표를 수립하고, 이를 달성하는데 전력을 다하여야 한다.","commit4":"본 방침의 지속적인 적절성을 검토한다.","commit5":"본 방침은 전 종업원에게 이해시키며 의사소통하고 품질경영 매뉴얼에 규정된 책임과 권한을 성실하게 이행한다.","signed_by":"법인장","signed_name":"박동영 (PARK DONG YOUNG)"}}
