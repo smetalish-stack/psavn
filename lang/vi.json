@@ -505,7 +505,8 @@
     "faccap_production": "Dây chuyền sản xuất",
     "faccap_cleanroom": "Kiểm tra phòng sạch",
     "faccap_mems": "Dây chuyền sản xuất MEMS",
-    "faccap_ems": "Dây chuyền lắp ráp EMS"
+    "faccap_ems": "Dây chuyền lắp ráp EMS",
+    "faccap_functest": "Dây chuyền kiểm tra chức năng"
   },
   "ethics": {
     "title": "Quản trị Đạo đức",
