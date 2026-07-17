@@ -499,7 +499,11 @@
     "notice_n1": "Bắt đầu cung cấp sản xuất hàng loạt camera hành trình Mortrex",
     "notice_n2": "Nhà máy Việt Nam đạt chứng nhận IATF 16949",
     "notice_n3": "Thông báo đổi mới trang web",
-    "notice_n4": "Bắt đầu cung cấp MEMS Mic. cho Bộ phận VD Samsung"
+    "notice_n4": "Bắt đầu cung cấp MEMS Mic. cho Bộ phận VD Samsung",
+    "faccap_smtline": "Dây chuyền gắn SMT",
+    "faccap_inline": "Quy trình SMT nội tuyến",
+    "faccap_production": "Dây chuyền sản xuất",
+    "faccap_cleanroom": "Kiểm tra phòng sạch"
   },
   "ethics": {
     "title": "Quản trị Đạo đức",
