@@ -6,6 +6,7 @@ const I18n = {
   currentLang: 'vi',
   translations: {},
   supportedLangs: ['vi', 'en', 'ko'],
+  _manuallySet: false,  // setLanguage() 호출 여부 추적 (race condition 방지)
 
   async init() {
     // Check URL param > localStorage > browser language > default (vi)
@@ -20,12 +21,17 @@ const I18n = {
     } else if (this.supportedLangs.includes(browserLang)) {
       this.currentLang = browserLang;
     } else {
-      this.currentLang = 'vi'; // Default to Vietnamese for Vietnam subsidiary
+      this.currentLang = 'vi';
     }
 
     await this.loadLanguage(this.currentLang);
-    this.applyTranslations();
-    this.updateLangButtons();
+
+    // 로딩 중 사용자가 언어를 직접 선택했으면 init()의 applyTranslations 생략
+    if (!this._manuallySet) {
+      this.applyTranslations();
+      this.updateLangButtons();
+      document.documentElement.lang = this.currentLang;
+    }
   },
 
   async loadLanguage(lang) {
@@ -33,6 +39,7 @@ const I18n = {
     try {
       const basePath = document.querySelector('meta[name="base-path"]')?.content || '';
       const response = await fetch(`${basePath}/lang/${lang}.json`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       this.translations[lang] = await response.json();
     } catch (e) {
       console.warn(`Failed to load language: ${lang}`, e);
@@ -41,13 +48,12 @@ const I18n = {
 
   async setLanguage(lang) {
     if (!this.supportedLangs.includes(lang)) return;
+    this._manuallySet = true;
     this.currentLang = lang;
     localStorage.setItem('psavn_lang', lang);
     await this.loadLanguage(lang);
     this.applyTranslations();
     this.updateLangButtons();
-
-    // Update HTML lang attribute
     document.documentElement.lang = lang;
   },
 
@@ -70,7 +76,6 @@ const I18n = {
       const key = el.getAttribute('data-i18n');
       const text = this.t(key);
       if (text !== key) {
-        // Handle HTML content or newlines in translations
         if (text.includes('\n')) {
           el.innerHTML = text.replace(/\n/g, '<br>');
         } else if (/<[a-z][\s\S]*>/i.test(text)) {
@@ -81,7 +86,6 @@ const I18n = {
       }
     });
 
-    // Handle placeholder attributes
     const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
     placeholders.forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
@@ -89,7 +93,6 @@ const I18n = {
       if (text !== key) el.placeholder = text;
     });
 
-    // Handle title attributes
     const titles = document.querySelectorAll('[data-i18n-title]');
     titles.forEach(el => {
       const key = el.getAttribute('data-i18n-title');
