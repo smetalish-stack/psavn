@@ -499,7 +499,7 @@ const App = (() => {
                     <div id="cert-upload-msg" style="font-size:13px;margin-top:8px"></div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn-primary" onclick="App.submitCertUpload(${equipId})">${I18n.t('cert_modal.submit')}</button>
+                    <button id="cert-submit-btn" class="btn-primary" onclick="App.submitCertUpload(${equipId})">${I18n.t('cert_modal.submit')}</button>
                     <button class="btn-secondary" onclick="document.getElementById('cert-modal').remove()">${I18n.t('cert_modal.cancel')}</button>
                 </div>
             </div>
@@ -507,14 +507,20 @@ const App = (() => {
         document.body.appendChild(modal);
     }
 
+    // 중복 업로드(버튼 연속 클릭)로 동일 성적서가 이중·삼중 등록되는 것을 막는 가드
+    let _certUploading = false;
     async function submitCertUpload(equipId) {
+        if (_certUploading) return;                       // 이미 업로드 진행 중이면 무시
         const fileInput = document.getElementById('cert-file-input');
         const certNumber = document.getElementById('cert-number-input').value.trim();
         const certDate = document.getElementById('cert-date-input').value;
         const msgEl = document.getElementById('cert-upload-msg');
+        const submitBtn = document.getElementById('cert-submit-btn');
 
         if (!fileInput.files[0]) { msgEl.textContent = I18n.t('cert_modal.file') + '?'; return; }
 
+        _certUploading = true;
+        if (submitBtn) submitBtn.disabled = true;         // 클릭 자체를 비활성화
         msgEl.style.color = 'var(--accent)';
         msgEl.textContent = I18n.t('cert_modal.uploading');
 
@@ -534,6 +540,9 @@ const App = (() => {
         } catch (err) {
             msgEl.style.color = 'var(--status-critical)';
             msgEl.textContent = I18n.t('upload.error_prefix') + err.message;
+            if (submitBtn) submitBtn.disabled = false;    // 실패 시 재시도 허용
+        } finally {
+            _certUploading = false;
         }
     }
 
