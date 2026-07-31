@@ -83,6 +83,7 @@
   },
   "table": {
     "col_no": "No",
+    "sort_hint": "클릭하면 정렬 (오름/내림 전환)",
     "col_control": "관리번호",
     "col_name": "장비명",
     "col_maker": "제조사",

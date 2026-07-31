@@ -1,4 +1,36 @@
 const Renderer = (() => {
+    // 목록 정렬 상태 (No. / 잔여일 클릭 정렬용). key=null이면 서버가 준 순서 유지
+    let _items = [], _certMap = {}, _sort = { key: null, dir: 'asc' };
+
+    function _getSorted() {
+        if (!_sort.key) return _items;
+        const k = _sort.key, dir = _sort.dir === 'desc' ? -1 : 1;
+        const num = e => {
+            const v = e[k];
+            if (v === null || v === undefined || v === '') return null;
+            const n = Number(v);
+            return isNaN(n) ? null : n;
+        };
+        return _items.slice().sort((a, b) => {
+            const va = num(a), vb = num(b);
+            if (va === null && vb === null) return 0;
+            if (va === null) return 1;   // 값 없는 행은 방향과 무관하게 맨 뒤
+            if (vb === null) return -1;
+            return (va - vb) * dir;
+        });
+    }
+
+    function _sortArrow(key) {
+        if (_sort.key !== key) return '<span style="opacity:.35">&#8693;</span>';
+        return _sort.dir === 'asc' ? '&#9650;' : '&#9660;';
+    }
+
+    function sortBy(key) {
+        if (_sort.key === key) _sort.dir = _sort.dir === 'asc' ? 'desc' : 'asc';
+        else { _sort.key = key; _sort.dir = 'asc'; }
+        renderEquipmentTable(_items, _certMap);
+    }
+
     function getStatusInfo(remainDays) {
         if (remainDays === null || remainDays === undefined) return { cls: 'badge-info', label: '-' };
         const n = Math.abs(remainDays);
@@ -53,6 +85,10 @@ const Renderer = (() => {
 
     function renderEquipmentTable(items, certMap = {}) {
         const wrap = document.getElementById('list-table-wrap');
+        // 정렬/재렌더용으로 목록·인증서맵 보관 (언어 전환 등으로 certMap 없이 호출되면 기존값 유지)
+        _items = items || [];
+        if (certMap && Object.keys(certMap).length) _certMap = certMap;
+
         if (!items || !items.length) {
             wrap.innerHTML = `<p class="empty-msg">${I18n.t('table.no_data')}</p>`;
             return;
@@ -60,13 +96,13 @@ const Renderer = (() => {
 
         const isDisposedView = items.length > 0 && items[0].eq_status === 'disposed';
 
-        const rows = items.map(e => {
+        const rows = _getSorted().map(e => {
             const isDisposed = e.eq_status === 'disposed';
             const s = isDisposed
                 ? { cls: 'badge-disposed', label: I18n.t('dispose.status_label') }
                 : getStatusInfo(e.remain_days);
 
-            const certs = certMap[e.id] || [];
+            const certs = _certMap[e.id] || [];
             const certCell = certs.length > 0
                 ? certs.map(c => `
                     <a href="${API.getCertFileUrl(c.file_path)}" target="_blank"
@@ -111,14 +147,14 @@ const Renderer = (() => {
             <p style="color:var(--gray-500);font-size:12px;margin-bottom:8px">${I18n.t('list.total_count', { n: items.length })}</p>
             <table class="data-table">
                 <thead><tr>
-                    <th>${I18n.t('table.col_no')}</th>
+                    <th style="cursor:pointer;user-select:none" title="${I18n.t('table.sort_hint')}" onclick="Renderer.sortBy('item_no')">${I18n.t('table.col_no')} ${_sortArrow('item_no')}</th>
                     <th>${I18n.t('table.col_control')}</th>
                     <th>${I18n.t('table.col_name')}</th>
                     <th>${I18n.t('table.col_maker')}</th>
                     <th>${I18n.t('table.col_model')}</th>
                     <th>${I18n.t('table.col_location')}</th>
                     ${disposedHeader}
-                    <th>${I18n.t('table.col_remain')}</th>
+                    <th style="cursor:pointer;user-select:none" title="${I18n.t('table.sort_hint')}" onclick="Renderer.sortBy('remain_days')">${I18n.t('table.col_remain')} ${_sortArrow('remain_days')}</th>
                     <th>${I18n.t('table.col_result')}</th>
                     <th>${I18n.t('table.col_cert')}</th>
                     <th>${I18n.t('table.col_action')}</th>
@@ -224,6 +260,7 @@ const Renderer = (() => {
         renderStats,
         renderLocationTable,
         renderEquipmentTable,
+        sortBy,
         renderAlertConfig,
         renderAlertLog,
         renderPreview

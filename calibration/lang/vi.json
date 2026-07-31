@@ -83,6 +83,7 @@
   },
   "table": {
     "col_no": "STT",
+    "sort_hint": "Nhấn để sắp xếp (tăng/giảm)",
     "col_control": "Mã số",
     "col_name": "Tên thiết bị",
     "col_maker": "Nhà sản xuất",

@@ -83,6 +83,7 @@
   },
   "table": {
     "col_no": "No",
+    "sort_hint": "Click to sort (asc/desc)",
     "col_control": "Control No.",
     "col_name": "Equipment Name",
     "col_maker": "Manufacturer",
