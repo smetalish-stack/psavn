@@ -115,5 +115,24 @@
     "prev": "◀ 이전",
     "next": "다음 ▶",
     "no_permission": "열람이력을 볼 권한이 없습니다."
+  },
+  "revise": {
+    "button": "개정 등록",
+    "heading": "개정 등록",
+    "content_ko": "개정내용 (한국어)",
+    "content_vi": "개정내용 (베트남어)",
+    "ko_src": "원본 (한국어)",
+    "ko_pdf": "PDF (한국어)",
+    "vi_src": "원본 (베트남어)",
+    "vi_pdf": "PDF (베트남어)",
+    "submit": "등록",
+    "submitting": "등록 중…",
+    "cancel": "취소",
+    "rev_hint": "현재 Rev.{cur} → 새 개정번호 {next}",
+    "date_hint": "이 날짜로 현행본이 폐기됩니다.",
+    "keep_hint": "올리지 않은 언어는 직전 개정본의 파일을 그대로 씁니다.",
+    "pdf_warning": "PDF 는 반드시 Windows 에서 scripts/convert_pdf.py 로 변환한 것을 올리세요. 서버에서 변환하면 한글·베트남어가 깨집니다.",
+    "done": "Rev.{rev} 등록 완료. Rev.{old} 은 폐기되었습니다.",
+    "failed": "개정 등록에 실패했습니다."
   }
 }

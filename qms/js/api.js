@@ -102,6 +102,22 @@ const API = (() => {
             return request('GET', `/api/access-log${q ? '?' + q : ''}`);
         },
         getHistorySummary: (days) => request('GET', `/api/access-log/summary?days=${days || 30}`),
+        /** 개정 등록. multipart 라 request() 를 쓰지 않고 직접 보낸다. */
+        createRevision: async (docNo, formData) => {
+            const res = await fetch(
+                `${BASE}/api/documents/${encodeURIComponent(docNo)}/revisions`,
+                { method: 'POST', headers: { 'X-Auth-Token': getToken() }, body: formData }
+            );
+            if (res.status === 401) expired();
+            const json = await res.json().catch(() => ({}));
+            if (!res.ok) {
+                const err = new Error(json.error || 'Revision failed');
+                err.status = res.status;
+                err.body = json;
+                throw err;
+            }
+            return json;
+        },
         logout: () => fetch(BASE + '/api/logout', {
             method: 'POST',
             headers: { 'X-Auth-Token': getToken() }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài liệu tiêu chuẩn</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <span class="header-icon">&#128203;</span>
+            <div>
+                <h1 data-i18n="title">Quản lý tài liệu tiêu chuẩn</h1>
+                <span class="header-sub" data-i18n="subtitle">Hệ thống quản lý chất lượng IATF 16949</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span id="header-user" class="header-date" style="opacity:.8"></span>
+
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button data-lang-btn="vi" onclick="I18n.setLang('vi')">VI</button>
+                <button data-lang-btn="ko" onclick="I18n.setLang('ko')">한국어</button>
+                <button data-lang-btn="en" onclick="I18n.setLang('en')">EN</button>
+            </div>
+
+            <a href="../" class="btn-back" data-i18n="back_to_psavn">← psavn.com</a>
+            <button class="btn-back" onclick="App.logout()" style="border-color:rgba(255,255,255,.4);cursor:pointer;background:none">&#128274; <span data-i18n="logout">Đăng xuất</span></button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <nav class="tab-nav">
+            <a href="index.html" data-nav="documents" data-i18n="nav.documents">Tài liệu</a>
+            <a href="forms.html" data-nav="forms" data-i18n="nav.forms">Biểu mẫu</a>
+            <a href="history.html" data-nav="history" data-i18n="nav.history" hidden>Lịch sử truy cập</a>
+        </nav>
+
+        <div class="panel">
+            <a href="#" id="back-link" data-i18n="doc.back_to_list">Về danh sách</a>
+            <h2 id="rev-title" style="margin:6px 0 4px">…</h2>
+            <div class="doc-meta" id="rev-meta"></div>
+        </div>
+
+        <form class="panel" id="rev-form">
+            <h2 data-i18n="revise.heading">Đăng ký sửa đổi</h2>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="rev-no" data-i18n="doc.rev">Số sửa đổi</label>
+                    <input type="number" id="rev-no" min="0" step="1" required>
+                    <small class="hint" id="rev-no-hint"></small>
+                </div>
+                <div class="field">
+                    <label for="rev-date" data-i18n="doc.rev_date">Ngày sửa đổi</label>
+                    <input type="date" id="rev-date" required>
+                    <small class="hint" data-i18n="revise.date_hint">Bản hiện hành sẽ hết hiệu lực vào ngày này.</small>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="content-ko" data-i18n="revise.content_ko">Nội dung sửa đổi (Tiếng Hàn)</label>
+                <textarea id="content-ko" rows="2"></textarea>
+            </div>
+            <div class="field">
+                <label for="content-vi" data-i18n="revise.content_vi">Nội dung sửa đổi (Tiếng Việt)</label>
+                <textarea id="content-vi" rows="2"></textarea>
+            </div>
+
+            <div class="notice" data-i18n="revise.pdf_warning">
+                Tệp PDF phải được chuyển đổi trên Windows.
+            </div>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="ko-src" data-i18n="revise.ko_src">Tệp gốc (Tiếng Hàn)</label>
+                    <input type="file" id="ko-src" accept=".pptx,.ppt,.xlsx,.xls,.docx,.doc">
+                </div>
+                <div class="field">
+                    <label for="ko-pdf" data-i18n="revise.ko_pdf">PDF (Tiếng Hàn)</label>
+                    <input type="file" id="ko-pdf" accept="application/pdf,.pdf">
+                </div>
+                <div class="field">
+                    <label for="vi-src" data-i18n="revise.vi_src">Tệp gốc (Tiếng Việt)</label>
+                    <input type="file" id="vi-src" accept=".pptx,.ppt,.xlsx,.xls,.docx,.doc">
+                </div>
+                <div class="field">
+                    <label for="vi-pdf" data-i18n="revise.vi_pdf">PDF (Tiếng Việt)</label>
+                    <input type="file" id="vi-pdf" accept="application/pdf,.pdf">
+                </div>
+            </div>
+            <small class="hint" data-i18n="revise.keep_hint">Ngôn ngữ không tải lên sẽ giữ tệp của bản sửa đổi trước.</small>
+
+            <div class="notice error" id="rev-error" hidden></div>
+            <div class="notice" id="rev-ok" hidden></div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="rev-submit" data-i18n="revise.submit">Đăng ký</button>
+                <a class="btn" id="cancel-link" href="index.html" data-i18n="revise.cancel">Hủy</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script>App.init('revise');</script>
+</body>
+</html>

@@ -115,5 +115,24 @@
     "prev": "◀ Prev",
     "next": "Next ▶",
     "no_permission": "You do not have permission to view the access log."
+  },
+  "revise": {
+    "button": "New Revision",
+    "heading": "Register Revision",
+    "content_ko": "Rev. Content (Korean)",
+    "content_vi": "Rev. Content (Vietnamese)",
+    "ko_src": "Source file (Korean)",
+    "ko_pdf": "PDF (Korean)",
+    "vi_src": "Source file (Vietnamese)",
+    "vi_pdf": "PDF (Vietnamese)",
+    "submit": "Register",
+    "submitting": "Registering…",
+    "cancel": "Cancel",
+    "rev_hint": "Current Rev.{cur} → new Rev.{next}",
+    "date_hint": "The current revision will be obsoleted on this date.",
+    "keep_hint": "Languages left empty keep the files from the previous revision.",
+    "pdf_warning": "PDFs must be converted on Windows with scripts/convert_pdf.py. Converting on the server breaks Korean and Vietnamese fonts.",
+    "done": "Rev.{rev} registered. Rev.{old} has been obsoleted.",
+    "failed": "Failed to register the revision."
   }
 }
