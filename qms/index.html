@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài liệu tiêu chuẩn</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <span class="header-icon">&#128203;</span>
+            <div>
+                <h1 data-i18n="title">Quản lý tài liệu tiêu chuẩn</h1>
+                <span class="header-sub" data-i18n="subtitle">Hệ thống quản lý chất lượng IATF 16949</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span id="header-user" class="header-date" style="opacity:.8"></span>
+
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button data-lang-btn="vi" onclick="I18n.setLang('vi')">VI</button>
+                <button data-lang-btn="ko" onclick="I18n.setLang('ko')">한국어</button>
+                <button data-lang-btn="en" onclick="I18n.setLang('en')">EN</button>
+            </div>
+
+            <a href="../" class="btn-back" data-i18n="back_to_psavn">← psavn.com</a>
+            <button class="btn-back" onclick="App.logout()" style="border-color:rgba(255,255,255,.4);cursor:pointer;background:none">&#128274; <span data-i18n="logout">Đăng xuất</span></button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <nav class="tab-nav">
+            <a href="index.html" data-nav="documents" data-i18n="nav.documents">Tài liệu</a>
+            <a href="forms.html" data-nav="forms" data-i18n="nav.forms">Biểu mẫu</a>
+        </nav>
+
+        <div class="panel">
+            <div class="filters">
+                <div class="chips" id="chips"></div>
+                <select id="f-dept"><option value="" data-i18n="filter.dept">Bộ phận quản lý</option></select>
+                <select id="f-status">
+                    <option value="" data-i18n="filter.status">Trạng thái</option>
+                    <option value="valid" data-i18n="status.valid">Hiệu lực</option>
+                    <option value="obsolete" data-i18n="status.obsolete">Hết hiệu lực</option>
+                </select>
+                <input type="search" id="f-q" data-i18n-placeholder="filter.search_documents" placeholder="Tìm theo mã hoặc tên tài liệu">
+                <button class="btn" id="f-reset" data-i18n="filter.reset">Đặt lại</button>
+                <span class="count" id="count"></span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="doc.no">Mã tài liệu</th>
+                            <th data-i18n="filter.type">Phân loại</th>
+                            <th data-i18n="doc.name">Tên tài liệu</th>
+                            <th data-i18n="doc.dept">Bộ phận quản lý</th>
+                            <th data-i18n="doc.rev">Số sửa đổi</th>
+                            <th data-i18n="doc.rev_date">Ngày sửa đổi</th>
+                            <th data-i18n="doc.form_count">Biểu mẫu</th>
+                            <th data-i18n="filter.status">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rows">
+                        <tr><td colspan="8" class="table-msg" data-i18n="msg.loading">Đang tải…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script>App.init('documents');</script>
+</body>
+</html>

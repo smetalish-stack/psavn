@@ -361,6 +361,8 @@
     "dispatch_desc": "Quản lý tổng hợp điều phối xe đưa đón và xe công vụ, phân công lái xe, gửi thông báo Zalo.",
     "calib_title": "Quản lý hiệu chuẩn",
     "calib_desc": "Quản lý có hệ thống lịch sử hiệu chuẩn thiết bị đo, thông báo định kỳ và cấp giấy chứng nhận.",
+    "qms_title": "Quản lý tài liệu tiêu chuẩn",
+    "qms_desc": "Tra cứu sổ tay, quy trình, hướng dẫn IATF 16949 và biểu mẫu liên quan, xem lịch sử sửa đổi.",
     "4m_title": "Quản lý thay đổi 4M",
     "4m_desc": "Quản lý lịch sử thay đổi Man, Machine, Material, Method theo tiêu chuẩn IATF 16949.",
     "thermo_title": "Bảng giám sát nhiệt độ & độ ẩm",

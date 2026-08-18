@@ -361,6 +361,8 @@
     "dispatch_desc": "임직원 셔틀 및 업무 차량 배차, 기사 배정, Zalo 알림 발송을 통합 관리합니다.",
     "calib_title": "검교정 관리",
     "calib_desc": "측정장비 교정 이력, 주기 알림, 성적서 발급 등 교정 업무를 체계적으로 관리합니다.",
+    "qms_title": "표준문서 관리",
+    "qms_desc": "IATF 16949 매뉴얼·프로세스·지침서와 관련 양식을 열람하고 개정이력을 확인합니다.",
     "4m_title": "4M 변경관리",
     "4m_desc": "IATF 16949 기준의 Man, Machine, Material, Method 변경 이력을 관리합니다.",
     "thermo_title": "온습도 현황판",

@@ -1,0 +1,96 @@
+{
+  "title": "Quản lý tài liệu tiêu chuẩn",
+  "subtitle": "Hệ thống quản lý chất lượng IATF 16949",
+  "logout": "Đăng xuất",
+  "back_to_psavn": "← psavn.com",
+  "nav": {
+    "documents": "Tài liệu",
+    "forms": "Biểu mẫu"
+  },
+  "login": {
+    "title": "Quản lý tài liệu tiêu chuẩn",
+    "subtitle": "Hệ thống quản lý chất lượng IATF 16949",
+    "heading": "Đăng nhập",
+    "username": "Tài khoản",
+    "username_placeholder": "Nhập tài khoản",
+    "password": "Mật khẩu",
+    "password_placeholder": "Nhập mật khẩu",
+    "submit": "Đăng nhập",
+    "submitting": "Đang đăng nhập…",
+    "error_empty": "Vui lòng nhập tài khoản và mật khẩu.",
+    "error_failed": "Tài khoản hoặc mật khẩu không đúng.",
+    "error_locked": "Đăng nhập sai quá nhiều lần. Vui lòng thử lại sau 10 phút.",
+    "error_server": "Không thể kết nối đến máy chủ.",
+    "session_expired": "Phiên làm việc đã hết hạn. Vui lòng đăng nhập lại.",
+    "back": "← Quay lại psavn.com"
+  },
+  "filter": {
+    "type": "Phân loại",
+    "dept": "Bộ phận quản lý",
+    "status": "Trạng thái",
+    "all": "Tất cả",
+    "reset": "Đặt lại",
+    "search_documents": "Tìm theo mã hoặc tên tài liệu",
+    "search_forms": "Tìm theo mã hoặc tên biểu mẫu"
+  },
+  "type": {
+    "manual": "Sổ tay",
+    "process": "Quy trình",
+    "guideline": "Hướng dẫn",
+    "form": "Biểu mẫu"
+  },
+  "status": {
+    "valid": "Hiệu lực",
+    "obsolete": "Hết hiệu lực",
+    "draft": "Bản thảo"
+  },
+  "doc": {
+    "no": "Mã tài liệu",
+    "name": "Tên tài liệu",
+    "dept": "Bộ phận quản lý",
+    "rev": "Số sửa đổi",
+    "rev_date": "Ngày sửa đổi",
+    "issued_date": "Ngày ban hành",
+    "rev_content": "Nội dung sửa đổi",
+    "outdated_date": "Ngày hết hiệu lực",
+    "retention": "Thời gian lưu trữ",
+    "form_count": "Biểu mẫu",
+    "rev_history": "Lịch sử sửa đổi",
+    "related_forms": "Biểu mẫu liên quan",
+    "current": "Hiện hành",
+    "history_only": "Bản sửa đổi cũ chỉ lưu lịch sử, không cung cấp tệp.",
+    "back_to_list": "Về danh sách",
+    "not_found": "Không tìm thấy tài liệu."
+  },
+  "form": {
+    "no": "Mã biểu mẫu",
+    "name": "Tên biểu mẫu",
+    "parent": "Tài liệu liên quan"
+  },
+  "file": {
+    "download_src": "Tải tệp gốc",
+    "no_permission": "Bạn không có quyền tải tệp gốc.",
+    "loading": "Đang tải tài liệu…",
+    "failed": "Không tải được tài liệu.",
+    "open_new_tab": "Mở ở tab mới",
+    "fallback_ko": "Không có bản tiếng Việt, đang hiển thị bản tiếng Hàn.",
+    "fallback_vi": "Không có bản tiếng Hàn, đang hiển thị bản tiếng Việt."
+  },
+  "dept": {
+    "품질": "Chất lượng",
+    "영업": "Kinh doanh",
+    "기술": "Kỹ thuật",
+    "생산": "Sản xuất",
+    "구매": "Mua hàng",
+    "경영지원": "Hỗ trợ KD",
+    "SCM": "SCM",
+    "개발": "Phát triển",
+    "생산기술": "Kỹ thuật sản xuất"
+  },
+  "msg": {
+    "count_documents": "{n} tài liệu",
+    "count_forms": "{n} biểu mẫu",
+    "empty": "Không có kết quả.",
+    "loading": "Đang tải…"
+  }
+}
