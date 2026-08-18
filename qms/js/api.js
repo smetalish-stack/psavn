@@ -102,6 +102,9 @@ const API = (() => {
             return request('GET', `/api/access-log${q ? '?' + q : ''}`);
         },
         getHistorySummary: (days) => request('GET', `/api/access-log/summary?days=${days || 30}`),
+        /** 파일을 올리기 전에 어느 문서의 몇 번 개정이 될지 계산만 받는다. */
+        planBatch: (files) => request('POST', '/api/documents/batch/plan', { files }),
+
         /** 개정 등록. multipart 라 request() 를 쓰지 않고 직접 보낸다. */
         createRevision: async (docNo, formData) => {
             const res = await fetch(

@@ -43,6 +43,8 @@ const App = (() => {
         const mayAudit = user && (user.role === 'admin' || user.role === 'manager');
         const auditTab = document.querySelector('[data-nav="history"]');
         if (auditTab) auditTab.hidden = !mayAudit;
+        const batchTab = document.querySelector('[data-nav="batch"]');
+        if (batchTab) batchTab.hidden = !mayAudit;
 
         // forms.html?doc=PSAV-COP-01 로 들어오면 해당 문서의 양식만 보여준다
         if (page === 'forms') {
@@ -115,6 +117,8 @@ const App = (() => {
             await loadForms();
         } else if (page === 'document') {
             await renderDetail();
+        } else if (page === 'batch') {
+            renderBatch();
         } else if (page === 'revise') {
             await renderReviseForm();
         } else if (page === 'history') {
@@ -434,6 +438,130 @@ const App = (() => {
         } finally {
             btn.disabled = false;
         }
+    }
+
+    /* -------------------------------------------------------------- batch */
+    let batchPlan = null;      // 서버가 계산한 개정 계획
+    let batchFiles = null;     // 파일명 → File 객체
+
+    function renderBatch() {
+        if (!el('b-date').value) el('b-date').value = new Date().toISOString().slice(0, 10);
+        if (el('b-files').dataset.bound) {
+            if (batchPlan) drawPlan();   // 언어 전환 시 표를 다시 그린다
+            return;
+        }
+        el('b-files').dataset.bound = '1';
+        el('b-files').addEventListener('change', planBatch);
+        el('b-run').addEventListener('click', runBatch);
+        el('b-all').addEventListener('change', e => {
+            document.querySelectorAll('#b-rows input[data-doc]:not(:disabled)')
+                .forEach(c => { c.checked = e.target.checked; });
+        });
+    }
+
+    async function planBatch() {
+        const files = [...el('b-files').files];
+        el('b-error').hidden = true;
+        el('b-result-panel').hidden = true;
+        if (!files.length) { el('b-plan-panel').hidden = true; return; }
+
+        batchFiles = new Map(files.map(f => [f.name, f]));
+        try {
+            batchPlan = await API.planBatch(files.map(f => ({ name: f.name, size: f.size })));
+        } catch (e) {
+            el('b-error').textContent = (e.body && e.body.detail) || I18n.t('revise.failed');
+            el('b-error').hidden = false;
+            return;
+        }
+        drawPlan();
+    }
+
+    function drawPlan() {
+        const p = batchPlan;
+        el('b-plan-panel').hidden = false;
+        el('b-stats').innerHTML = [
+            [p.total_files, I18n.t('batch.stat_files')],
+            [p.documents, I18n.t('batch.stat_docs')],
+            [p.ready, I18n.t('batch.stat_ready')],
+            [p.blocked, I18n.t('batch.stat_blocked')],
+        ].map(([n, l]) => `<div class="stat"><div class="stat-n">${n}</div>` +
+                          `<div class="stat-l">${esc(l)}</div></div>`).join('');
+
+        el('b-rows').innerHTML = p.plan.map(r => `<tr class="${r.ok ? '' : 'row-blocked'}">
+            <td><input type="checkbox" data-doc="${esc(r.doc_no)}"
+                 ${r.ok ? 'checked' : 'disabled'}></td>
+            <td class="cell-no">${esc(r.doc_no)}</td>
+            <td>${esc(pick(r.name_ko, r.name_vi))}</td>
+            <td class="cell-num">Rev.${r.current_rev} → <strong>Rev.${r.rev_no}</strong></td>
+            <td>${Object.keys(r.files).sort().join(', ')}</td>
+            <td>${r.ok ? badge('valid', I18n.t('batch.ready'))
+                       : `<span class="err-text">${esc(r.errors.join(' / '))}</span>`}</td>
+        </tr>`).join('');
+
+        el('b-skipped').textContent = p.skipped.length
+            ? I18n.t('batch.skipped', { n: p.skipped.length }) + ' ' +
+              p.skipped.map(x => x.name).join(', ')
+            : '';
+        el('b-run').disabled = p.ready === 0;
+        el('b-progress').textContent = '';
+    }
+
+    /**
+     * 문서별로 순차 등록한다.
+     * 41개 문서 152 MB 를 한 요청에 담으면 프록시에서 끊기므로 나눠 보낸다.
+     * 대신 원자성이 없어 중간 실패 시 앞부분은 등록된 채로 남는다 — 결과표로 보여준다.
+     */
+    async function runBatch() {
+        const chosen = [...document.querySelectorAll('#b-rows input[data-doc]:checked')]
+            .map(c => c.getAttribute('data-doc'));
+        if (!chosen.length) return;
+
+        const date = el('b-date').value;
+        if (!date) { el('b-error').textContent = I18n.t('batch.need_date'); el('b-error').hidden = false; return; }
+
+        el('b-run').disabled = true;
+        el('b-error').hidden = true;
+        el('b-result-panel').hidden = false;
+        el('b-result-rows').innerHTML = '';
+
+        const targets = batchPlan.plan.filter(r => chosen.includes(r.doc_no));
+        let done = 0, failed = 0;
+
+        for (const r of targets) {
+            el('b-progress').textContent = I18n.t('batch.progress',
+                { done: done + 1, total: targets.length, doc: r.doc_no });
+
+            const fd = new FormData();
+            fd.append('rev_no', String(r.rev_no));
+            fd.append('rev_date', date);
+            fd.append('content_ko', el('b-content-ko').value);
+            fd.append('content_vi', el('b-content-vi').value);
+            for (const [slot, info] of Object.entries(r.files)) {
+                const file = batchFiles.get(info.name);
+                if (file) fd.append(slot, file);
+            }
+
+            let status, cls;
+            try {
+                await API.createRevision(r.doc_no, fd);
+                status = I18n.t('batch.done_one');
+                cls = 'valid';
+            } catch (e) {
+                status = (e.body && e.body.detail) || (e.body && e.body.error) || 'error';
+                cls = 'obsolete';
+                failed += 1;
+            }
+            done += 1;
+            el('b-result-rows').insertAdjacentHTML('beforeend', `<tr>
+                <td class="cell-no">${esc(r.doc_no)}</td>
+                <td class="cell-num">Rev.${r.current_rev} → Rev.${r.rev_no}</td>
+                <td>${badge(cls, status)}</td>
+            </tr>`);
+        }
+
+        el('b-progress').textContent = I18n.t('batch.finished',
+            { ok: done - failed, fail: failed });
+        el('b-run').disabled = false;
     }
 
     /* ------------------------------------------------------------- revise */

@@ -6,7 +6,8 @@
   "nav": {
     "documents": "Documents",
     "forms": "Forms",
-    "history": "Access Log"
+    "history": "Access Log",
+    "batch": "Batch Revision"
   },
   "login": {
     "title": "Standard Document Control",
@@ -134,5 +135,26 @@
     "pdf_warning": "PDFs must be converted on Windows with scripts/convert_pdf.py. Converting on the server breaks Korean and Vietnamese fonts.",
     "done": "Rev.{rev} registered. Rev.{old} has been obsoleted.",
     "failed": "Failed to register the revision."
+  },
+  "batch": {
+    "heading": "Batch Revision",
+    "intro": "Select many files at once. They are matched to documents by the code in the filename.",
+    "content_hint": "e.g. Company name change",
+    "plan": "Match Result",
+    "stat_files": "Files",
+    "stat_docs": "Documents",
+    "stat_ready": "Ready",
+    "stat_blocked": "Blocked",
+    "rev_change": "Revision",
+    "matched_files": "Matched files",
+    "status": "Status",
+    "ready": "Ready",
+    "skipped": "{n} files skipped:",
+    "run": "Register selected",
+    "need_date": "Please enter the revision date.",
+    "progress": "{done}/{total} in progress — {doc}",
+    "finished": "Finished: {ok} succeeded / {fail} failed",
+    "done_one": "Registered",
+    "result": "Result"
   }
 }

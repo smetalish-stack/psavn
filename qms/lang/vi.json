@@ -6,7 +6,8 @@
   "nav": {
     "documents": "Tài liệu",
     "forms": "Biểu mẫu",
-    "history": "Lịch sử truy cập"
+    "history": "Lịch sử truy cập",
+    "batch": "Sửa đổi hàng loạt"
   },
   "login": {
     "title": "Quản lý tài liệu tiêu chuẩn",
@@ -134,5 +135,26 @@
     "pdf_warning": "PDF phải được chuyển đổi trên Windows bằng scripts/convert_pdf.py. Chuyển đổi trên máy chủ sẽ làm hỏng phông chữ tiếng Hàn và tiếng Việt.",
     "done": "Đã đăng ký Rev.{rev}. Rev.{old} đã hết hiệu lực.",
     "failed": "Đăng ký sửa đổi thất bại."
+  },
+  "batch": {
+    "heading": "Đăng ký sửa đổi hàng loạt",
+    "intro": "Chọn nhiều tệp cùng lúc. Hệ thống tự khớp tệp với tài liệu theo mã trong tên tệp.",
+    "content_hint": "VD: Thay đổi tên công ty",
+    "plan": "Kết quả khớp tệp",
+    "stat_files": "Tệp đã chọn",
+    "stat_docs": "Tài liệu khớp",
+    "stat_ready": "Sẵn sàng",
+    "stat_blocked": "Cần kiểm tra",
+    "rev_change": "Sửa đổi",
+    "matched_files": "Tệp khớp",
+    "status": "Trạng thái",
+    "ready": "Sẵn sàng",
+    "skipped": "{n} tệp bị bỏ qua:",
+    "run": "Thực hiện",
+    "need_date": "Vui lòng nhập ngày sửa đổi.",
+    "progress": "{done}/{total} đang xử lý — {doc}",
+    "finished": "Hoàn tất: {ok} thành công / {fail} thất bại",
+    "done_one": "Đã đăng ký",
+    "result": "Kết quả"
   }
 }

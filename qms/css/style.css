@@ -264,6 +264,12 @@ tr.is-current td { background: var(--status-ok-bg); }
 .hint { display: block; color: var(--gray-500); font-size: 12px; margin-top: 4px; }
 .form-actions { display: flex; gap: 8px; margin-top: 18px; }
 
+tr.row-blocked td { background: #fff8f7; }
+.err-text { color: var(--status-critical); font-size: 12.5px; }
+#b-rows input[type=checkbox], #b-all { width: 15px; height: 15px; cursor: pointer; }
+#b-files { width: 100%; border: 1px dashed var(--gray-300); border-radius: 6px;
+           padding: 14px; background: var(--gray-50); font-size: 13px; }
+
 /* ---- Login ---- */
 .login-wrap {
     min-height: 100vh;
