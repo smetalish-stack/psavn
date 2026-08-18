@@ -115,5 +115,24 @@
     "prev": "◀ Trước",
     "next": "Sau ▶",
     "no_permission": "Bạn không có quyền xem lịch sử truy cập."
+  },
+  "revise": {
+    "button": "Đăng ký sửa đổi",
+    "heading": "Đăng ký sửa đổi",
+    "content_ko": "Nội dung sửa đổi (Tiếng Hàn)",
+    "content_vi": "Nội dung sửa đổi (Tiếng Việt)",
+    "ko_src": "Tệp gốc (Tiếng Hàn)",
+    "ko_pdf": "PDF (Tiếng Hàn)",
+    "vi_src": "Tệp gốc (Tiếng Việt)",
+    "vi_pdf": "PDF (Tiếng Việt)",
+    "submit": "Đăng ký",
+    "submitting": "Đang đăng ký…",
+    "cancel": "Hủy",
+    "rev_hint": "Hiện tại Rev.{cur} → bản mới {next}",
+    "date_hint": "Bản hiện hành sẽ hết hiệu lực vào ngày này.",
+    "keep_hint": "Ngôn ngữ không tải lên sẽ giữ tệp của bản sửa đổi trước.",
+    "pdf_warning": "PDF phải được chuyển đổi trên Windows bằng scripts/convert_pdf.py. Chuyển đổi trên máy chủ sẽ làm hỏng phông chữ tiếng Hàn và tiếng Việt.",
+    "done": "Đã đăng ký Rev.{rev}. Rev.{old} đã hết hiệu lực.",
+    "failed": "Đăng ký sửa đổi thất bại."
   }
 }

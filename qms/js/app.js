@@ -115,6 +115,8 @@ const App = (() => {
             await loadForms();
         } else if (page === 'document') {
             await renderDetail();
+        } else if (page === 'revise') {
+            await renderReviseForm();
         } else if (page === 'history') {
             await loadSummary();
             await loadHistory();
@@ -218,6 +220,15 @@ const App = (() => {
             cur && cur.rev_date ? `<span>${esc(I18n.t('doc.rev_date'))}: ${esc(cur.rev_date)}</span>` : '',
             badge(d.status, I18n.t('status.' + d.status))
         ].join('');
+
+        // 개정 등록은 admin·manager 만
+        const u = API.getUser();
+        const btnRevise = el('btn-revise');
+        if (btnRevise) {
+            const mayRevise = u && (u.role === 'admin' || u.role === 'manager');
+            btnRevise.hidden = !mayRevise;
+            btnRevise.href = `revise.html?doc=${encodeURIComponent(d.doc_no)}`;
+        }
 
         renderRevisions();
         renderRelatedForms();
@@ -422,6 +433,77 @@ const App = (() => {
             setTimeout(() => URL.revokeObjectURL(a.href), 10000);
         } finally {
             btn.disabled = false;
+        }
+    }
+
+    /* ------------------------------------------------------------- revise */
+    async function renderReviseForm() {
+        const docNo = docNoFromQuery();
+        if (!docNo) { el('rev-title').textContent = I18n.t('doc.not_found'); return; }
+
+        if (!detail) detail = await API.getDocument(docNo);
+        const d = detail.document;
+        const next = (d.current_rev === null ? 0 : d.current_rev + 1);
+
+        el('rev-title').textContent = `${d.doc_no}  ${docName(d)}`;
+        el('rev-meta').innerHTML = [
+            badge('type', I18n.t('type.' + d.type)),
+            `<span>${esc(I18n.t('doc.rev'))}: Rev.${d.current_rev}</span>`,
+            d.dept ? `<span>${esc(I18n.t('doc.dept'))}: ${esc(I18n.dept(d.dept))}</span>` : ''
+        ].join('');
+        el('back-link').href = `document.html?doc=${encodeURIComponent(docNo)}`;
+        el('cancel-link').href = `document.html?doc=${encodeURIComponent(docNo)}`;
+        el('rev-no-hint').textContent = I18n.t('revise.rev_hint', { cur: d.current_rev, next: next });
+
+        // 값은 처음 그릴 때만 채운다. 언어 전환으로 다시 그려도 입력을 날리지 않는다.
+        if (!el('rev-no').value) el('rev-no').value = next;
+        if (!el('rev-date').value) el('rev-date').value = new Date().toISOString().slice(0, 10);
+
+        if (!el('rev-form').dataset.bound) {
+            el('rev-form').dataset.bound = '1';
+            el('rev-form').addEventListener('submit', submitRevision);
+        }
+    }
+
+    async function submitRevision(ev) {
+        ev.preventDefault();
+        const docNo = docNoFromQuery();
+        const btn = el('rev-submit');
+        const errBox = el('rev-error');
+        const okBox = el('rev-ok');
+        errBox.hidden = true;
+        okBox.hidden = true;
+
+        const fd = new FormData();
+        fd.append('rev_no', el('rev-no').value);
+        fd.append('rev_date', el('rev-date').value);
+        fd.append('content_ko', el('content-ko').value);
+        fd.append('content_vi', el('content-vi').value);
+        [['ko-src', 'ko_src'], ['ko-pdf', 'ko_pdf'],
+         ['vi-src', 'vi_src'], ['vi-pdf', 'vi_pdf']].forEach(([id, field]) => {
+            const f = el(id).files[0];
+            if (f) fd.append(field, f);
+        });
+
+        btn.disabled = true;
+        btn.textContent = I18n.t('revise.submitting');
+        try {
+            const r = await API.createRevision(docNo, fd);
+            okBox.textContent = I18n.t('revise.done', {
+                rev: r.rev_no,
+                old: r.obsoleted ? r.obsoleted.rev_no : '-'
+            });
+            okBox.hidden = false;
+            detail = null;   // 상세를 다시 받아야 새 개정이 보인다
+            setTimeout(() => {
+                window.location.href = `document.html?doc=${encodeURIComponent(docNo)}`;
+            }, 1500);
+        } catch (e) {
+            // 서버가 내려주는 detail 이 사용자에게 가장 정확한 안내다
+            errBox.textContent = (e.body && e.body.detail) || I18n.t('revise.failed');
+            errBox.hidden = false;
+            btn.disabled = false;
+            btn.textContent = I18n.t('revise.submit');
         }
     }
 
