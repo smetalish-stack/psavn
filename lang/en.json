@@ -361,6 +361,8 @@
     "dispatch_desc": "Integrated management of employee shuttle and business vehicle dispatch, driver assignment, and Zalo notifications.",
     "calib_title": "Calibration Management",
     "calib_desc": "Systematic management of measuring equipment calibration history, periodic notifications, and certificate issuance.",
+    "qms_title": "Standard Document Control",
+    "qms_desc": "Browse the IATF 16949 manual, processes, guidelines and related forms with revision history.",
     "4m_title": "4M Change Management",
     "4m_desc": "Manage change history for Man, Machine, Material, and Method in accordance with IATF 16949.",
     "thermo_title": "T&H Dashboard",
