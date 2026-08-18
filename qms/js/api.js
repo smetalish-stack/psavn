@@ -75,6 +75,8 @@ const API = (() => {
             url: URL.createObjectURL(blob),
             // 요청 언어본이 없으면 서버가 다른 언어로 대체하고 이 헤더로 알려준다
             servedLang: res.headers.get('X-Served-Lang') || lang,
+            // 워터마크에 찍힌 배포본번호. 열람이력의 id 와 같다.
+            copyNo: res.headers.get('X-Copy-No') || null,
             filename: m ? decodeURIComponent(m[1]) : `${docNo}.pdf`
         };
     }

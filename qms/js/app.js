@@ -277,6 +277,13 @@ const App = (() => {
                 el('fallback').textContent = I18n.t(want === 'ko' ? 'file.fallback_vi' : 'file.fallback_ko');
                 el('fallback').hidden = false;
             }
+            // 지금 보고 있는 화면이 몇 번 배포본인지 알려준다 (IATF 배포 통제)
+            const badgeEl = el('copy-no');
+            if (badgeEl) {
+                badgeEl.textContent = f.copyNo
+                    ? `${I18n.t('history.copy_no')} ${f.copyNo}` : '';
+                badgeEl.hidden = !f.copyNo;
+            }
             el('btn-newtab').hidden = false;
             el('btn-newtab').onclick = () => window.open(f.url, '_blank');
         } catch (e) {
