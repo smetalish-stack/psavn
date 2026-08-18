@@ -7,7 +7,8 @@
     "documents": "문서",
     "forms": "양식",
     "history": "열람이력",
-    "batch": "일괄 개정"
+    "batch": "일괄 개정",
+    "drawings": "도면"
   },
   "login": {
     "title": "표준문서 관리",
@@ -156,5 +157,31 @@
     "finished": "완료: 성공 {ok}건 / 실패 {fail}건",
     "done_one": "등록 완료",
     "result": "실행 결과"
+  },
+  "drawing": {
+    "no": "도면번호",
+    "name": "도면명",
+    "part_no": "품번",
+    "customer": "고객사",
+    "kind": "구분",
+    "kind_customer": "고객도면",
+    "kind_internal": "자체도면",
+    "kind_production": "생산도면",
+    "rev": "개정번호",
+    "rev_hint": "고객의 개정번호를 그대로 적용합니다 (예: A, B, 01).",
+    "search": "도면번호·도면명·품번 검색",
+    "new": "도면 등록",
+    "pdf": "PDF (필수)",
+    "src": "원본 (DWG/STEP 등)",
+    "nda_yes": "대상",
+    "nda_no": "해당 없음",
+    "nda_notice": "이 도면은 NDA 대상입니다. 외부 반출 및 임의 복사가 금지됩니다.",
+    "obsolete_notice": "등록하면 현행 개정본이 자동으로 폐기되고 '참고용'으로 표시됩니다.",
+    "reference": "참고용",
+    "count": "도면 {n}건",
+    "back": "도면 목록으로",
+    "created": "{no} Rev.{rev} 등록 완료",
+    "scope_limited": "열람 권한이 있는 고객사 {n}곳의 도면만 표시됩니다.",
+    "not_found_or_denied": "도면을 찾을 수 없거나 열람 권한이 없습니다."
   }
 }

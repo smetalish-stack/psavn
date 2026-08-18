@@ -117,6 +117,10 @@ const App = (() => {
             await loadForms();
         } else if (page === 'document') {
             await renderDetail();
+        } else if (page === 'drawings') {
+            await renderDrawings();
+        } else if (page === 'drawing') {
+            await renderDrawingDetail();
         } else if (page === 'batch') {
             renderBatch();
         } else if (page === 'revise') {
@@ -437,6 +441,276 @@ const App = (() => {
             setTimeout(() => URL.revokeObjectURL(a.href), 10000);
         } finally {
             btn.disabled = false;
+        }
+    }
+
+    /* ------------------------------------------------------------ drawings */
+    // PSAV-SP-03 도면관리 프로세스 기준. 개정번호는 고객 체계라 문자열이다.
+    let dwState = { kind: '', customer: '', q: '' };
+    let dwDetail = null;
+    let dwBlobUrl = null;
+    const DW_KINDS = ['customer', 'internal', 'production'];
+
+    function dwKindLabel(k) { return I18n.t('drawing.kind_' + k); }
+
+    async function renderDrawings() {
+        if (!el('dw-chips').dataset.bound) {
+            el('dw-chips').dataset.bound = '1';
+            el('dw-chips').addEventListener('click', e => {
+                const b = e.target.closest('[data-kind]');
+                if (!b) return;
+                dwState.kind = b.getAttribute('data-kind');
+                drawDwChips(); loadDrawings();
+            });
+            el('dw-customer').addEventListener('change', e => {
+                dwState.customer = e.target.value; loadDrawings();
+            });
+            let t;
+            el('dw-q').addEventListener('input', e => {
+                clearTimeout(t);
+                const v = e.target.value.trim();
+                t = setTimeout(() => { dwState.q = v; loadDrawings(); }, 300);
+            });
+            el('dw-reset').addEventListener('click', () => {
+                dwState = { kind: '', customer: '', q: '' };
+                el('dw-customer').value = ''; el('dw-q').value = '';
+                drawDwChips(); loadDrawings();
+            });
+            el('dw-new-btn').addEventListener('click', () => {
+                el('dw-form').hidden = !el('dw-form').hidden;
+            });
+            el('dw-cancel').addEventListener('click', () => { el('dw-form').hidden = true; });
+            el('dw-form').addEventListener('submit', submitDrawing);
+            el('f-kind').addEventListener('change', syncCustomerRequired);
+        }
+
+        const u = API.getUser();
+        const mayEdit = u && (u.role === 'admin' || u.role === 'manager');
+        el('dw-new-btn').hidden = !mayEdit;
+
+        drawDwChips();
+        await loadCustomers();
+        await loadDrawings();
+    }
+
+    function drawDwChips() {
+        el('dw-chips').innerHTML =
+            `<button class="chip${dwState.kind === '' ? ' active' : ''}" data-kind="">` +
+            `${esc(I18n.t('filter.all'))}</button>` +
+            DW_KINDS.map(k => `<button class="chip${dwState.kind === k ? ' active' : ''}"` +
+                `data-kind="${k}">${esc(dwKindLabel(k))}</button>`).join('');
+    }
+
+    async function loadCustomers() {
+        const { customers, unrestricted } = await API.getCustomers();
+        const opts = customers.map(c =>
+            `<option value="${esc(c.code)}">${esc(c.code)} — ${esc(c.name)}</option>`).join('');
+        const keep = el('dw-customer').value;
+        el('dw-customer').innerHTML =
+            `<option value="">${esc(I18n.t('drawing.customer'))}</option>` + opts;
+        el('dw-customer').value = keep;
+        if (el('f-cust')) {
+            el('f-cust').innerHTML = `<option value="">—</option>` + opts;
+        }
+        // 고객사 권한이 제한된 계정에게는 그 사실을 알려준다
+        el('dw-scope').textContent = unrestricted
+            ? '' : I18n.t('drawing.scope_limited', { n: customers.length });
+    }
+
+    function syncCustomerRequired() {
+        const need = el('f-kind').value === 'customer';
+        el('f-cust').required = need;
+    }
+
+    async function loadDrawings() {
+        const params = {};
+        if (dwState.kind) params.kind = dwState.kind;
+        if (dwState.customer) params.customer = dwState.customer;
+        if (dwState.q) params.q = dwState.q;
+
+        const tbody = el('dw-rows');
+        tbody.innerHTML = `<tr><td colspan="8" class="table-msg">${esc(I18n.t('msg.loading'))}</td></tr>`;
+        const { count, drawings } = await API.getDrawings(params);
+        el('dw-count').textContent = I18n.t('drawing.count', { n: count });
+
+        if (!count) {
+            tbody.innerHTML = `<tr><td colspan="8" class="table-msg">${esc(I18n.t('msg.empty'))}</td></tr>`;
+            return;
+        }
+        tbody.innerHTML = drawings.map(d => `<tr>
+            <td class="cell-no"><a href="drawing.html?id=${d.id}">${esc(d.drawing_no)}</a></td>
+            <td>${badge('type', dwKindLabel(d.kind))}</td>
+            <td>${esc(d.name)}${d.nda_required ? ' <span class="badge obsolete">NDA</span>' : ''}</td>
+            <td>${esc(d.customer_code || '')}</td>
+            <td class="cell-no">${esc(d.part_no || '')}</td>
+            <td class="cell-num">Rev.${esc(d.current_rev || '')}</td>
+            <td class="cell-num">${esc(d.rev_date || '')}</td>
+            <td>${badge(d.status, I18n.t('status.' + d.status))}</td>
+        </tr>`).join('');
+    }
+
+    async function submitDrawing(ev) {
+        ev.preventDefault();
+        const btn = el('dw-submit');
+        el('dw-error').hidden = true; el('dw-ok').hidden = true;
+
+        const fd = new FormData();
+        fd.append('drawing_no', el('f-no').value.trim());
+        fd.append('name', el('f-name').value.trim());
+        fd.append('part_no', el('f-part').value.trim());
+        fd.append('kind', el('f-kind').value);
+        fd.append('customer_code', el('f-cust').value);
+        fd.append('rev', el('f-rev').value.trim());
+        fd.append('rev_date', el('f-date').value);
+        fd.append('nda_required', el('f-nda').value);
+        fd.append('content', el('f-content').value.trim());
+        if (el('f-pdf').files[0]) fd.append('pdf', el('f-pdf').files[0]);
+        if (el('f-src').files[0]) fd.append('src', el('f-src').files[0]);
+
+        btn.disabled = true;
+        try {
+            const r = await API.createDrawing(fd);
+            el('dw-ok').textContent = I18n.t('drawing.created', { no: r.drawing_no, rev: r.rev });
+            el('dw-ok').hidden = false;
+            el('dw-form').reset();
+            await loadDrawings();
+        } catch (e) {
+            el('dw-error').textContent = (e.body && e.body.detail) ||
+                (e.body && e.body.error) || I18n.t('revise.failed');
+            el('dw-error').hidden = false;
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    /* --------------------------------------------------------- 도면 상세 */
+    function dwIdFromQuery() {
+        return new URLSearchParams(window.location.search).get('id') || '';
+    }
+
+    async function renderDrawingDetail() {
+        const id = dwIdFromQuery();
+        if (!id) { el('d-name').textContent = I18n.t('doc.not_found'); return; }
+        if (!dwDetail) {
+            try {
+                dwDetail = await API.getDrawing(id);
+            } catch (e) {
+                // 권한이 없으면 서버가 404 로 답한다 (존재 여부를 흘리지 않으려고)
+                el('d-name').textContent = I18n.t('drawing.not_found_or_denied');
+                return;
+            }
+        }
+        const d = dwDetail.drawing;
+        document.title = `${d.drawing_no} — ${d.name}`;
+        el('d-name').textContent = d.name;
+        el('d-meta').innerHTML = [
+            `<span class="meta-no">${esc(d.drawing_no)}</span>`,
+            badge('type', dwKindLabel(d.kind)),
+            d.customer_code ? `<span>${esc(I18n.t('drawing.customer'))}: ${esc(d.customer_code)}</span>` : '',
+            d.part_no ? `<span>${esc(I18n.t('drawing.part_no'))}: ${esc(d.part_no)}</span>` : '',
+            `<span>${esc(I18n.t('drawing.rev'))}: Rev.${esc(d.current_rev || '')}</span>`,
+            badge(d.status, I18n.t('status.' + d.status)),
+        ].join('');
+        el('d-nda').hidden = !d.nda_required;
+
+        const u = API.getUser();
+        const mayEdit = u && (u.role === 'admin' || u.role === 'manager');
+        el('d-revise-btn').hidden = !mayEdit;
+        el('d-download').hidden = !(u && (u.role === 'admin' || u.can_download));
+
+        if (!el('d-rev-form').dataset.bound) {
+            el('d-rev-form').dataset.bound = '1';
+            el('d-revise-btn').addEventListener('click', () => {
+                el('d-rev-form').hidden = !el('d-rev-form').hidden;
+            });
+            el('r-cancel').addEventListener('click', () => { el('d-rev-form').hidden = true; });
+            el('d-rev-form').addEventListener('submit', submitDrawingRevision);
+            el('d-download').addEventListener('click', downloadDrawingSrc);
+        }
+
+        drawDwTimeline();
+        await loadDrawingPdf();
+    }
+
+    function drawDwTimeline() {
+        el('d-timeline').innerHTML = dwDetail.revisions.slice().reverse().map(r => {
+            const cur = r.status === 'valid';
+            const period = r.outdated_date
+                ? `${esc(r.rev_date || '')} ~ ${esc(r.outdated_date)}`
+                : `${esc(r.rev_date || '')} ~`;
+            return `<li class="tl-item${cur ? ' tl-current' : ''}">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                    <div class="tl-head">
+                        <strong>Rev.${esc(r.rev)}</strong>
+                        ${badge(r.status, cur ? I18n.t('doc.current') : I18n.t('drawing.reference'))}
+                        <span class="tl-period">${period}</span>
+                    </div>
+                    <div class="tl-content">${esc(r.content || '')}</div>
+                </div>
+            </li>`;
+        }).join('');
+    }
+
+    async function loadDrawingPdf() {
+        const viewer = el('d-viewer');
+        viewer.innerHTML = `<div class="viewer-msg">${esc(I18n.t('file.loading'))}</div>`;
+        if (dwBlobUrl) { URL.revokeObjectURL(dwBlobUrl); dwBlobUrl = null; }
+        try {
+            const f = await API.fetchDrawingFile(dwIdFromQuery(), { type: 'pdf' });
+            dwBlobUrl = f.url;
+            viewer.innerHTML = `<iframe src="${f.url}#toolbar=1"></iframe>`;
+            el('d-copy').textContent = f.copyNo
+                ? `${I18n.t('history.copy_no')} ${f.copyNo}` : '';
+            el('d-copy').hidden = !f.copyNo;
+        } catch (e) {
+            viewer.innerHTML = `<div class="viewer-msg">${esc(I18n.t('file.failed'))}</div>`;
+            if (e.body && e.body.detail) {
+                el('d-error').textContent = e.body.detail;
+                el('d-error').hidden = false;
+            }
+        }
+    }
+
+    async function submitDrawingRevision(ev) {
+        ev.preventDefault();
+        const btn = el('r-submit');
+        el('r-error').hidden = true;
+        const fd = new FormData();
+        fd.append('rev', el('r-rev').value.trim());
+        fd.append('rev_date', el('r-date').value);
+        fd.append('content', el('r-content').value.trim());
+        if (el('r-pdf').files[0]) fd.append('pdf', el('r-pdf').files[0]);
+        if (el('r-src').files[0]) fd.append('src', el('r-src').files[0]);
+
+        btn.disabled = true;
+        try {
+            await API.createDrawingRevision(dwIdFromQuery(), fd);
+            dwDetail = null;
+            el('d-rev-form').hidden = true;
+            el('d-rev-form').reset();
+            await renderDrawingDetail();
+        } catch (e) {
+            el('r-error').textContent = (e.body && e.body.detail) ||
+                (e.body && e.body.error) || I18n.t('revise.failed');
+            el('r-error').hidden = false;
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    async function downloadDrawingSrc() {
+        try {
+            const f = await API.fetchDrawingFile(dwIdFromQuery(), { type: 'src' });
+            const a = document.createElement('a');
+            a.href = f.url; a.download = f.filename;
+            document.body.appendChild(a); a.click(); a.remove();
+            setTimeout(() => URL.revokeObjectURL(f.url), 30000);
+        } catch (e) {
+            el('d-error').textContent = e.status === 403
+                ? I18n.t('file.no_permission')
+                : ((e.body && e.body.detail) || I18n.t('file.failed'));
+            el('d-error').hidden = false;
         }
     }
 

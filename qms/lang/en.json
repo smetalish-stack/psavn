@@ -7,7 +7,8 @@
     "documents": "Documents",
     "forms": "Forms",
     "history": "Access Log",
-    "batch": "Batch Revision"
+    "batch": "Batch Revision",
+    "drawings": "Drawings"
   },
   "login": {
     "title": "Standard Document Control",
@@ -156,5 +157,31 @@
     "finished": "Finished: {ok} succeeded / {fail} failed",
     "done_one": "Registered",
     "result": "Result"
+  },
+  "drawing": {
+    "no": "Drawing No.",
+    "name": "Drawing Name",
+    "part_no": "Part No.",
+    "customer": "Customer",
+    "kind": "Type",
+    "kind_customer": "Customer drawing",
+    "kind_internal": "Internal drawing",
+    "kind_production": "Production drawing",
+    "rev": "Rev.",
+    "rev_hint": "Use the customer's revision label (e.g. A, B, 01).",
+    "search": "Search drawing no., name or part no.",
+    "new": "Register Drawing",
+    "pdf": "PDF (required)",
+    "src": "Source (DWG/STEP…)",
+    "nda_yes": "Yes",
+    "nda_no": "No",
+    "nda_notice": "This drawing is under NDA. External distribution and unauthorised copying are prohibited.",
+    "obsolete_notice": "The current revision will be obsoleted and marked 'reference only'.",
+    "reference": "Reference",
+    "count": "{n} drawings",
+    "back": "Back to drawings",
+    "created": "{no} Rev.{rev} registered",
+    "scope_limited": "Showing drawings for the {n} customers you are granted.",
+    "not_found_or_denied": "Drawing not found, or you do not have access."
   }
 }

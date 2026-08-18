@@ -46,6 +46,22 @@ const API = (() => {
         return json;
     }
 
+    /** multipart 전송. Content-Type 을 직접 지정하면 boundary 가 깨진다. */
+    async function sendForm(path, formData) {
+        const res = await fetch(BASE + path, {
+            method: 'POST',
+            headers: { 'X-Auth-Token': getToken() },
+            body: formData,
+        });
+        if (res.status === 401) expired();
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok) {
+            const err = new Error(json.error || 'Request failed');
+            err.status = res.status; err.body = json; throw err;
+        }
+        return json;
+    }
+
     /**
      * 파일을 blob 으로 받는다.
      * 토큰이 헤더로만 가야 해서 iframe/<a> 에 API URL 을 직접 물릴 수 없다.
@@ -102,6 +118,39 @@ const API = (() => {
             return request('GET', `/api/access-log${q ? '?' + q : ''}`);
         },
         getHistorySummary: (days) => request('GET', `/api/access-log/summary?days=${days || 30}`),
+        // ---- 도면 (PSAV-SP-03 도면관리 프로세스) ----
+        getDrawings: (params = {}) => {
+            const p = new URLSearchParams(params).toString();
+            return request('GET', `/api/drawings${p ? '?' + p : ''}`);
+        },
+        getDrawing: (id) => request('GET', `/api/drawings/${id}`),
+        getCustomers: () => request('GET', '/api/drawings/customers'),
+        /** 도면 파일. 문서와 경로가 달라 fetchFile 을 그대로 못 쓴다. */
+        fetchDrawingFile: async (id, opts) => {
+            const { type = 'pdf', rev } = opts || {};
+            const p = new URLSearchParams({ type });
+            if (rev) p.set('rev', rev);
+            const res = await fetch(`${BASE}/api/drawings/${id}/file?${p}`,
+                { headers: { 'X-Auth-Token': getToken() } });
+            if (res.status === 401) expired();
+            if (!res.ok) {
+                let body = null;
+                try { body = await res.json(); } catch (e) { /* 파일 응답이 아닐 수 있다 */ }
+                const err = new Error((body && body.error) || 'File request failed');
+                err.status = res.status; err.body = body; throw err;
+            }
+            const cd = res.headers.get('Content-Disposition') || '';
+            const m = /filename\*=UTF-8''([^;]+)/.exec(cd);
+            return {
+                url: URL.createObjectURL(await res.blob()),
+                copyNo: res.headers.get('X-Copy-No') || null,
+                filename: m ? decodeURIComponent(m[1]) : `drawing-${id}.pdf`,
+            };
+        },
+        createDrawing: (formData) => sendForm('/api/drawings', formData),
+        createDrawingRevision: (id, formData) =>
+            sendForm(`/api/drawings/${id}/revisions`, formData),
+
         /** 파일을 올리기 전에 어느 문서의 몇 번 개정이 될지 계산만 받는다. */
         planBatch: (files) => request('POST', '/api/documents/batch/plan', { files }),
 

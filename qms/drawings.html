@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài liệu tiêu chuẩn</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <span class="header-icon">&#128203;</span>
+            <div>
+                <h1 data-i18n="title">Quản lý tài liệu tiêu chuẩn</h1>
+                <span class="header-sub" data-i18n="subtitle">Hệ thống quản lý chất lượng IATF 16949</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span id="header-user" class="header-date" style="opacity:.8"></span>
+            <div class="lang-switcher">
+                <button data-lang-btn="vi" onclick="I18n.setLang('vi')">VI</button>
+                <button data-lang-btn="ko" onclick="I18n.setLang('ko')">한국어</button>
+                <button data-lang-btn="en" onclick="I18n.setLang('en')">EN</button>
+            </div>
+            <a href="../" class="btn-back" data-i18n="back_to_psavn">← psavn.com</a>
+            <button class="btn-back" onclick="App.logout()" style="border-color:rgba(255,255,255,.4);cursor:pointer;background:none">&#128274; <span data-i18n="logout">Đăng xuất</span></button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <nav class="tab-nav">
+            <a href="index.html" data-nav="documents" data-i18n="nav.documents">Tài liệu</a>
+            <a href="forms.html" data-nav="forms" data-i18n="nav.forms">Biểu mẫu</a>
+            <a href="drawings.html" data-nav="drawings" data-i18n="nav.drawings">Bản vẽ</a>
+            <a href="history.html" data-nav="history" data-i18n="nav.history" hidden>Lịch sử truy cập</a>
+            <a href="batch.html" data-nav="batch" data-i18n="nav.batch" hidden>Sửa đổi hàng loạt</a>
+        </nav>
+
+        <div class="panel">
+            <div class="filters">
+                <div class="chips" id="dw-chips"></div>
+                <select id="dw-customer"><option value="" data-i18n="drawing.customer">Khách hàng</option></select>
+                <input type="search" id="dw-q" data-i18n-placeholder="drawing.search" placeholder="Tìm mã bản vẽ, tên, mã linh kiện">
+                <button class="btn" id="dw-reset" data-i18n="filter.reset">Đặt lại</button>
+                <button class="btn btn-primary" id="dw-new-btn" hidden data-i18n="drawing.new">Đăng ký bản vẽ</button>
+                <span class="count" id="dw-count"></span>
+            </div>
+            <div class="hint" id="dw-scope"></div>
+        </div>
+
+        <!-- 신규 등록 -->
+        <form class="panel" id="dw-form" hidden>
+            <h2 data-i18n="drawing.new">Đăng ký bản vẽ</h2>
+            <div class="form-grid">
+                <div class="field">
+                    <label for="f-no" data-i18n="drawing.no">Mã bản vẽ</label>
+                    <input type="text" id="f-no" required>
+                </div>
+                <div class="field">
+                    <label for="f-name" data-i18n="drawing.name">Tên bản vẽ</label>
+                    <input type="text" id="f-name" required>
+                </div>
+                <div class="field">
+                    <label for="f-part" data-i18n="drawing.part_no">Mã linh kiện</label>
+                    <input type="text" id="f-part">
+                </div>
+                <div class="field">
+                    <label for="f-kind" data-i18n="drawing.kind">Phân loại</label>
+                    <select id="f-kind">
+                        <option value="customer" data-i18n="drawing.kind_customer">Bản vẽ khách hàng</option>
+                        <option value="internal" data-i18n="drawing.kind_internal">Bản vẽ nội bộ</option>
+                        <option value="production" data-i18n="drawing.kind_production">Bản vẽ sản xuất</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="f-cust" data-i18n="drawing.customer">Khách hàng</label>
+                    <select id="f-cust"></select>
+                </div>
+                <div class="field">
+                    <label for="f-rev" data-i18n="drawing.rev">Số sửa đổi</label>
+                    <input type="text" id="f-rev" required placeholder="A">
+                    <small class="hint" data-i18n="drawing.rev_hint">Áp dụng số sửa đổi của khách hàng.</small>
+                </div>
+                <div class="field">
+                    <label for="f-date" data-i18n="doc.rev_date">Ngày sửa đổi</label>
+                    <input type="date" id="f-date">
+                </div>
+                <div class="field">
+                    <label for="f-nda">NDA</label>
+                    <select id="f-nda">
+                        <option value="false" data-i18n="drawing.nda_no">Không</option>
+                        <option value="true" data-i18n="drawing.nda_yes">Có</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label for="f-content" data-i18n="doc.rev_content">Nội dung sửa đổi</label>
+                <input type="text" id="f-content">
+            </div>
+            <div class="form-grid">
+                <div class="field">
+                    <label for="f-pdf" data-i18n="drawing.pdf">PDF (bắt buộc)</label>
+                    <input type="file" id="f-pdf" accept="application/pdf,.pdf" required>
+                </div>
+                <div class="field">
+                    <label for="f-src" data-i18n="drawing.src">Tệp gốc (DWG/STEP…)</label>
+                    <input type="file" id="f-src">
+                </div>
+            </div>
+            <div class="notice error" id="dw-error" hidden></div>
+            <div class="notice" id="dw-ok" hidden></div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="dw-submit" data-i18n="revise.submit">Đăng ký</button>
+                <button type="button" class="btn" id="dw-cancel" data-i18n="revise.cancel">Hủy</button>
+            </div>
+        </form>
+
+        <div class="panel">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="drawing.no">Mã bản vẽ</th>
+                            <th data-i18n="drawing.kind">Phân loại</th>
+                            <th data-i18n="drawing.name">Tên bản vẽ</th>
+                            <th data-i18n="drawing.customer">Khách hàng</th>
+                            <th data-i18n="drawing.part_no">Mã linh kiện</th>
+                            <th data-i18n="drawing.rev">Số sửa đổi</th>
+                            <th data-i18n="doc.rev_date">Ngày sửa đổi</th>
+                            <th data-i18n="filter.status">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dw-rows">
+                        <tr><td colspan="8" class="table-msg" data-i18n="msg.loading">Đang tải…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script>App.init('drawings');</script>
+</body>
+</html>
