@@ -1,0 +1,96 @@
+{
+  "title": "Standard Document Control",
+  "subtitle": "IATF 16949 Quality Management System",
+  "logout": "Sign out",
+  "back_to_psavn": "← psavn.com",
+  "nav": {
+    "documents": "Documents",
+    "forms": "Forms"
+  },
+  "login": {
+    "title": "Standard Document Control",
+    "subtitle": "IATF 16949 Quality Management System",
+    "heading": "Sign in",
+    "username": "Username",
+    "username_placeholder": "Enter username",
+    "password": "Password",
+    "password_placeholder": "Enter password",
+    "submit": "Sign in",
+    "submitting": "Signing in…",
+    "error_empty": "Please enter your username and password.",
+    "error_failed": "Incorrect username or password.",
+    "error_locked": "Too many attempts. Please try again in 10 minutes.",
+    "error_server": "Cannot reach the server.",
+    "session_expired": "Your session has expired. Please sign in again.",
+    "back": "← Back to psavn.com"
+  },
+  "filter": {
+    "type": "Type",
+    "dept": "Department",
+    "status": "Status",
+    "all": "All",
+    "reset": "Reset",
+    "search_documents": "Search document no. or name",
+    "search_forms": "Search form no. or name"
+  },
+  "type": {
+    "manual": "Manual",
+    "process": "Process",
+    "guideline": "Guideline",
+    "form": "Form"
+  },
+  "status": {
+    "valid": "Valid",
+    "obsolete": "Obsolete",
+    "draft": "Draft"
+  },
+  "doc": {
+    "no": "Document No.",
+    "name": "Document Name",
+    "dept": "Department",
+    "rev": "Rev.",
+    "rev_date": "Rev. Date",
+    "issued_date": "Issued Date",
+    "rev_content": "Rev. Content",
+    "outdated_date": "Outdated Date",
+    "retention": "Retention",
+    "form_count": "Forms",
+    "rev_history": "Revision History",
+    "related_forms": "Related Forms",
+    "current": "Current",
+    "history_only": "Previous revisions are kept as history only.",
+    "back_to_list": "Back to list",
+    "not_found": "Document not found."
+  },
+  "form": {
+    "no": "Form No.",
+    "name": "Form Name",
+    "parent": "Related Document"
+  },
+  "file": {
+    "download_src": "Download source",
+    "no_permission": "You do not have permission to download source files.",
+    "loading": "Loading document…",
+    "failed": "Failed to load the document.",
+    "open_new_tab": "Open in new tab",
+    "fallback_ko": "No Vietnamese version — showing the Korean version.",
+    "fallback_vi": "No Korean version — showing the Vietnamese version."
+  },
+  "dept": {
+    "품질": "Quality",
+    "영업": "Sales",
+    "기술": "Engineering",
+    "생산": "Production",
+    "구매": "Purchasing",
+    "경영지원": "Management Support",
+    "SCM": "SCM",
+    "개발": "Development",
+    "생산기술": "Production Engineering"
+  },
+  "msg": {
+    "count_documents": "{n} documents",
+    "count_forms": "{n} forms",
+    "empty": "No results.",
+    "loading": "Loading…"
+  }
+}

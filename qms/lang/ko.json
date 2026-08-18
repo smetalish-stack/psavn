@@ -1,0 +1,96 @@
+{
+  "title": "표준문서 관리",
+  "subtitle": "IATF 16949 품질경영시스템",
+  "logout": "로그아웃",
+  "back_to_psavn": "← psavn.com",
+  "nav": {
+    "documents": "문서",
+    "forms": "양식"
+  },
+  "login": {
+    "title": "표준문서 관리",
+    "subtitle": "IATF 16949 품질경영시스템",
+    "heading": "로그인",
+    "username": "아이디",
+    "username_placeholder": "아이디를 입력하세요",
+    "password": "비밀번호",
+    "password_placeholder": "비밀번호를 입력하세요",
+    "submit": "로그인",
+    "submitting": "로그인 중…",
+    "error_empty": "아이디와 비밀번호를 입력하세요.",
+    "error_failed": "아이디 또는 비밀번호가 올바르지 않습니다.",
+    "error_locked": "로그인 시도가 너무 많습니다. 10분 후 다시 시도하세요.",
+    "error_server": "서버에 연결할 수 없습니다.",
+    "session_expired": "세션이 만료되었습니다. 다시 로그인하세요.",
+    "back": "← psavn.com 으로 돌아가기"
+  },
+  "filter": {
+    "type": "구분",
+    "dept": "관리부서",
+    "status": "상태",
+    "all": "전체",
+    "reset": "초기화",
+    "search_documents": "문서번호 또는 문서명 검색",
+    "search_forms": "양식번호 또는 양식명 검색"
+  },
+  "type": {
+    "manual": "매뉴얼",
+    "process": "프로세스",
+    "guideline": "지침서",
+    "form": "양식"
+  },
+  "status": {
+    "valid": "유효",
+    "obsolete": "폐기",
+    "draft": "초안"
+  },
+  "doc": {
+    "no": "문서번호",
+    "name": "문서명",
+    "dept": "관리부서",
+    "rev": "개정번호",
+    "rev_date": "개정일",
+    "issued_date": "제정일",
+    "rev_content": "개정내용",
+    "outdated_date": "폐기일",
+    "retention": "보존기간",
+    "form_count": "양식",
+    "rev_history": "개정이력",
+    "related_forms": "관련 양식",
+    "current": "현행",
+    "history_only": "과거 개정본은 이력만 보관하며 파일은 제공하지 않습니다.",
+    "back_to_list": "목록으로",
+    "not_found": "문서를 찾을 수 없습니다."
+  },
+  "form": {
+    "no": "양식번호",
+    "name": "양식명",
+    "parent": "관련 문서"
+  },
+  "file": {
+    "download_src": "원본 다운로드",
+    "no_permission": "원본 다운로드 권한이 없습니다.",
+    "loading": "문서를 불러오는 중…",
+    "failed": "문서를 불러오지 못했습니다.",
+    "open_new_tab": "새 탭에서 열기",
+    "fallback_ko": "베트남어본이 없어 한국어본을 표시합니다.",
+    "fallback_vi": "한국어본이 없어 베트남어본을 표시합니다."
+  },
+  "dept": {
+    "품질": "품질",
+    "영업": "영업",
+    "기술": "기술",
+    "생산": "생산",
+    "구매": "구매",
+    "경영지원": "경영지원",
+    "SCM": "SCM",
+    "개발": "개발",
+    "생산기술": "생산기술"
+  },
+  "msg": {
+    "count_documents": "문서 {n}건",
+    "count_forms": "양식 {n}건",
+    "empty": "결과가 없습니다.",
+    "loading": "불러오는 중…"
+  }
+}
