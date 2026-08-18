@@ -7,7 +7,8 @@
     "documents": "Tài liệu",
     "forms": "Biểu mẫu",
     "history": "Lịch sử truy cập",
-    "batch": "Sửa đổi hàng loạt"
+    "batch": "Sửa đổi hàng loạt",
+    "drawings": "Bản vẽ"
   },
   "login": {
     "title": "Quản lý tài liệu tiêu chuẩn",
@@ -156,5 +157,31 @@
     "finished": "Hoàn tất: {ok} thành công / {fail} thất bại",
     "done_one": "Đã đăng ký",
     "result": "Kết quả"
+  },
+  "drawing": {
+    "no": "Mã bản vẽ",
+    "name": "Tên bản vẽ",
+    "part_no": "Mã linh kiện",
+    "customer": "Khách hàng",
+    "kind": "Phân loại",
+    "kind_customer": "Bản vẽ khách hàng",
+    "kind_internal": "Bản vẽ nội bộ",
+    "kind_production": "Bản vẽ sản xuất",
+    "rev": "Số sửa đổi",
+    "rev_hint": "Áp dụng số sửa đổi của khách hàng (VD: A, B, 01).",
+    "search": "Tìm mã bản vẽ, tên, mã linh kiện",
+    "new": "Đăng ký bản vẽ",
+    "pdf": "PDF (bắt buộc)",
+    "src": "Tệp gốc (DWG/STEP…)",
+    "nda_yes": "Có",
+    "nda_no": "Không",
+    "nda_notice": "Bản vẽ này thuộc phạm vi NDA. Nghiêm cấm mang ra ngoài và sao chép tùy tiện.",
+    "obsolete_notice": "Bản sửa đổi hiện hành sẽ tự động hết hiệu lực và được đánh dấu 'tham khảo'.",
+    "reference": "Tham khảo",
+    "count": "{n} bản vẽ",
+    "back": "Về danh sách bản vẽ",
+    "created": "Đã đăng ký {no} Rev.{rev}",
+    "scope_limited": "Chỉ hiển thị bản vẽ của {n} khách hàng bạn được cấp quyền.",
+    "not_found_or_denied": "Không tìm thấy bản vẽ hoặc bạn không có quyền xem."
   }
 }
