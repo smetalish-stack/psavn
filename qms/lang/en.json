@@ -5,7 +5,8 @@
   "back_to_psavn": "← psavn.com",
   "nav": {
     "documents": "Documents",
-    "forms": "Forms"
+    "forms": "Forms",
+    "history": "Access Log"
   },
   "login": {
     "title": "Standard Document Control",
@@ -92,5 +93,27 @@
     "count_forms": "{n} forms",
     "empty": "No results.",
     "loading": "Loading…"
+  },
+  "history": {
+    "summary": "Last 30 days",
+    "copy_no": "Copy No.",
+    "at": "Time",
+    "user": "User",
+    "action": "Action",
+    "action_view": "View",
+    "action_download": "Download",
+    "action_login": "Login",
+    "action_search": "Search",
+    "lang": "Lang",
+    "ip": "IP",
+    "filter_doc": "Document No.",
+    "filter_user": "User",
+    "from": "From",
+    "to": "To",
+    "export": "Export CSV",
+    "count": "{n} entries",
+    "prev": "◀ Prev",
+    "next": "Next ▶",
+    "no_permission": "You do not have permission to view the access log."
   }
 }

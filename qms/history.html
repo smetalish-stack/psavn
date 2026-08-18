@@ -36,20 +36,29 @@
         <nav class="tab-nav">
             <a href="index.html" data-nav="documents" data-i18n="nav.documents">Tài liệu</a>
             <a href="forms.html" data-nav="forms" data-i18n="nav.forms">Biểu mẫu</a>
-            <a href="history.html" data-nav="history" data-i18n="nav.history" hidden>Lịch sử truy cập</a>
+            <a href="history.html" data-nav="history" data-i18n="nav.history">Lịch sử truy cập</a>
         </nav>
+
+        <div class="panel" id="summary-panel">
+            <h2 data-i18n="history.summary">Tổng hợp 30 ngày gần đây</h2>
+            <div class="stat-row" id="stats"></div>
+        </div>
 
         <div class="panel">
             <div class="filters">
-                <div class="chips" id="chips"></div>
-                <select id="f-dept"><option value="" data-i18n="filter.dept">Bộ phận quản lý</option></select>
-                <select id="f-status">
-                    <option value="" data-i18n="filter.status">Trạng thái</option>
-                    <option value="valid" data-i18n="status.valid">Hiệu lực</option>
-                    <option value="obsolete" data-i18n="status.obsolete">Hết hiệu lực</option>
+                <input type="search" id="f-doc" data-i18n-placeholder="history.filter_doc" placeholder="Mã tài liệu">
+                <input type="search" id="f-user" data-i18n-placeholder="history.filter_user" placeholder="Tài khoản">
+                <select id="f-action">
+                    <option value="" data-i18n="history.action">Hành động</option>
+                    <option value="view" data-i18n="history.action_view">Xem</option>
+                    <option value="download" data-i18n="history.action_download">Tải xuống</option>
+                    <option value="login" data-i18n="history.action_login">Đăng nhập</option>
+                    <option value="search" data-i18n="history.action_search">Tìm kiếm</option>
                 </select>
-                <input type="search" id="f-q" data-i18n-placeholder="filter.search_documents" placeholder="Tìm theo mã hoặc tên tài liệu">
+                <input type="date" id="f-from" data-i18n-title="history.from">
+                <input type="date" id="f-to" data-i18n-title="history.to">
                 <button class="btn" id="f-reset" data-i18n="filter.reset">Đặt lại</button>
+                <button class="btn" id="btn-csv" data-i18n="history.export">Xuất CSV</button>
                 <span class="count" id="count"></span>
             </div>
         </div>
@@ -59,14 +68,14 @@
                 <table>
                     <thead>
                         <tr>
+                            <th data-i18n="history.copy_no">Số bản phát hành</th>
+                            <th data-i18n="history.at">Thời gian</th>
+                            <th data-i18n="history.user">Tài khoản</th>
+                            <th data-i18n="history.action">Hành động</th>
                             <th data-i18n="doc.no">Mã tài liệu</th>
-                            <th data-i18n="filter.type">Phân loại</th>
-                            <th data-i18n="doc.name">Tên tài liệu</th>
-                            <th data-i18n="doc.dept">Bộ phận quản lý</th>
                             <th data-i18n="doc.rev">Số sửa đổi</th>
-                            <th data-i18n="doc.rev_date">Ngày sửa đổi</th>
-                            <th data-i18n="doc.form_count">Biểu mẫu</th>
-                            <th data-i18n="filter.status">Trạng thái</th>
+                            <th data-i18n="history.lang">Ngôn ngữ</th>
+                            <th data-i18n="history.ip">IP</th>
                         </tr>
                     </thead>
                     <tbody id="rows">
@@ -74,12 +83,17 @@
                     </tbody>
                 </table>
             </div>
+            <div class="pager">
+                <button class="btn" id="prev" data-i18n="history.prev">◀ Trước</button>
+                <span id="page-info"></span>
+                <button class="btn" id="next" data-i18n="history.next">Sau ▶</button>
+            </div>
         </div>
     </div>
 
     <script src="js/i18n.js"></script>
     <script src="js/api.js"></script>
     <script src="js/app.js"></script>
-    <script>App.init('documents');</script>
+    <script>App.init('history');</script>
 </body>
 </html>

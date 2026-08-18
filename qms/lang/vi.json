@@ -5,7 +5,8 @@
   "back_to_psavn": "← psavn.com",
   "nav": {
     "documents": "Tài liệu",
-    "forms": "Biểu mẫu"
+    "forms": "Biểu mẫu",
+    "history": "Lịch sử truy cập"
   },
   "login": {
     "title": "Quản lý tài liệu tiêu chuẩn",
@@ -92,5 +93,27 @@
     "count_forms": "{n} biểu mẫu",
     "empty": "Không có kết quả.",
     "loading": "Đang tải…"
+  },
+  "history": {
+    "summary": "Tổng hợp 30 ngày gần đây",
+    "copy_no": "Số bản phát hành",
+    "at": "Thời gian",
+    "user": "Tài khoản",
+    "action": "Hành động",
+    "action_view": "Xem",
+    "action_download": "Tải xuống",
+    "action_login": "Đăng nhập",
+    "action_search": "Tìm kiếm",
+    "lang": "Ngôn ngữ",
+    "ip": "IP",
+    "filter_doc": "Mã tài liệu",
+    "filter_user": "Tài khoản",
+    "from": "Từ ngày",
+    "to": "Đến ngày",
+    "export": "Xuất CSV",
+    "count": "{n} bản ghi",
+    "prev": "◀ Trước",
+    "next": "Sau ▶",
+    "no_permission": "Bạn không có quyền xem lịch sử truy cập."
   }
 }
