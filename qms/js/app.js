@@ -2,6 +2,7 @@ const App = (() => {
     const TYPES = ['manual', 'process', 'guideline'];
 
     let state = { type: '', dept: '', status: '', q: '', doc_no: '' };
+    let hist = { doc_no: '', username: '', action: '', from: '', to: '', offset: 0, limit: 100 };
     let detail = null;      // 상세 페이지에서 재조회를 피하려고 보관
     let blobUrl = null;     // 언어 전환마다 갈아끼우므로 이전 것은 해제한다
     let searchTimer = null;
@@ -37,6 +38,11 @@ const App = (() => {
         document.querySelectorAll('[data-nav]').forEach(a => {
             a.classList.toggle('active', a.getAttribute('data-nav') === page);
         });
+
+        // 열람 이력은 관리자·관리책임자만 본다. viewer 에게는 탭 자체를 감춘다.
+        const mayAudit = user && (user.role === 'admin' || user.role === 'manager');
+        const auditTab = document.querySelector('[data-nav="history"]');
+        if (auditTab) auditTab.hidden = !mayAudit;
 
         // forms.html?doc=PSAV-COP-01 로 들어오면 해당 문서의 양식만 보여준다
         if (page === 'forms') {
@@ -74,6 +80,25 @@ const App = (() => {
                 reload(page);
             });
         }
+        if (page === 'history') {
+            ['f-doc', 'f-user', 'f-action', 'f-from', 'f-to'].forEach(id => {
+                el(id).addEventListener('change', () => { readHistFilters(); loadHistory(); });
+            });
+            el('f-reset').addEventListener('click', () => {
+                ['f-doc', 'f-user', 'f-action', 'f-from', 'f-to'].forEach(id => { el(id).value = ''; });
+                readHistFilters();
+                loadHistory();
+            });
+            el('btn-csv').addEventListener('click', exportCsv);
+            el('prev').addEventListener('click', () => {
+                hist.offset = Math.max(0, hist.offset - hist.limit);
+                loadHistory();
+            });
+            el('next').addEventListener('click', () => {
+                hist.offset += hist.limit;
+                loadHistory();
+            });
+        }
     }
 
     function reload(page) {
@@ -90,6 +115,9 @@ const App = (() => {
             await loadForms();
         } else if (page === 'document') {
             await renderDetail();
+        } else if (page === 'history') {
+            await loadSummary();
+            await loadHistory();
         }
     }
 
@@ -196,14 +224,25 @@ const App = (() => {
         await loadPdf();
     }
 
+    /** 개정이력 타임라인. 최신이 위, 현행본은 강조. */
     function renderRevisions() {
-        el('rev-rows').innerHTML = detail.revisions.slice().reverse().map(r => `<tr class="${r.status === 'valid' ? 'is-current' : ''}">
-            <td class="cell-num">Rev.${r.rev_no}</td>
-            <td class="cell-num">${esc(r.rev_date || '')}</td>
-            <td class="cell-content">${esc(pick(r.content_ko, r.content_vi))}</td>
-            <td class="cell-num">${esc(r.outdated_date || '')}</td>
-            <td>${badge(r.status, r.status === 'valid' ? I18n.t('doc.current') : I18n.t('status.' + r.status))}</td>
-        </tr>`).join('');
+        el('rev-timeline').innerHTML = detail.revisions.slice().reverse().map(r => {
+            const current = r.status === 'valid';
+            const period = r.outdated_date
+                ? `${esc(r.rev_date || '')} ~ ${esc(r.outdated_date)}`
+                : `${esc(r.rev_date || '')} ~`;
+            return `<li class="tl-item${current ? ' tl-current' : ''}">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                    <div class="tl-head">
+                        <strong>Rev.${r.rev_no}</strong>
+                        ${badge(r.status, current ? I18n.t('doc.current') : I18n.t('status.' + r.status))}
+                        <span class="tl-period">${period}</span>
+                    </div>
+                    <div class="tl-content">${esc(pick(r.content_ko, r.content_vi))}</div>
+                </div>
+            </li>`;
+        }).join('');
         // 과거 개정본은 파일이 없다 — 링크를 걸지 않는 이유를 밝혀둔다
         el('rev-note').hidden = detail.revisions.length < 2;
     }
@@ -273,6 +312,107 @@ const App = (() => {
                 ? I18n.t('file.no_permission')
                 : I18n.t('file.failed');
             el('error').hidden = false;
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    /* ------------------------------------------------------------ history */
+    function readHistFilters() {
+        hist.doc_no = el('f-doc').value.trim();
+        hist.username = el('f-user').value.trim();
+        hist.action = el('f-action').value;
+        hist.from = el('f-from').value;
+        hist.to = el('f-to').value;
+        hist.offset = 0;
+    }
+
+    function histParams() {
+        const p = { limit: hist.limit, offset: hist.offset };
+        ['doc_no', 'username', 'action', 'from', 'to'].forEach(k => {
+            if (hist[k]) p[k] = hist[k];
+        });
+        return p;
+    }
+
+    /** UTC 로 저장된 시각을 브라우저 로컬 시간대로 보여준다. */
+    function fmtAt(iso) {
+        const d = new Date(iso);
+        if (isNaN(d)) return esc(iso);
+        const p = n => String(n).padStart(2, '0');
+        return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ` +
+               `${p(d.getHours())}:${p(d.getMinutes())}`;
+    }
+
+    async function loadSummary() {
+        const s = await API.getHistorySummary(30);
+        const counts = {};
+        s.by_action.forEach(a => { counts[a.action] = a.n; });
+        el('stats').innerHTML = ['view', 'download', 'login', 'search'].map(a => `
+            <div class="stat">
+                <div class="stat-n">${counts[a] || 0}</div>
+                <div class="stat-l">${esc(I18n.t('history.action_' + a))}</div>
+            </div>`).join('');
+    }
+
+    async function loadHistory() {
+        const tbody = el('rows');
+        tbody.innerHTML = `<tr><td colspan="8" class="table-msg">${esc(I18n.t('msg.loading'))}</td></tr>`;
+
+        let data;
+        try {
+            data = await API.getHistory(histParams());
+        } catch (e) {
+            tbody.innerHTML = `<tr><td colspan="8" class="table-msg">${
+                esc(e.status === 403 ? I18n.t('history.no_permission') : I18n.t('file.failed'))}</td></tr>`;
+            return;
+        }
+
+        el('count').textContent = I18n.t('history.count', { n: data.total });
+        const from = data.total ? hist.offset + 1 : 0;
+        const to = Math.min(hist.offset + hist.limit, data.total);
+        el('page-info').textContent = `${from}–${to} / ${data.total}`;
+        el('prev').disabled = hist.offset === 0;
+        el('next').disabled = to >= data.total;
+
+        if (!data.total) {
+            tbody.innerHTML = `<tr><td colspan="8" class="table-msg">${esc(I18n.t('msg.empty'))}</td></tr>`;
+            return;
+        }
+        tbody.innerHTML = data.entries.map(e => `<tr>
+            <td class="cell-num"><strong>${e.copy_no}</strong></td>
+            <td class="cell-num">${fmtAt(e.at)}</td>
+            <td>${esc(e.username || '')}</td>
+            <td>${badge('act-' + e.action, I18n.t('history.action_' + e.action))}</td>
+            <td class="cell-no">${e.doc_no
+                ? `<a href="document.html?doc=${encodeURIComponent(e.doc_no)}">${esc(e.doc_no)}</a>`
+                : ''}</td>
+            <td class="cell-num">${e.rev_no === null ? '' : 'Rev.' + e.rev_no}</td>
+            <td class="cell-num">${esc((e.lang || '').toUpperCase())}</td>
+            <td class="cell-num">${esc(e.ip || '')}</td>
+        </tr>`).join('');
+    }
+
+    /** 현재 필터 그대로 최대 500건을 CSV 로 내려받는다 (감사 제출용). */
+    async function exportCsv() {
+        const btn = el('btn-csv');
+        btn.disabled = true;
+        try {
+            const data = await API.getHistory({ ...histParams(), limit: 500, offset: 0 });
+            const head = ['copy_no', 'at', 'username', 'action', 'doc_no', 'rev_no', 'lang', 'ip'];
+            const esc4csv = v => `"${String(v === null || v === undefined ? '' : v).replace(/"/g, '""')}"`;
+            const csv = [head.join(',')]
+                .concat(data.entries.map(e => head.map(k => esc4csv(e[k])).join(',')))
+                .join('\r\n');
+            // BOM 을 붙여야 엑셀이 UTF-8 로 연다
+            const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `qms_access_log_${new Date().toISOString().slice(0, 10)}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(a.href), 10000);
         } finally {
             btn.disabled = false;
         }

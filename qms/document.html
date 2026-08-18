@@ -36,6 +36,7 @@
         <nav class="tab-nav">
             <a href="index.html" data-nav="documents" data-i18n="nav.documents">Tài liệu</a>
             <a href="forms.html" data-nav="forms" data-i18n="nav.forms">Biểu mẫu</a>
+            <a href="history.html" data-nav="history" data-i18n="nav.history" hidden>Lịch sử truy cập</a>
         </nav>
 
         <div class="panel">
@@ -62,20 +63,7 @@
 
         <div class="panel">
             <h2 data-i18n="doc.rev_history">Lịch sử sửa đổi</h2>
-            <div class="table-scroll">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-i18n="doc.rev">Số sửa đổi</th>
-                            <th data-i18n="doc.rev_date">Ngày sửa đổi</th>
-                            <th data-i18n="doc.rev_content">Nội dung sửa đổi</th>
-                            <th data-i18n="doc.outdated_date">Ngày hết hiệu lực</th>
-                            <th data-i18n="filter.status">Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody id="rev-rows"></tbody>
-                </table>
-            </div>
+            <ol class="timeline" id="rev-timeline"></ol>
             <div class="notice" id="rev-note" hidden data-i18n="doc.history_only"></div>
         </div>
 

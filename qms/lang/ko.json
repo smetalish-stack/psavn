@@ -5,7 +5,8 @@
   "back_to_psavn": "← psavn.com",
   "nav": {
     "documents": "문서",
-    "forms": "양식"
+    "forms": "양식",
+    "history": "열람이력"
   },
   "login": {
     "title": "표준문서 관리",
@@ -92,5 +93,27 @@
     "count_forms": "양식 {n}건",
     "empty": "결과가 없습니다.",
     "loading": "불러오는 중…"
+  },
+  "history": {
+    "summary": "최근 30일 집계",
+    "copy_no": "배포본번호",
+    "at": "일시",
+    "user": "계정",
+    "action": "동작",
+    "action_view": "열람",
+    "action_download": "다운로드",
+    "action_login": "로그인",
+    "action_search": "검색",
+    "lang": "언어",
+    "ip": "IP",
+    "filter_doc": "문서번호",
+    "filter_user": "계정",
+    "from": "시작일",
+    "to": "종료일",
+    "export": "CSV 내보내기",
+    "count": "이력 {n}건",
+    "prev": "◀ 이전",
+    "next": "다음 ▶",
+    "no_permission": "열람이력을 볼 권한이 없습니다."
   }
 }

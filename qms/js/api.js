@@ -95,6 +95,11 @@ const API = (() => {
             return request('GET', `/api/forms${q ? '?' + q : ''}`);
         },
         logAccess: (data) => request('POST', '/api/access-log', data).catch(() => {}),
+        getHistory: (params = {}) => {
+            const q = new URLSearchParams(params).toString();
+            return request('GET', `/api/access-log${q ? '?' + q : ''}`);
+        },
+        getHistorySummary: (days) => request('GET', `/api/access-log/summary?days=${days || 30}`),
         logout: () => fetch(BASE + '/api/logout', {
             method: 'POST',
             headers: { 'X-Auth-Token': getToken() }
