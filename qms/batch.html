@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài liệu tiêu chuẩn</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <span class="header-icon">&#128203;</span>
+            <div>
+                <h1 data-i18n="title">Quản lý tài liệu tiêu chuẩn</h1>
+                <span class="header-sub" data-i18n="subtitle">Hệ thống quản lý chất lượng IATF 16949</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span id="header-user" class="header-date" style="opacity:.8"></span>
+
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button data-lang-btn="vi" onclick="I18n.setLang('vi')">VI</button>
+                <button data-lang-btn="ko" onclick="I18n.setLang('ko')">한국어</button>
+                <button data-lang-btn="en" onclick="I18n.setLang('en')">EN</button>
+            </div>
+
+            <a href="../" class="btn-back" data-i18n="back_to_psavn">← psavn.com</a>
+            <button class="btn-back" onclick="App.logout()" style="border-color:rgba(255,255,255,.4);cursor:pointer;background:none">&#128274; <span data-i18n="logout">Đăng xuất</span></button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <nav class="tab-nav">
+            <a href="index.html" data-nav="documents" data-i18n="nav.documents">Tài liệu</a>
+            <a href="forms.html" data-nav="forms" data-i18n="nav.forms">Biểu mẫu</a>
+            <a href="history.html" data-nav="history" data-i18n="nav.history" hidden>Lịch sử truy cập</a>
+            <a href="batch.html" data-nav="batch" data-i18n="nav.batch" hidden>Sửa đổi hàng loạt</a>
+        </nav>
+
+        <div class="panel">
+            <h2 data-i18n="batch.heading">Đăng ký sửa đổi hàng loạt</h2>
+            <p class="hint" data-i18n="batch.intro">
+                Chọn nhiều tệp cùng lúc. Hệ thống tự khớp tệp với tài liệu theo mã trong tên tệp.
+            </p>
+
+            <div class="field">
+                <input type="file" id="b-files" multiple
+                       accept=".pptx,.ppt,.xlsx,.xls,.docx,.doc,.pdf">
+            </div>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="b-date" data-i18n="doc.rev_date">Ngày sửa đổi</label>
+                    <input type="date" id="b-date" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="b-content-ko" data-i18n="revise.content_ko">Nội dung sửa đổi (Tiếng Hàn)</label>
+                <input type="text" id="b-content-ko" data-i18n-placeholder="batch.content_hint"
+                       placeholder="VD: Thay đổi tên công ty">
+            </div>
+            <div class="field">
+                <label for="b-content-vi" data-i18n="revise.content_vi">Nội dung sửa đổi (Tiếng Việt)</label>
+                <input type="text" id="b-content-vi">
+            </div>
+
+            <div class="notice" data-i18n="revise.pdf_warning">
+                Tệp PDF phải được chuyển đổi trên Windows.
+            </div>
+            <div class="notice error" id="b-error" hidden></div>
+        </div>
+
+        <div class="panel" id="b-plan-panel" hidden>
+            <h2 data-i18n="batch.plan">Kết quả khớp tệp</h2>
+            <div class="stat-row" id="b-stats"></div>
+            <div class="table-scroll" style="margin-top:14px">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="b-all" checked></th>
+                            <th data-i18n="doc.no">Mã tài liệu</th>
+                            <th data-i18n="doc.name">Tên tài liệu</th>
+                            <th data-i18n="batch.rev_change">Sửa đổi</th>
+                            <th data-i18n="batch.matched_files">Tệp khớp</th>
+                            <th data-i18n="batch.status">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="b-rows"></tbody>
+                </table>
+            </div>
+            <div id="b-skipped" class="hint" style="margin-top:10px"></div>
+
+            <div class="form-actions">
+                <button class="btn btn-primary" id="b-run" data-i18n="batch.run">Thực hiện</button>
+                <span class="count" id="b-progress"></span>
+            </div>
+        </div>
+
+        <div class="panel" id="b-result-panel" hidden>
+            <h2 data-i18n="batch.result">Kết quả</h2>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="doc.no">Mã tài liệu</th>
+                            <th data-i18n="batch.rev_change">Sửa đổi</th>
+                            <th data-i18n="batch.status">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="b-result-rows"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script>App.init('batch');</script>
+</body>
+</html>
