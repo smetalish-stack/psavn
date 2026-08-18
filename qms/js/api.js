@@ -1,5 +1,5 @@
 const API = (() => {
-    const BASE = 'https://qms-server-production.up.railway.app';
+    const BASE = 'https://qms-server-production-a4d6.up.railway.app';
 
     function getToken() {
         return sessionStorage.getItem('qms_token') || '';
