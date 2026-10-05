@@ -357,6 +357,8 @@
     "badge_internal": "Nội bộ",
     "hris_title": "Nhân sự · Chấm công · Lương",
     "hris_desc": "Quản lý tổng hợp thông tin nhân sự, chấm công và bảng lương nhân viên.",
+    "ot_title": "Đơn đăng ký tăng ca",
+    "ot_desc": "Lập đơn tăng ca và gửi duyệt qua email cho trưởng bộ phận và giám đốc nhà máy. Số giờ được duyệt là mức tối đa cho OT theo vân tay.",
     "dispatch_title": "Quản lý điều phối xe",
     "dispatch_desc": "Quản lý tổng hợp điều phối xe đưa đón và xe công vụ, phân công lái xe, gửi thông báo Zalo.",
     "calib_title": "Quản lý hiệu chuẩn",

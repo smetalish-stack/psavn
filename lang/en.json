@@ -357,6 +357,8 @@
     "badge_internal": "Internal",
     "hris_title": "HR · Attendance · Payroll",
     "hris_desc": "Integrated management of employee information, attendance records, and payroll.",
+    "ot_title": "Overtime Request",
+    "ot_desc": "Submit overtime requests and route them through department-head and plant-manager email approval. Approved hours cap the fingerprint-based OT.",
     "dispatch_title": "Vehicle Dispatch",
     "dispatch_desc": "Integrated management of employee shuttle and business vehicle dispatch, driver assignment, and Zalo notifications.",
     "calib_title": "Calibration Management",

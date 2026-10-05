@@ -181,6 +181,7 @@
 
     /* Card accent variants */
     .card-hris      { --card-accent: #805276; --card-icon-bg: #f5eef4; }
+    .card-ot        { --card-accent: #0e7490; --card-icon-bg: #e0f2f6; }
     .card-calib     { --card-accent: #0d6efd; --card-icon-bg: #eef3fd; }
     .card-4m        { --card-accent: #198754; --card-icon-bg: #eaf4ee; }
     .card-qms       { --card-accent: #0B2458; --card-icon-bg: #e8ecf5; }
@@ -339,6 +340,21 @@
             <div class="card-subtitle">HRIS</div>
             <div class="card-title" data-i18n="portal.hris_title">인사 · 근태 · 급여</div>
             <div class="card-desc" data-i18n="portal.hris_desc">임직원 인사정보, 출퇴근 기록, 급여명세 및 정산을 통합 관리합니다.</div>
+            <span class="card-launch">
+              <span data-i18n="portal.launch">열기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- 잔업신청서 -->
+          <a href="https://hris-production-ec7b.up.railway.app/ot-request.html" class="portal-card card-ot" target="_blank">
+            <div class="card-badge new">New</div>
+            <div class="card-icon">📝</div>
+            <div class="card-subtitle">Overtime Request</div>
+            <div class="card-title" data-i18n="portal.ot_title">잔업신청서</div>
+            <div class="card-desc" data-i18n="portal.ot_desc">초과근로 신청서를 작성하고 부서장·공장장 이메일 결재를 진행합니다. 승인된 시간은 지문타점 OT의 상한이 됩니다.</div>
             <span class="card-launch">
               <span data-i18n="portal.launch">열기</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
