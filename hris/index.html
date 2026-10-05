@@ -187,7 +187,7 @@
   const token = localStorage.getItem('hris_token');
   if (token && !nextPage) {
     const user = JSON.parse(localStorage.getItem('hris_user') || '{}');
-    location.href = RAILWAY_URL + ((user.role === 'admin' || user.role === 'staff') ? '/admin.html' : '/dashboard.html');
+    location.href = RAILWAY_URL + (user.role === 'admin' ? '/admin.html' : user.role === 'staff' ? '/ot-request.html' : '/dashboard.html');
   }
 
   document.getElementById('login-form').addEventListener('submit', async e => {
@@ -212,7 +212,7 @@
       if (!res.ok) throw new Error(data.error || l.errDefault);
 
       const isStaff = data.user.role === 'admin' || data.user.role === 'staff';
-      const page = (nextPage && isStaff) ? nextPage : (isStaff ? '/admin.html' : '/dashboard.html');
+      const page = (nextPage && isStaff) ? nextPage : (data.user.role === 'admin' ? '/admin.html' : data.user.role === 'staff' ? '/ot-request.html' : '/dashboard.html');
       const hash = '#token=' + encodeURIComponent(data.token) + '&user=' + encodeURIComponent(JSON.stringify(data.user));
       location.href = RAILWAY_URL + page + hash;
     } catch (err) {
