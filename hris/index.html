@@ -127,6 +127,10 @@
 <script>
   const RAILWAY_URL = 'https://hris-production-ec7b.up.railway.app';
 
+  // 로그인 후 이동할 페이지 (포털 바로가기용, 허용 목록만): /hris/?next=ot-request
+  const NEXT_PAGES = { 'ot-request': '/ot-request.html', 'ot-admin': '/ot-admin.html' };
+  const nextPage = NEXT_PAGES[new URLSearchParams(location.search).get('next')] || null;
+
   const LOGIN_LANG = {
     ko: {
       subtitle:            'Human Resource Information System',
@@ -179,8 +183,9 @@
   applyLoginLang();
 
   // 이미 로그인된 경우 리다이렉트
+  // (포털에서 next 로 들어온 경우는 항상 로그인 화면을 먼저 보여준다)
   const token = localStorage.getItem('hris_token');
-  if (token) {
+  if (token && !nextPage) {
     const user = JSON.parse(localStorage.getItem('hris_user') || '{}');
     location.href = RAILWAY_URL + ((user.role === 'admin' || user.role === 'staff') ? '/admin.html' : '/dashboard.html');
   }
@@ -206,7 +211,8 @@
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || l.errDefault);
 
-      const page = (data.user.role === 'admin' || data.user.role === 'staff') ? '/admin.html' : '/dashboard.html';
+      const isStaff = data.user.role === 'admin' || data.user.role === 'staff';
+      const page = (nextPage && isStaff) ? nextPage : (isStaff ? '/admin.html' : '/dashboard.html');
       const hash = '#token=' + encodeURIComponent(data.token) + '&user=' + encodeURIComponent(JSON.stringify(data.user));
       location.href = RAILWAY_URL + page + hash;
     } catch (err) {
