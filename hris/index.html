@@ -128,7 +128,7 @@
   const RAILWAY_URL = 'https://hris-production-ec7b.up.railway.app';
 
   // 로그인 후 이동할 페이지 (포털 바로가기용, 허용 목록만): /hris/?next=ot-request
-  const NEXT_PAGES = { 'ot-request': '/ot-request.html', 'ot-admin': '/ot-admin.html', 'milk': '/milk.html' };
+  const NEXT_PAGES = { 'ot-request': '/ot-request.html', 'ot-admin': '/ot-admin.html', 'milk': '/milk.html', 'leave-request': '/leave-request.html', 'leave-admin': '/leave-admin.html' };
   // 역할별 첫 화면: admin = HRIS, staff = 잔업신청서, milk = 우유 불출 대장(전용 계정)
   const homeOf = role => role === 'admin' ? '/admin.html' : role === 'staff' ? '/ot-request.html' : role === 'milk' ? '/milk.html' : '/dashboard.html';
   const nextPage = NEXT_PAGES[new URLSearchParams(location.search).get('next')] || null;
