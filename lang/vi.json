@@ -357,8 +357,8 @@
     "badge_internal": "Nội bộ",
     "hris_title": "Nhân sự · Chấm công · Lương",
     "hris_desc": "Quản lý tổng hợp thông tin nhân sự, chấm công và bảng lương nhân viên.",
-    "ot_title": "Đơn đăng ký tăng ca",
-    "ot_desc": "Lập đơn tăng ca và gửi duyệt qua email cho trưởng bộ phận và giám đốc nhà máy. Số giờ được duyệt là mức tối đa cho OT theo vân tay.",
+    "ot_title": "Đơn tăng ca & xin nghỉ",
+    "ot_desc": "Phụ trách bộ phận lập đơn tăng ca, phiếu xin nghỉ / về sớm và gửi duyệt qua email cho trưởng bộ phận và giám đốc nhà máy.",
     "dispatch_title": "Quản lý điều phối xe",
     "dispatch_desc": "Quản lý tổng hợp điều phối xe đưa đón và xe công vụ, phân công lái xe, gửi thông báo Zalo.",
     "calib_title": "Quản lý hiệu chuẩn",
@@ -374,7 +374,9 @@
     "alarm_title": "Hệ thống cảnh báo nhiệt độ & độ ẩm",
     "alarm_desc": "Tạo cảnh báo khi nhiệt độ hoặc độ ẩm vượt ngưỡng để phát hiện môi trường bất thường ngay lập tức.",
     "coil_title": "Giám sát dây chuyền cuộn sạc không dây",
-    "coil_desc": "Giám sát thời gian thực trạng thái thiết bị trên dây chuyền sản xuất cuộn sạc không dây."
+    "coil_desc": "Giám sát thời gian thực trạng thái thiết bị trên dây chuyền sản xuất cuộn sạc không dây.",
+    "launch_ot": "Đăng ký tăng ca",
+    "launch_leave": "Xin nghỉ / về sớm"
   },
   "quality": {
     "title": "Phương Châm Chất Lượng",

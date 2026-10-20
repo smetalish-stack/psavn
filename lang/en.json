@@ -357,8 +357,8 @@
     "badge_internal": "Internal",
     "hris_title": "HR · Attendance · Payroll",
     "hris_desc": "Integrated management of employee information, attendance records, and payroll.",
-    "ot_title": "Overtime Request",
-    "ot_desc": "Submit overtime requests and route them through department-head and plant-manager email approval. Approved hours cap the fingerprint-based OT.",
+    "ot_title": "Overtime & Leave Request",
+    "ot_desc": "Department staff submit overtime and leave / early-leave requests and route them through department-head and plant-manager email approval.",
     "dispatch_title": "Vehicle Dispatch",
     "dispatch_desc": "Integrated management of employee shuttle and business vehicle dispatch, driver assignment, and Zalo notifications.",
     "calib_title": "Calibration Management",
@@ -374,7 +374,9 @@
     "alarm_title": "T&H Alarm System",
     "alarm_desc": "Generates alarms when temperature or humidity exceeds thresholds for immediate abnormal environment detection.",
     "coil_title": "Wireless Charging Coil Line Monitor",
-    "coil_desc": "Real-time monitoring of equipment status on the wireless charging coil production line."
+    "coil_desc": "Real-time monitoring of equipment status on the wireless charging coil production line.",
+    "launch_ot": "Overtime",
+    "launch_leave": "Leave / Early leave"
   },
   "quality": {
     "title": "Quality Policy",

@@ -348,20 +348,28 @@
             </span>
           </a>
 
-          <!-- 잔업신청서 -->
-          <a href="../hris/?next=ot-request" class="portal-card card-ot" target="_blank">
+          <!-- 잔업·휴가 신청서 (버튼 2개: 잔업 / 휴가) -->
+          <div class="portal-card card-ot">
             <div class="card-badge new">New</div>
             <div class="card-icon">📝</div>
-            <div class="card-subtitle">Overtime Request</div>
-            <div class="card-title" data-i18n="portal.ot_title">잔업신청서</div>
-            <div class="card-desc" data-i18n="portal.ot_desc">초과근로 신청서를 작성하고 부서장·공장장 이메일 결재를 진행합니다. 승인된 시간은 지문타점 OT의 상한이 됩니다.</div>
-            <span class="card-launch">
-              <span data-i18n="portal.launch">열기</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7M17 7H7M17 7v10"/>
-              </svg>
-            </span>
-          </a>
+            <div class="card-subtitle">Overtime &amp; Leave Request</div>
+            <div class="card-title" data-i18n="portal.ot_title">잔업·휴가 신청서</div>
+            <div class="card-desc" data-i18n="portal.ot_desc">부서 담당자가 잔업신청서와 휴가·조퇴 신청서를 작성하고 부서장·공장장 이메일 결재를 진행합니다.</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a href="../hris/?next=ot-request" class="card-launch" target="_blank">
+                <span data-i18n="portal.launch_ot">잔업신청</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </a>
+              <a href="../hris/?next=leave-request" class="card-launch" target="_blank">
+                <span data-i18n="portal.launch_leave">휴가·조퇴 신청</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </a>
+            </div>
+          </div>
 
           <!-- Vehicle Dispatch -->
           <a href="https://vehicle-dispatch-app-production.up.railway.app" class="portal-card card-dispatch" target="_blank">
