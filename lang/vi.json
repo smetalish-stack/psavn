@@ -359,6 +359,8 @@
     "hris_desc": "Quản lý tổng hợp thông tin nhân sự, chấm công và bảng lương nhân viên.",
     "ot_title": "Đơn tăng ca & xin nghỉ",
     "ot_desc": "Phụ trách bộ phận lập đơn tăng ca, phiếu xin nghỉ / về sớm và gửi duyệt qua email cho trưởng bộ phận và giám đốc nhà máy.",
+    "mro_title": "Mua vật tư tiêu hao MRO",
+    "mro_desc": "Phụ trách bộ phận đề nghị mua vật tư tiêu hao; sau khi trưởng bộ phận và giám đốc nhà máy duyệt, phòng mua hàng đặt hàng và nhận hàng.",
     "dispatch_title": "Quản lý điều phối xe",
     "dispatch_desc": "Quản lý tổng hợp điều phối xe đưa đón và xe công vụ, phân công lái xe, gửi thông báo Zalo.",
     "calib_title": "Quản lý hiệu chuẩn",

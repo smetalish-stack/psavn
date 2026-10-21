@@ -359,6 +359,8 @@
     "hris_desc": "Integrated management of employee information, attendance records, and payroll.",
     "ot_title": "Overtime & Leave Request",
     "ot_desc": "Department staff submit overtime and leave / early-leave requests and route them through department-head and plant-manager email approval.",
+    "mro_title": "MRO Purchasing",
+    "mro_desc": "Department staff request consumables; after department-head and plant-manager approval, purchasing handles ordering and receiving.",
     "dispatch_title": "Vehicle Dispatch",
     "dispatch_desc": "Integrated management of employee shuttle and business vehicle dispatch, driver assignment, and Zalo notifications.",
     "calib_title": "Calibration Management",
