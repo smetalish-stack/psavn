@@ -2,6 +2,16 @@ const Renderer = (() => {
     // 목록 정렬 상태 (No. / 잔여일 클릭 정렬용). key=null이면 서버가 준 순서 유지
     let _items = [], _certMap = {}, _sort = { key: null, dir: 'asc' };
 
+    // 폐기/복원 버튼을 볼 수 있는 계정 (이 계정들만 폐기 가능 — 백엔드에서도 동일 검증)
+    const DISPOSE_ALLOWED = ['admin@company.com', 'dslee@psavn.com'];
+    let _currentUser = null;
+    function setCurrentUser(username) {
+        _currentUser = username || null;
+        // 이미 목록이 그려져 있으면 권한 반영해 다시 렌더
+        if (_items && _items.length) renderEquipmentTable(_items, _certMap);
+    }
+    function _canDispose() { return DISPOSE_ALLOWED.includes(_currentUser); }
+
     function _getSorted() {
         if (!_sort.key) return _items;
         const k = _sort.key, dir = _sort.dir === 'desc' ? -1 : 1;
@@ -114,9 +124,11 @@ const Renderer = (() => {
             const certUploadBtn = isDisposed ? '' :
                 `<button class="btn-cert-upload" onclick="App.openCertUpload(${e.id},'${(e.control_number||'').replace(/'/g,"\\'")}')">&#8679; ${I18n.t('table.cert_upload')}</button>`;
 
-            const disposeBtn = isDisposed
-                ? `<button class="btn-restore" onclick="App.restoreEquipment(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#8635; ${I18n.t('dispose.restore_btn')}</button>`
-                : `<button class="btn-dispose" onclick="App.openDisposeModal(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#128465; ${I18n.t('dispose.dispose_btn')}</button>`;
+            // 폐기/복원 버튼은 허용된 계정에만 노출
+            const disposeBtn = !_canDispose() ? ''
+                : (isDisposed
+                    ? `<button class="btn-restore" onclick="App.restoreEquipment(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#8635; ${I18n.t('dispose.restore_btn')}</button>`
+                    : `<button class="btn-dispose" onclick="App.openDisposeModal(${e.id},'${(e.equipment_name||'').replace(/'/g,"\\'")}')">&#128465; ${I18n.t('dispose.dispose_btn')}</button>`);
 
             const disposedInfo = isDisposed
                 ? `<td>${e.disposed_at || '-'}</td><td>${e.disposal_reason || '-'}</td>`
@@ -260,6 +272,7 @@ const Renderer = (() => {
         renderStats,
         renderLocationTable,
         renderEquipmentTable,
+        setCurrentUser,
         sortBy,
         renderAlertConfig,
         renderAlertLog,

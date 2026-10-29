@@ -19,6 +19,8 @@ const App = (() => {
             if (info.valid) {
                 const nameEl = document.getElementById('header-user');
                 if (nameEl) nameEl.textContent = info.username || '';
+                // 폐기 권한 계정 판별을 위해 현재 사용자 전달
+                Renderer.setCurrentUser(info.username);
             }
         } catch (_) {}
 
