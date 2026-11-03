@@ -357,8 +357,8 @@
     "badge_internal": "Internal",
     "hris_title": "HR · Attendance · Payroll",
     "hris_desc": "Integrated management of employee information, attendance records, and payroll.",
-    "ot_title": "Overtime & Leave Request",
-    "ot_desc": "Department staff submit overtime and leave / early-leave requests and route them through department-head and plant-manager email approval.",
+    "ot_title": "Overtime, Leave & Vehicle Request",
+    "ot_desc": "Department staff submit overtime, leave / early-leave and vehicle requests and route them through department-head and plant-manager email approval.",
     "mro_title": "MRO Purchasing",
     "mro_desc": "Department staff request consumables; after department-head and plant-manager approval, purchasing handles ordering and receiving.",
     "dispatch_title": "Vehicle Dispatch",
@@ -378,7 +378,8 @@
     "coil_title": "Wireless Charging Coil Line Monitor",
     "coil_desc": "Real-time monitoring of equipment status on the wireless charging coil production line.",
     "launch_ot": "Overtime",
-    "launch_leave": "Leave / Early leave"
+    "launch_leave": "Leave / Early leave",
+    "launch_vehicle": "Vehicle"
   },
   "quality": {
     "title": "Quality Policy",
