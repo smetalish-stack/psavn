@@ -39,6 +39,16 @@ function initMobileNav() {
 
   if (!toggle || !nav) return;
 
+  // 모바일/태블릿: 헤더의 PORTAL 버튼은 숨겨지므로 메뉴 맨 아래에 동일 링크를 추가
+  const portalBtn = document.querySelector('.portal-btn');
+  if (portalBtn && !nav.querySelector('.nav-portal-link')) {
+    const a = document.createElement('a');
+    a.className = 'nav-portal-link';
+    a.href = portalBtn.getAttribute('href');
+    a.innerHTML = '<span class="portal-icon">⊞</span> Portal';
+    nav.appendChild(a);
+  }
+
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
     nav.classList.toggle('open');
