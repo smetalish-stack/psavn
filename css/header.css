@@ -192,6 +192,11 @@
   line-height: 1;
 }
 
+/* 모바일 메뉴 안의 Portal 링크 (데스크톱에서는 숨김) */
+.nav-portal-link {
+  display: none;
+}
+
 /* Legacy — keep for sub-pages that still reference hris-btn */
 .hris-btn {
   display: flex;
@@ -359,6 +364,27 @@
     color: #C9A0B8;
     background: rgba(255,255,255,0.05);
     padding-left: 45px;
+  }
+
+  .nav-portal-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px 24px 0;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #805276;
+    border-radius: 6px;
+  }
+
+  .nav-portal-link:hover {
+    background: #6b4263;
+    color: #FFFFFF;
   }
 
   /* Mobile overlay */
