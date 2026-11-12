@@ -43,6 +43,9 @@ const App = (() => {
         const mayAudit = user && (user.role === 'admin' || user.role === 'manager');
         const auditTab = document.querySelector('[data-nav="history"]');
         if (auditTab) auditTab.hidden = !mayAudit;
+        // 사용자 관리는 admin 만 본다.
+        const usersTab = document.querySelector('[data-nav="users"]');
+        if (usersTab) usersTab.hidden = !(user && user.role === 'admin');
         const batchTab = document.querySelector('[data-nav="batch"]');
         if (batchTab) batchTab.hidden = !mayAudit;
 
@@ -82,6 +85,7 @@ const App = (() => {
                 reload(page);
             });
         }
+        if (page === 'users') bindUsers();
         if (page === 'history') {
             ['f-doc', 'f-user', 'f-action', 'f-from', 'f-to'].forEach(id => {
                 el(id).addEventListener('change', () => { readHistFilters(); loadHistory(); });
@@ -125,6 +129,8 @@ const App = (() => {
             renderBatch();
         } else if (page === 'revise') {
             await renderReviseForm();
+        } else if (page === 'users') {
+            await loadUsers();
         } else if (page === 'history') {
             await loadSummary();
             await loadHistory();
@@ -910,6 +916,154 @@ const App = (() => {
     }
 
     /* ------------------------------------------------------------- logout */
+    /* -------------------------------------------------------------- users */
+    // 사용자 관리 (admin 전용). 서버가 403 으로 한 번 더 막으므로 여기는 편의상 숨김일 뿐이다.
+    let usersAll = [];
+    let uFilter = { q: '', role: '', active: '' };
+    let uEditing = null;
+
+    function userRows() {
+        const q = uFilter.q.toLowerCase();
+        return usersAll.filter(u =>
+            (!uFilter.role || u.role === uFilter.role) &&
+            (uFilter.active === '' || String(u.active) === uFilter.active) &&
+            (!q || [u.username, u.name, u.dept].some(v => String(v || '').toLowerCase().includes(q)))
+        );
+    }
+
+    async function loadUsers() {
+        const tb = el('rows');
+        try {
+            usersAll = (await API.getUsers()).users;
+        } catch (e) {
+            el('btn-add').hidden = true;
+            el('count').textContent = '';
+            tb.innerHTML = `<tr><td colspan="8" class="table-msg">${esc(
+                e.status === 403 ? I18n.t('users.no_permission') : I18n.t('file.failed'))}</td></tr>`;
+            return;
+        }
+        el('btn-add').hidden = false;
+        renderUsers();
+    }
+
+    function renderUsers() {
+        const rows = userRows();
+        el('count').textContent = I18n.t('users.count', { n: rows.length });
+        if (!rows.length) {
+            el('rows').innerHTML = `<tr><td colspan="8" class="table-msg">${esc(I18n.t('msg.empty'))}</td></tr>`;
+            return;
+        }
+        el('rows').innerHTML = rows.map(u => `<tr${u.active ? '' : ' class="row-inactive"'}>
+            <td><strong>${esc(u.name || '')}</strong></td>
+            <td class="cell-no">${esc(u.username)}</td>
+            <td>${esc(u.dept || '')}</td>
+            <td>${badge('role-' + u.role, I18n.t('users.role_' + u.role))}</td>
+            <td>${u.role === 'admin' || u.can_download ? esc(I18n.t('users.allowed')) : '-'}</td>
+            <td>${badge(u.active ? 'valid' : 'draft', I18n.t(u.active ? 'users.active' : 'users.inactive'))}</td>
+            <td class="cell-num">${u.last_login ? fmtAt(u.last_login) : esc(I18n.t('users.never'))}</td>
+            <td><button class="btn btn-sm" data-edit="${u.id}">${esc(I18n.t('users.edit'))}</button></td>
+        </tr>`).join('');
+    }
+
+    function syncDownloadBox() {
+        const isAdmin = el('u-role').value === 'admin';
+        if (isAdmin) el('u-download').checked = true;
+        el('u-download').disabled = isAdmin;
+    }
+
+    function openUserModal(u) {
+        uEditing = u;
+        const me = API.getUser();
+        const self = !!(u && me && me.id === u.id);
+        el('u-title').textContent = I18n.t(u ? 'users.edit_title' : 'users.add');
+        el('u-err').textContent = '';
+        el('u-username').value = u ? u.username : '';
+        el('u-username').readOnly = !!u;
+        el('u-name').value = u ? (u.name || '') : '';
+        el('u-dept').value = u ? (u.dept || '') : '';
+        el('u-role').value = u ? u.role : 'viewer';
+        el('u-lang').value = u ? u.lang : I18n.getLang();
+        el('u-password').value = '';
+        el('u-password').required = !u;
+        el('u-pw-hint').textContent = I18n.t(u ? 'users.password_hint_edit' : 'users.password_hint_new');
+        el('u-download').checked = u ? !!u.can_download : false;
+        el('u-active').checked = u ? !!u.active : true;
+        el('u-active-row').hidden = !u;
+        // 본인 계정은 잠기지 않게 권한·활성 상태를 건드리지 못하게 한다 (서버도 막는다)
+        el('u-role').disabled = self;
+        el('u-active').disabled = self;
+        el('u-self-note').hidden = !self;
+        syncDownloadBox();
+        el('u-modal').hidden = false;
+        (u ? el('u-name') : el('u-username')).focus();
+    }
+
+    function closeUserModal() {
+        el('u-modal').hidden = true;
+        uEditing = null;
+    }
+
+    function userError(e) {
+        const code = e && e.body && e.body.error;
+        const key = 'users.err_' + code;
+        const msg = I18n.t(key);
+        return msg === key ? I18n.t('users.err_generic') : msg;
+    }
+
+    async function saveUser(ev) {
+        ev.preventDefault();
+        const body = {
+            name: el('u-name').value.trim(),
+            dept: el('u-dept').value.trim(),
+            role: el('u-role').value,
+            lang: el('u-lang').value,
+            can_download: el('u-download').checked
+        };
+        const pw = el('u-password').value;
+        const btn = el('u-save');
+        btn.disabled = true;
+        try {
+            if (uEditing) {
+                body.active = el('u-active').checked;
+                if (pw) body.password = pw;
+                await API.updateUser(uEditing.id, body);
+            } else {
+                body.username = el('u-username').value.trim();
+                body.password = pw;
+                await API.createUser(body);
+            }
+            closeUserModal();
+            await loadUsers();
+        } catch (e) {
+            el('u-err').textContent = userError(e);
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    function bindUsers() {
+        el('f-q').addEventListener('input', e => { uFilter.q = e.target.value.trim(); renderUsers(); });
+        el('f-role').addEventListener('change', e => { uFilter.role = e.target.value; renderUsers(); });
+        el('f-active').addEventListener('change', e => { uFilter.active = e.target.value; renderUsers(); });
+        el('f-reset').addEventListener('click', () => {
+            uFilter = { q: '', role: '', active: '' };
+            el('f-q').value = ''; el('f-role').value = ''; el('f-active').value = '';
+            renderUsers();
+        });
+        el('btn-add').addEventListener('click', () => openUserModal(null));
+        el('rows').addEventListener('click', e => {
+            const b = e.target.closest('[data-edit]');
+            if (!b) return;
+            const u = usersAll.find(x => String(x.id) === b.getAttribute('data-edit'));
+            if (u) openUserModal(u);
+        });
+        el('u-role').addEventListener('change', syncDownloadBox);
+        el('u-form').addEventListener('submit', saveUser);
+        el('u-cancel').addEventListener('click', closeUserModal);
+        el('u-modal').addEventListener('mousedown', e => { if (e.target === el('u-modal')) closeUserModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && !el('u-modal').hidden) closeUserModal(); });
+    }
+
     async function logout() {
         await API.logout();
         API.clearSession();
