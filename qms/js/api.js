@@ -118,6 +118,10 @@ const API = (() => {
             return request('GET', `/api/access-log${q ? '?' + q : ''}`);
         },
         getHistorySummary: (days) => request('GET', `/api/access-log/summary?days=${days || 30}`),
+        // ---- 사용자 관리 (admin 전용) ----
+        getUsers: () => request('GET', '/api/users'),
+        createUser: (data) => request('POST', '/api/users', data),
+        updateUser: (id, data) => request('POST', `/api/users/${id}`, data),
         // ---- 도면 (PSAV-SP-03 도면관리 프로세스) ----
         getDrawings: (params = {}) => {
             const p = new URLSearchParams(params).toString();

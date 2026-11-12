@@ -423,3 +423,34 @@ tr.row-blocked td { background: #fff8f7; }
     .app-container { padding: 12px 12px 30px; }
     .filters input[type=search] { min-width: 100%; }
 }
+
+/* ---- Users (admin) ---- */
+.btn-sm { padding: 4px 10px; font-size: 13px; }
+tr.row-inactive td { color: var(--gray-500); background: var(--gray-50); }
+.badge.role-admin { background: var(--primary); color: #fff; }
+.badge.role-manager { background: var(--accent-light); color: var(--accent); }
+.badge.role-viewer { background: var(--gray-200); color: var(--gray-600); }
+.modal-back {
+    position: fixed; inset: 0; z-index: 100; background: rgba(8,26,62,.5);
+    display: flex; align-items: center; justify-content: center; padding: 16px;
+}
+.modal-back[hidden] { display: none; }
+.modal {
+    background: #fff; border-radius: var(--radius); width: 100%; max-width: 520px;
+    max-height: 92vh; overflow: auto; padding: 22px 24px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.25);
+}
+.modal h2 { font-size: 17px; margin-bottom: 16px; color: var(--gray-800); }
+#u-form label { display: block; font-size: 13px; color: var(--gray-600); margin-bottom: 5px; font-weight: 500; }
+#u-form input[type=text], #u-form input[type=password], #u-form select {
+    width: 100%; border: 1px solid var(--gray-300); border-radius: 6px;
+    padding: 9px 11px; font: inherit; background: #fff;
+}
+#u-form input:focus, #u-form select:focus { outline: 2px solid var(--accent-light); border-color: var(--accent); }
+#u-form input[readonly] { background: var(--gray-100); color: var(--gray-600); }
+#u-form .field { margin-bottom: 14px; }
+#u-form .check-row { display: flex; align-items: center; gap: 8px; margin: 6px 0; color: var(--gray-700); cursor: pointer; }
+#u-form .check-row[hidden] { display: none; }
+#u-form .check-row input { width: 16px; height: 16px; }
+#u-err { min-height: 18px; margin-top: 8px; }
+.hint[hidden] { display: none; }

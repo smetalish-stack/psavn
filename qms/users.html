@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài liệu tiêu chuẩn</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <span class="header-icon">&#128203;</span>
+            <div>
+                <h1 data-i18n="title">Quản lý tài liệu tiêu chuẩn</h1>
+                <span class="header-sub" data-i18n="subtitle">Hệ thống quản lý chất lượng IATF 16949</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span id="header-user" class="header-date" style="opacity:.8"></span>
+
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button data-lang-btn="vi" onclick="I18n.setLang('vi')">VI</button>
+                <button data-lang-btn="ko" onclick="I18n.setLang('ko')">한국어</button>
+                <button data-lang-btn="en" onclick="I18n.setLang('en')">EN</button>
+            </div>
+
+            <a href="../" class="btn-back" data-i18n="back_to_psavn">← psavn.com</a>
+            <button class="btn-back" onclick="App.logout()" style="border-color:rgba(255,255,255,.4);cursor:pointer;background:none">&#128274; <span data-i18n="logout">Đăng xuất</span></button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <nav class="tab-nav">
+            <a href="index.html" data-nav="documents" data-i18n="nav.documents">Tài liệu</a>
+            <a href="forms.html" data-nav="forms" data-i18n="nav.forms">Biểu mẫu</a>
+            <a href="drawings.html" data-nav="drawings" data-i18n="nav.drawings">Bản vẽ</a>
+            <a href="history.html" data-nav="history" data-i18n="nav.history">Lịch sử truy cập</a>
+            <a href="batch.html" data-nav="batch" data-i18n="nav.batch" hidden>Sửa đổi hàng loạt</a>
+            <a href="users.html" data-nav="users" data-i18n="nav.users" hidden>Quản lý người dùng</a>
+        </nav>
+
+        <div class="panel">
+            <div class="filters">
+                <input type="search" id="f-q" data-i18n-placeholder="users.search" placeholder="Tìm theo tên, tài khoản, bộ phận">
+                <select id="f-role">
+                    <option value="" data-i18n="users.all_roles">Tất cả quyền</option>
+                    <option value="admin" data-i18n="users.role_admin">Quản trị viên</option>
+                    <option value="manager" data-i18n="users.role_manager">Quản lý</option>
+                    <option value="viewer" data-i18n="users.role_viewer">Người xem</option>
+                </select>
+                <select id="f-active">
+                    <option value="" data-i18n="users.all_status">Tất cả trạng thái</option>
+                    <option value="true" data-i18n="users.active">Hoạt động</option>
+                    <option value="false" data-i18n="users.inactive">Ngừng</option>
+                </select>
+                <button class="btn" id="f-reset" data-i18n="filter.reset">Đặt lại</button>
+                <span class="count" id="count"></span>
+                <button class="btn btn-primary" id="btn-add" style="margin-left:auto" data-i18n="users.add" hidden>Thêm người dùng</button>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="users.col_name">Họ tên</th>
+                            <th data-i18n="users.col_username">Tài khoản</th>
+                            <th data-i18n="users.col_dept">Bộ phận</th>
+                            <th data-i18n="users.col_role">Quyền</th>
+                            <th data-i18n="users.col_download">Tải bản gốc</th>
+                            <th data-i18n="users.col_status">Trạng thái</th>
+                            <th data-i18n="users.col_last_login">Đăng nhập gần nhất</th>
+                            <th data-i18n="users.col_action">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rows">
+                        <tr><td colspan="8" class="table-msg" data-i18n="msg.loading">Đang tải…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 추가/수정 모달 -->
+    <div class="modal-back" id="u-modal" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="u-title">
+            <h2 id="u-title"></h2>
+            <form id="u-form" autocomplete="off">
+                <div class="field">
+                    <label for="u-username" data-i18n="users.col_username">Tài khoản</label>
+                    <input type="text" id="u-username" maxlength="100" required>
+                </div>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="u-name" data-i18n="users.col_name">Họ tên</label>
+                        <input type="text" id="u-name" maxlength="100">
+                    </div>
+                    <div class="field">
+                        <label for="u-dept" data-i18n="users.col_dept">Bộ phận</label>
+                        <input type="text" id="u-dept" maxlength="100">
+                    </div>
+                    <div class="field">
+                        <label for="u-role" data-i18n="users.col_role">Quyền</label>
+                        <select id="u-role">
+                            <option value="admin" data-i18n="users.role_admin">Quản trị viên</option>
+                            <option value="manager" data-i18n="users.role_manager">Quản lý</option>
+                            <option value="viewer" data-i18n="users.role_viewer">Người xem</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="u-lang" data-i18n="users.field_lang">Ngôn ngữ</label>
+                        <select id="u-lang">
+                            <option value="ko">한국어</option>
+                            <option value="vi">Tiếng Việt</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="u-password" data-i18n="users.field_password">Mật khẩu</label>
+                    <input type="password" id="u-password" minlength="8" autocomplete="new-password">
+                    <span class="hint" id="u-pw-hint"></span>
+                </div>
+                <label class="check-row"><input type="checkbox" id="u-download"> <span data-i18n="users.field_download">Cho phép tải bản gốc</span></label>
+                <label class="check-row" id="u-active-row" hidden><input type="checkbox" id="u-active"> <span data-i18n="users.field_active">Đang sử dụng</span></label>
+                <p class="hint" id="u-self-note" hidden data-i18n="users.self_note">Không thể đổi quyền hoặc ngừng tài khoản của chính mình.</p>
+                <div class="err-text" id="u-err" role="alert"></div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="u-save" data-i18n="users.save">Lưu</button>
+                    <button type="button" class="btn" id="u-cancel" data-i18n="users.cancel">Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script>App.init('users');</script>
+</body>
+</html>
