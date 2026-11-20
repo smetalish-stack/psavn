@@ -335,19 +335,27 @@
         <div class="portal-category" data-i18n="portal.cat_hr">인사 · 경영</div>
         <div class="portal-grid">
 
-          <!-- HRIS -->
-          <a href="../hris/" class="portal-card card-hris" target="_blank">
+          <!-- HRIS (버튼 2개: 열기 / 주별인원현황) -->
+          <div class="portal-card card-hris">
             <div class="card-icon">🏢</div>
             <div class="card-subtitle">HRIS</div>
             <div class="card-title" data-i18n="portal.hris_title">인사 · 근태 · 급여</div>
             <div class="card-desc" data-i18n="portal.hris_desc">임직원 인사정보, 출퇴근 기록, 급여명세 및 정산을 통합 관리합니다.</div>
-            <span class="card-launch">
-              <span data-i18n="portal.launch">열기</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7M17 7H7M17 7v10"/>
-              </svg>
-            </span>
-          </a>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a href="../hris/" class="card-launch" target="_blank">
+                <span data-i18n="portal.launch">열기</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </a>
+              <a href="https://psavn-hr-ppt-production.up.railway.app" class="card-launch" target="_blank">
+                <span data-i18n="portal.launch_weekly">주별인원현황</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </a>
+            </div>
+          </div>
 
           <!-- 잔업·휴가 신청서 (버튼 2개: 잔업 / 휴가) -->
           <div class="portal-card card-ot">

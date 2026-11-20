@@ -354,6 +354,7 @@
     "cat_quality": "품질 · 설비",
     "cat_facility": "설비 · 모니터링",
     "launch": "열기",
+    "launch_weekly": "주별인원현황",
     "badge_internal": "내부망",
     "hris_title": "인사 · 근태 · 급여",
     "hris_desc": "임직원 인사정보, 출퇴근 기록, 급여명세 및 정산을 통합 관리합니다.",
