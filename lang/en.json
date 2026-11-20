@@ -354,6 +354,7 @@
     "cat_quality": "Quality & Facility",
     "cat_facility": "Facility & Monitoring",
     "launch": "Open",
+    "launch_weekly": "Weekly Headcount",
     "badge_internal": "Internal",
     "hris_title": "HR · Attendance · Payroll",
     "hris_desc": "Integrated management of employee information, attendance records, and payroll.",
